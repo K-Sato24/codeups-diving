@@ -1,0 +1,44 @@
+@use "global" as *;
+
+.header {
+  z-index: 1000;
+  position: fixed;
+  width: 100%;
+  height: rem(80);
+  background-color: rgba(13, 41, 54, 0.68);
+  transition: background-color 0.3s;
+
+  @include mq("md") {
+    height: rem(90);
+  }
+}
+
+.header.is-color {
+  background-color: $green;
+}
+
+.header__inner.inner {
+  height: inherit;
+
+  @include mq("md") {
+    max-width: rem(1440);
+    padding-inline: rem(40);
+  }
+}
+
+.header__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: inherit;
+}
+
+.header__logo img {
+  width: rem(102);
+  height: rem(38);
+
+  @include mq("md") {
+    width: rem(133);
+    height: rem(50);
+  }
+}
