@@ -1,0 +1,73 @@
+@use "global" as *;
+
+.nav-menu {
+  font-family: $base-font-family-ja;
+  font-size: rem(16);
+  line-height: 1.125;
+  color: $white;
+}
+
+.nav-menu__columns {
+  display: flex;
+
+  @include mq("md") {
+    gap: rem(20);
+  }
+}
+
+.nav-menu__column {
+  display: flex;
+  flex-direction: column;
+  gap: rem(40);
+  flex: 1;
+
+  @include mq("md") {
+    flex-direction: row;
+    gap: rem(20);
+  }
+}
+
+.nav-menu__block {
+  flex: 1;
+}
+
+.nav-menu__items {
+  display: flex;
+  flex-direction: column;
+  gap: rem(40);
+  padding-left: rem(22);
+}
+
+.nav-menu__item {
+  position: relative;
+  font-weight: $bold;
+  break-inside: avoid;
+}
+
+.nav-menu__item::before {
+  position: absolute;
+  top: 0;
+  left: rem(-22);
+  content: "";
+  width: 18px;
+  height: 18px;
+  background-image: url(../images/common/nav-menu-decoration.svg);
+}
+
+.nav-menu__item span {
+  display: inline-block;
+}
+
+.nav-menu__detail-items {
+  display: flex;
+  flex-direction: column;
+  gap: rem(24);
+}
+
+.nav-menu__detail-item {
+  font-weight: $normal;
+}
+
+.nav-menu__detail-item:first-child {
+  margin-top: rem(24);
+}

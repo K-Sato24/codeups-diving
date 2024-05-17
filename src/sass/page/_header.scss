@@ -13,7 +13,8 @@
   }
 }
 
-.header.is-color {
+.header.is-color,
+.header.is-active {
   background-color: $green;
 }
 
@@ -33,7 +34,7 @@
   height: inherit;
 }
 
-.header__logo img {
+.header__logo-link img {
   width: rem(102);
   height: rem(38);
 
@@ -41,4 +42,20 @@
     width: rem(133);
     height: rem(50);
   }
+}
+
+.header__sp-nav {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 80px);
+  margin-top: rem(80);
+  padding-top: rem(24);
+  background-color: $green;
+}
+
+.header__sp-nav.is-active {
+  display: block;
 }
