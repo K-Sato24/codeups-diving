@@ -1,0 +1,9 @@
+@use "global" as *;
+
+.campaign__card.swiper-slide {
+  width: rem(280);
+
+  @include mq("md") {
+    width: rem(333);
+  }
+}

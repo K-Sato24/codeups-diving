@@ -1,0 +1,48 @@
+@use "global" as *;
+
+.section-title {
+}
+
+.section-title__en {
+  font-family: $base-font-family-en;
+  font-size: rem(32);
+  font-weight: $normal;
+  line-height: 1.25;
+  color: $darkgreen;
+
+  @include mq("md") {
+    font-size: rem(40);
+    line-height: 1;
+  }
+}
+
+.section-title__en::first-letter {
+  color: $green;
+}
+
+.section-title__en--white,
+.section-title__en--white::first-letter {
+  color: $white;
+}
+
+.section-title__en--large {
+  font-size: rem(80);
+  line-height: 1;
+
+  @include mq("md") {
+    font-size: rem(80);
+  }
+}
+
+.section-title__ja {
+  margin-top: rem(-6);
+  font-family: $base-font-family-ja;
+  font-size: rem(12);
+  font-weight: $normal;
+  line-height: 1.5;
+  color: $green;
+}
+
+.section-title__ja--white {
+  color: $white;
+}
