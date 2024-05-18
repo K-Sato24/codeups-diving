@@ -35,4 +35,10 @@ var swiper = new Swiper(".js-campaign-swiper", {
     el: ".swiper-pagination",
     clickable: true,
   },
+  breakpoints: {
+    // スライドの表示枚数：500px以上の場合
+    768: {
+      spaceBetween: 40,
+    }
+  }
 });
