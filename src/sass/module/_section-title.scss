@@ -22,7 +22,9 @@
 
 .section-title__en--white,
 .section-title__en--white::first-letter {
-  color: $white;
+  @include mq("md") {
+    color: $white;
+  }
 }
 
 .section-title__en--large {
@@ -49,5 +51,7 @@
 }
 
 .section-title__ja--white {
-  color: $white;
+  @include mq("md") {
+    color: $white;
+  }
 }

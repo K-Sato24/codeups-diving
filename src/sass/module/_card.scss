@@ -45,6 +45,8 @@
 
 .card__title {
   margin-top: rem(4);
+  padding-bottom: rem(7);
+  border-bottom: 1px solid $green;
   font-family: $base-font-family-ja;
   font-size: rem(16);
   font-weight: $medium;
@@ -53,8 +55,6 @@
 }
 
 .card__price-block {
-  margin-top: rem(7);
-  border-top: 1px solid $green;
   padding-top: rem(7);
   text-align: center;
 
