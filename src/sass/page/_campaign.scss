@@ -1,18 +1,29 @@
 @use "global" as *;
 
 .campaign {
+  padding-top: rem(40);
+  @include mq("md") {
+    padding-top: rem(120);
+  }
 }
 
 .campaign__inner {
 }
 
 .campaign__content {
+  position: relative;
   margin-top: rem(24);
   margin-left: rem(-8);
 
   @include mq("md") {
     margin-top: rem(40);
   }
+}
+
+.campaign__swiper.swiper {
+  margin-right: calc(50% - 50vw);
+  margin-left: 0;
+  width: auto;
 }
 
 .campaign__title {
@@ -32,11 +43,58 @@
   }
 }
 
+.campaign-button-prev.swiper-button-prev,
+.campaign-button-next.swiper-button-next {
+  right: initial;
+  left: initial;
+  top: rem(-84);
+  width: rem(80);
+  height: rem(80);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.campaign-button-prev.swiper-button-prev {
+  background-image: url(../images/common/campaign-button-prev.svg);
+  right: rem(160);
+}
+
+.campaign-button-next.swiper-button-next {
+  background-image: url(../images/common/campaign-button-next.svg);
+  right: 0;
+}
+
+.campaign-button-prev.swiper-button-prev::after,
+.campaign-button-next.swiper-button-next::after {
+  bottom: 0;
+  content: "";
+  height: 0;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  width: rem(80);
+  height: rem(80);
+}
+
+.campaign-button-prev.swiper-button-prev::after {
+  right: rem(160);
+}
+
+.campaign-button-next.swiper-button-next::after {
+  right: 0;
+}
+
 .campaign__button {
-  margin-top: rem(40);
+  margin-top: rem(28);
   text-align: center;
 
   @include mq("md") {
-    margin-top: rem(80);
+    margin-top: rem(68);
   }
+}
+
+.campaign__button__link {
+  display: flex;
+  gap: 8px;
 }

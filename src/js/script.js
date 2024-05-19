@@ -27,17 +27,18 @@ var swiper = new Swiper(".js-fv-swiper", {
 
 // Campaignスライダー
 var swiper = new Swiper(".js-campaign-swiper", {
+  loop: true,
   slidesPerView: "auto",
   spaceBetween: 24,
   // centeredSlides: true,
-  allowTouchMove: true,
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
+  navigation: {
+    nextEl: ".js-campaign-swiper-button-next",
+    prevEl: ".js-campaign-swiper-button-prev",
   },
   breakpoints: {
     // スライドの表示枚数：500px以上の場合
     768: {
+      allowTouchMove: true,
       spaceBetween: 40,
     }
   }

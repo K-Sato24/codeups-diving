@@ -35,12 +35,17 @@
 }
 
 .section-title__ja {
-  margin-top: rem(-6);
+  padding-block: rem(4);
   font-family: $base-font-family-ja;
   font-size: rem(12);
   font-weight: $normal;
   line-height: 1.5;
   color: $green;
+
+  @include mq("md") {
+    padding-top: rem(8);
+    padding-bottom: 0;
+  }
 }
 
 .section-title__ja--white {
