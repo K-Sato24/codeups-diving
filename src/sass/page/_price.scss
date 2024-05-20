@@ -1,0 +1,64 @@
+@use "global" as *;
+
+.price {
+
+}
+
+.price__inner {
+
+}
+
+.price__title {
+
+}
+
+.price__wrapper {
+
+}
+
+.price__img {
+
+}
+
+.price__content {
+
+}
+
+.price__table {
+  margin-top: rem(40);
+}
+
+.price__table,
+.price__table td,
+.price__table th {
+	// border: 1px solid #595959;
+	border-collapse: collapse;
+
+  font-family: $base-font-family-ja;
+  color: $darkgreen;
+}
+.price__table td,
+.price__table th {
+	// padding: 3px;
+	// width: 30px;
+	// height: 25px;
+}
+
+.price__table th {
+  border-bottom: 1px solid $green;
+  padding-bottom: rem(3);
+  font-size: rem(16);
+  font-weight: $bold;
+  line-height: 1.5;
+}
+
+.price__table th + .price__table th {
+  margin-top: rem(40);
+}
+
+.price__table td {
+  margin-top: rem(8);
+  font-size: rem(14);
+  font-weight: $normal
+  line-height: 1.71429;
+}

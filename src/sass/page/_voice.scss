@@ -1,0 +1,65 @@
+@use "global" as *;
+
+.voice {
+  position: relative;
+  padding-bottom: rem(80);
+
+  @include mq("md") {
+    overflow-x: hidden;
+    padding-bottom: rem(140);
+  }
+}
+
+.voice__inner {
+}
+
+.voice__title {
+  text-align: center;
+}
+
+.voice__items {
+  margin-top: rem(40);
+
+  @include mq("md") {
+    margin-top: rem(30);
+  }
+}
+
+.voice__button {
+  margin-top: rem(40);
+  text-align: center;
+
+  @include mq("md") {
+    margin-top: rem(80);
+  }
+}
+
+.voice__button__link.button {
+  display: inline-flex;
+  gap: 8px;
+}
+
+.voice__decoration-01 {
+  position: absolute;
+  top: rem(20);
+  // left: rem(100);
+  right: calc(50% + rem(319));
+  width: rem(301);
+  aspect-ratio: 301 / 138;
+  transform: scale(-1, 1);
+}
+
+.voice__decoration-02 {
+  position: absolute;
+  left: calc(50% + rem(469));
+  bottom: rem(73);
+  width: rem(71);
+  aspect-ratio: 71 / 162;
+}
+
+.voice__decoration-01 img,
+.voice__decoration-02 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
