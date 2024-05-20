@@ -175,14 +175,8 @@
   aspect-ratio: 109 / 50;
 
   @include mq("md") {
-    top: rem(100);
-    left: calc(50% + rem(300));
-    width: rem(209);
-  }
-
-  @include mq("lg") {
-    left: calc(50% + rem(365));
-    width: rem(309);
+    left: calc(50% + rem(369));
+    width: rem(301);
   }
 }
 
