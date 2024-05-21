@@ -1,11 +1,5 @@
 @use "global" as *;
 
-.loading {
-  width: 100%;
-  height: 100dvh;
-  background-color: $white;
-}
-
 .loading__title {
   z-index: 9999;
   position: absolute;
