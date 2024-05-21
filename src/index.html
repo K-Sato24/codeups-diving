@@ -33,7 +33,12 @@
   <script defer src="https://code.jquery.com/jquery-3.7.1.min.js"
     integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollToPlugin.min.js"></script>
+  <script defer src="./assets/js/jquery.inview.min.js"></script>
   <script defer src="./assets/js/script.js"></script>
+  <script defer src="./assets/js/gsap.js"></script>
 </head>
 
 <body>
@@ -221,29 +226,33 @@
       <div class="fv__inner">
         <div class="fv__bg">
 
-          <div class="swiper js-fv-swiper">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide">
+          <div class="fv__bg-slider swiper js-fv-swiper">
+            <div class="fv__wrapper swiper-wrapper">
+              <div class="fv__slide-split swiper-slide">
                 <picture>
-                  <source media="(min-width: 769px)" srcset="./assets/images/common/fv-pc01.jpg">
-                  <img src="./assets/images/common/fv01.jpg" alt="透き通った海を泳ぐウミガメの様子">
+                  <source media="(min-width: 768px)" srcset="./assets/images/common/fv-pc01-left.jpg">
+                  <img src="./assets/images/common/fv01.jpg" alt="透き通った海を泳ぐウミガメの様子" class="fv__slide-01 js-fv-img-01">
+                </picture>
+                <picture>
+                  <source media="(min-width: 768px)" srcset="./assets/images/common/fv-pc01-right.jpg">
+                  <img src="./assets/images/common/fv01.jpg" alt="透き通った海を泳ぐウミガメの様子" class="fv__slide-02 js-fv-img-02">
                 </picture>
               </div>
               <div class="swiper-slide">
                 <picture>
-                  <source media="(min-width: 769px)" srcset="./assets/images/common/fv-pc02.jpg">
+                  <source media="(min-width: 768px)" srcset="./assets/images/common/fv-pc02.jpg">
                   <img src="./assets/images/common/fv02.jpg" alt="海にダイビングした二人と漂うウミガメの様子">
                 </picture>
               </div>
               <div class="swiper-slide">
                 <picture>
-                  <source media="(min-width: 769px)" srcset="./assets/images/common/fv-pc03.jpg">
+                  <source media="(min-width: 768px)" srcset="./assets/images/common/fv-pc03.jpg">
                   <img src="./assets/images/common/fv03.jpg" alt="会場から見た空、陸、海の様子">
                 </picture>
               </div>
               <div class="swiper-slide">
                 <picture>
-                  <source media="(min-width: 769px)" srcset="./assets/images/common/fv-pc04.jpg">
+                  <source media="(min-width: 768px)" srcset="./assets/images/common/fv-pc04.jpg">
                   <img src="./assets/images/common/fv04.jpg" alt="白い砂浜と透き通った海のビーチの様子">
                 </picture>
               </div>
@@ -251,7 +260,7 @@
           </div>
         </div>
       </div>
-      <div class="fv__title">
+      <div class="fv__title js-fv-title">
         <p class="fv__title-main">diving</p>
         <p class="fv__title-sub">into&nbsp;the&nbsp;ocean</p>
       </div>
@@ -304,26 +313,6 @@
                     <div class="card__price">
                       <p class="card__price-before">¥24,000</p>
                       <p class="card__price-after">¥18,000</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="campaign__card card swiper-slide">
-                <div class="card__header">
-                  <div class="card__img">
-                    <img src="./assets/images/common/campaign01.jpg" alt="">
-                  </div>
-                </div>
-                <div class="card____body">
-                  <div class="card__category">
-                    <p>ライセンス講習</p>
-                  </div>
-                  <h3 class="card__title">ライセンス取得</h3>
-                  <div class="card__price-block">
-                    <p class="card__price-text">全部コミコミ(お一人様)</p>
-                    <div class="card__price">
-                      <p class="card__price-before">¥56,000</p>
-                      <p class="card__price-after">¥46,000</p>
                     </div>
                   </div>
                 </div>
@@ -423,7 +412,7 @@
           <h2 class="section-title__ja section-title__ja">ダイビング情報</h2>
         </div>
         <div class="information__wrapper">
-          <div class="information____img">
+          <div class="information__img slide-color-box js-slide-color-box">
             <img src="./assets/images/common/information01.jpg" alt="海中のイソギンチャクと熱帯魚の様子">
           </div>
           <div class="information__text-block">
@@ -449,43 +438,49 @@
 
         <div class="blog__items cards">
           <div class="cards__item card-02">
-            <div class="card-02__header">
-              <div class="card-02__img">
-                <img src="./assets/images/common/blog01.jpg" alt="海中にあるピンク色のサンゴの様子">
+            <a href="#" class="card-02__link">
+              <div class="card-02__header">
+                <div class="card-02__img">
+                  <img src="./assets/images/common/blog01.jpg" alt="海中にあるピンク色のサンゴの様子">
+                </div>
               </div>
-            </div>
-            <div class="card-02____body">
-              <time class="card-02__date" datetime="2023-11-17">2023.11/17</time>
-              <h3 class="card-02__title">ライセンス取得</h3>
-              <p class="card-02__text">
-                ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br>ここにテキストが入ります。ここにテキストが入ります。ここにテキスト</p>
-            </div>
+              <div class="card-02____body">
+                <time class="card-02__date" datetime="2023-11-17">2023.11/17</time>
+                <h3 class="card-02__title">ライセンス取得</h3>
+                <p class="card-02__text">
+                  ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br>ここにテキストが入ります。ここにテキストが入ります。ここにテキスト</p>
+              </div>
+            </a>
           </div>
           <div class="cards__item card-02">
-            <div class="card-02__header">
-              <div class="card-02__img">
-                <img src="./assets/images/common/blog02.jpg" alt="海中をこちらに向かって泳ぐウミガメの様子">
+            <a href="#" class="card-02__link">
+              <div class="card-02__header">
+                <div class="card-02__img">
+                  <img src="./assets/images/common/blog02.jpg" alt="海中をこちらに向かって泳ぐウミガメの様子">
+                </div>
               </div>
-            </div>
-            <div class="card-02____body">
-              <time class="card-02__date" datetime="2023-11-17">2023.11/17</time>
-              <h3 class="card-02__title">ウミガメと泳ぐ</h3>
-              <p class="card-02__text">
-                ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br>ここにテキストが入ります。ここにテキストが入ります。ここにテキスト</p>
-            </div>
+              <div class="card-02____body">
+                <time class="card-02__date" datetime="2023-11-17">2023.11/17</time>
+                <h3 class="card-02__title">ウミガメと泳ぐ</h3>
+                <p class="card-02__text">
+                  ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br>ここにテキストが入ります。ここにテキストが入ります。ここにテキスト</p>
+              </div>
+            </a>
           </div>
           <div class="cards__item card-02">
-            <div class="card-02__header">
-              <div class="card-02__img">
-                <img src="./assets/images/common/blog03.jpg" alt="イソギンチャクの中にいるカクレクマノミの様子">
+            <a href="#" class="card-02__link">
+              <div class="card-02__header">
+                <div class="card-02__img">
+                  <img src="./assets/images/common/blog03.jpg" alt="イソギンチャクの中にいるカクレクマノミの様子">
+                </div>
               </div>
-            </div>
-            <div class="card-02____body">
-              <time class="card-02__date" datetime="2023-11-17">2023.11/17</time>
-              <h3 class="card-02__title">カクレクマノミ</h3>
-              <p class="card-02__text text">
-                ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br>ここにテキストが入ります。ここにテキストが入ります。ここにテキスト</p>
-            </div>
+              <div class="card-02____body">
+                <time class="card-02__date" datetime="2023-11-17">2023.11/17</time>
+                <h3 class="card-02__title">カクレクマノミ</h3>
+                <p class="card-02__text text">
+                  ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br>ここにテキストが入ります。ここにテキストが入ります。ここにテキスト</p>
+              </div>
+            </a>
           </div>
 
         </div>
@@ -519,7 +514,7 @@
                   </div>
                   <h3 class="card-03__title">ここにタイトルが入ります。ここにタイトル</h3>
                 </div>
-                <div class="card-03__img">
+                <div class="card-03__img slide-color-box js-slide-color-box">
                   <img src="./assets/images/common/voice01.jpg" alt="麦わら帽子をかぶった女性が笑顔でこちらを見ている様子">
                 </div>
               </div>
@@ -542,7 +537,7 @@
                   </div>
                   <h3 class="card-03__title">ここにタイトルが入ります。ここにタイトル</h3>
                 </div>
-                <div class="card-03__img">
+                <div class="card-03__img slide-color-box js-slide-color-box">
                   <img src="./assets/images/common/voice02.jpg" alt="こちらを向いて親指を立てている男性の様子">
                 </div>
               </div>
@@ -575,7 +570,7 @@
           <h2 class="section-title__ja">料金一覧</h2>
         </div>
         <div class="price__wrapper">
-          <div class="price__img-sp u-mobile">
+          <div class="price__img-sp slide-color-box js-slide-color-box u-mobile">
             <img src="./assets/images/common/price.jpg" alt="海中を漂うウミガメの様子">
           </div>
           <div class="price__content">
@@ -660,7 +655,7 @@
               </tbody>
             </table>
           </div>
-          <div class="price__img-pc u-desktop">
+          <div class="price__img-pc slide-color-box js-slide-color-box u-desktop">
             <img src="./assets/images/common/price-pc.jpg" alt="たくさんの小さくて赤い熱帯魚たちが海中を漂う様子">
           </div>
         </div>
@@ -719,6 +714,14 @@
       </div>
     </section>
 
+    <div class="page-top js-paage-top">
+      <a href="#">
+        <picture>
+          <source media="(min-width: 768px)" srcset="./assets/images/common/arrow-circle.svg">
+          <img src="./assets/images/common/arrow-circle-sp.svg" alt="ページトップへ戻る">
+        </picture>
+      </a>
+    </div>
 
   </main>
 
@@ -728,18 +731,18 @@
         <div class="footer__content">
           <div class="footer__logo">
             <a href="#" class="footer__logo-link">
-              <img src="assets/images/common/logo.svg" alt="CodeUps">
+              <img src="./assets/images/common/logo.svg" alt="CodeUps">
             </a>
           </div>
           <div class="footer__sns-content">
             <div class="footer__sns">
-              <a href="" class="footer__sns-link">
-                <img src="assets/images/common/facebook-icon.svg" alt="Facebookのリンク">
+              <a href="https://www.facebook.com/" class="footer__sns-link" target="_blank">
+                <img src="./assets/images/common/facebook-icon.svg" alt="Facebookのリンク">
               </a>
             </div>
             <div class="footer__sns">
-              <a href="" class="footer__sns-link">
-                <img src="assets/images/common/instagram-icon.svg" alt="Instagramのリンク">
+              <a href="https://www.instagram.com/" class="footer__sns-link" target="_blank">
+                <img src="./assets/images/common/instagram-icon.svg" alt="Instagramのリンク">
               </a>
             </div>
           </div>

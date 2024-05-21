@@ -1,9 +1,16 @@
 @use "global" as *;
 
 .card-02 {
-  padding: rem(16) rem(16) rem(24) rem(16);
   box-shadow: 2px 2px 10px 0px #00000040;
   background-color: $white;
+}
+.card-02__link {
+  display: inline-block;
+  padding: rem(16) rem(16) rem(24) rem(16);
+}
+
+.card-02__link:hover {
+  opacity: 0.7;
 }
 
 .card-02__img {
@@ -34,8 +41,20 @@
   font-weight: $medium;
   line-height: 1.5;
   color: $darkgreen;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
 }
 
 .card-02__text {
   padding-top: rem(16);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 6;
+  overflow: hidden;
+
+  @include mq("md") {
+    -webkit-line-clamp: 5;
+  }
 }

@@ -34,6 +34,10 @@
   height: inherit;
 }
 
+.header__logo-link:hover {
+  opacity: 0.7;
+}
+
 .header__logo-link img {
   width: rem(102);
   height: rem(38);

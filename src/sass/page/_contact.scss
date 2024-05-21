@@ -8,11 +8,7 @@
   @include mq("md") {
     padding-top: rem(140);
     padding-bottom: rem(160);
-    overflow-x: hidden;
   }
-}
-
-.contact__inner {
 }
 
 .contact__wrapper {
@@ -157,12 +153,6 @@
   margin-top: rem(40);
 }
 
-.contact__button-link {
-}
-
-.button {
-}
-
 .contact__button-link.button {
   gap: 10px;
 }
@@ -175,8 +165,15 @@
   aspect-ratio: 109 / 50;
 
   @include mq("md") {
-    left: calc(50% + rem(369));
+    top: rem(100);
+    left: initial;
+    right: rem(49);
     width: rem(301);
+  }
+
+  @include mq("xl") {
+    left: calc(50% + rem(369));
+    right: initial;
   }
 }
 

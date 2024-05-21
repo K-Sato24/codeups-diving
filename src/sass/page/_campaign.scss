@@ -7,13 +7,11 @@
   }
 }
 
-.campaign__inner {
-}
-
 .campaign__content {
   position: relative;
   margin-top: rem(24);
   margin-left: rem(-8);
+  margin-right: calc(50% - 50vw);
 
   @include mq("md") {
     margin-top: rem(40);
@@ -21,7 +19,7 @@
 }
 
 .campaign__swiper.swiper {
-  margin-right: calc(50% - 50vw);
+  margin-right: 0;
   margin-left: 0;
   width: auto;
 }
@@ -53,16 +51,23 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 50% 50%;
+  transition: 0.3s opacity;
+}
+
+.campaign-button-prev.swiper-button-prev:hover,
+.campaign-button-next.swiper-button-next:hover {
+  opacity: 0.7;
 }
 
 .campaign-button-prev.swiper-button-prev {
-  background-image: url(../images/common/campaign-button-prev.svg);
-  right: rem(160);
+  background-image: url(../images/common/arrow-circle.svg);
+  right: rem(340);
+  transform: scale(-1, 1);
 }
 
 .campaign-button-next.swiper-button-next {
-  background-image: url(../images/common/campaign-button-next.svg);
-  right: 0;
+  background-image: url(../images/common/arrow-circle.svg);
+  right: rem(180);
 }
 
 .campaign-button-prev.swiper-button-prev::after,

@@ -52,6 +52,9 @@
   font-weight: $medium;
   line-height: 1.5;
   color: $darkgreen;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .card__price-block {
