@@ -2,27 +2,38 @@
 
 .fv {
   position: relative;
-  min-height: rem(500);
 }
 
 .fv__bg {
   width: 100%;
   height: 100dvh;
+  min-height: rem(500);
 }
 
 .fv__slide-split {
-  // display: flex;
-  // width: 100%;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 50% 50%;
+
+  @include mq("md") {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: initial;
+  }
 }
 
 .fv__slide-01 {
-  object-position: right;
+  object-position: bottom;
+
+  @include mq("md") {
+    object-position: right center;
+  }
 }
 
 .fv__slide-02 {
-  object-position: left;
+  object-position: top;
+
+  @include mq("md") {
+    object-position: left center;
+  }
 }
 
 .fv__title {

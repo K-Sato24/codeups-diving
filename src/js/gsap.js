@@ -1,46 +1,42 @@
 'use strict'
 
-const tl = gsap.timeline();
+const tl = gsap.timeline({
+    onComplete: initSwiper
+  });
 
-// gsap.fromTo('.js-fv-title',{
-//   y:'100%',
-//   opacity:0
-// },{
-//   y:0,
-//   duration:3.5,
-//   opacity:1,
-//   delay:2.0,
-//   ease: "circ.out"
-
-// });
-
-tl.fromTo('.js-fv-title',{
-  y:'100%',
+tl.fromTo('.js-loading-title',{
   opacity:0
 },{
-  y:0,
-  duration:3.5,
+  duration:2.0,
   opacity:1,
-  // delay:2.0,
-  ease: "circ.out"
+}).fromTo('.js-loading-title',{
+  opacity:1
+},{
+  duration:1.0,
+  opacity:0,
 }).fromTo('.js-fv-img-01',{
   y:'100%',
   opacity:0
 },{
   y:0,
-  duration:3.5,
+  duration:2.0,
   opacity:1,
-  // delay:3.0,
+  delay:0.3,
   ease: "circ.out"
 
-},).fromTo('.js-fv-img-02',{
+},'img').fromTo('.js-fv-img-02',{
   y:'100%',
   opacity:0
 },{
   y:0,
-  duration:4.0,
+  duration:2.0,
   opacity:1,
-  // delay:3.0,
+  delay:0.8,
   ease: "circ.out"
 
-},);
+},'img').fromTo('.js-fv-title',{
+  opacity:0
+},{
+  duration:2.5,
+  opacity:1,
+});

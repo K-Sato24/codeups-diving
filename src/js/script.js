@@ -31,16 +31,17 @@ $(function () {
 
 
 // fvスライダー
-// var swiper = new Swiper(".js-fv-swiper", {
-//   loop: true,
-//   effect: "fade",
-//   speed: 600,
-//   autoplay: {
-//     delay: 6000,
-//     disableOnInteraction: false,
-//   },
-// });
-
+function initSwiper() {
+var swiper = new Swiper(".js-fv-swiper", {
+  loop: true,
+  effect: "fade",
+  speed: 600,
+  autoplay: {
+    delay: 6000,
+    disableOnInteraction: false,
+  },
+});
+}
 
 // Campaignスライダー
 var swiper = new Swiper(".js-campaign-swiper", {
