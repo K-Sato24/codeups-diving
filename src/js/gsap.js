@@ -4,16 +4,16 @@ const tl = gsap.timeline({
     onComplete: initSwiper
   });
 
-tl.fromTo('.js-loading-title',{
-  opacity:0
+tl.fromTo('.js-loading',{
+  autoAlpha: 0
 },{
   duration:2.0,
-  opacity:1,
-}).fromTo('.js-loading-title',{
-  opacity:1
+  autoAlpha: 1
+}).fromTo('.js-loading',{
+  autoAlpha: 1
 },{
   duration:1.0,
-  opacity:0,
+  autoAlpha: 0
 }).fromTo('.js-fv-img-01',{
   y:'100%',
   opacity:0
@@ -38,5 +38,10 @@ tl.fromTo('.js-loading-title',{
   opacity:0
 },{
   duration:2.5,
+  opacity:1,
+}).fromTo('.js-header',{
+  opacity:0
+},{
+  duration:2.0,
   opacity:1,
 });

@@ -35,6 +35,7 @@ function initSwiper() {
 var swiper = new Swiper(".js-fv-swiper", {
   loop: true,
   effect: "fade",
+  allowTouchMove: false,
   speed: 600,
   autoplay: {
     delay: 6000,
@@ -54,7 +55,6 @@ var swiper = new Swiper(".js-campaign-swiper", {
   },
   breakpoints: {
     768: {
-      allowTouchMove: true,
       spaceBetween: 40,
     }
   }
