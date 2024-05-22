@@ -9,6 +9,7 @@
 
 .nav-menu__columns {
   display: flex;
+  align-items: flex-start;
 
   @include mq("md") {
     gap: rem(20);
