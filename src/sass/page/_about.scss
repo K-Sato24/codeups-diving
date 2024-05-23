@@ -108,14 +108,10 @@
 
 .about__decoration {
   position: absolute;
-  right: rem(83);
   bottom: rem(74);
+  right: calc(50% - min(calc(637 / 1440 * 100vw), rem(637)));
   width: rem(194);
-
-  @include mq("xl") {
-    right: initial;
-    left: calc(50% + rem(443));
-  }
+  aspect-ratio: 194 / 181;
 }
 
 .about__decoration img {

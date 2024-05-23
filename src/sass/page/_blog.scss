@@ -67,14 +67,9 @@
 .blog__decoration {
   position: absolute;
   top: rem(24);
-  left: rem(100);
+  left: calc(50% - min(calc(620 / 1440 * 100vw), rem(620)));
   width: rem(437);
   aspect-ratio: 437 / 201;
-
-  @include mq("xl") {
-    left: initial;
-    right: calc(50% + rem(183));
-  }
 }
 
 .blog__decoration img {

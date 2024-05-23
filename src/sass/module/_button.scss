@@ -7,8 +7,8 @@
   align-items: center;
   justify-content: center;
   width: rem(202);
-  margin-right: rem(4); // box-shadowの分
-  margin-bottom: rem(4); // box-shadowの分
+  // margin-right: rem(4); // box-shadowの分
+  // margin-bottom: rem(4); // box-shadowの分
   padding: rem(15);
   font-family: $base-font-family-en;
   font-size: rem(14);
@@ -17,8 +17,17 @@
   color: $white;
   border: 1px solid $green;
   background-color: $green;
-  box-shadow: 4px 4px 0 -1px $white, 4px 4px 0 0 $green;
+  // box-shadow: 4px 4px 0 -1px rgba(0, 0, 0, 0), 4px 4px 0 0 $green;
   overflow: hidden;
+}
+
+.button__shadow {
+  display: inline-block;
+  position: absolute;
+  top: rem(4);
+  left: rem(4);
+  background-color: transparent;
+  box-shadow: 4px 4px 0 0 $green;
 }
 
 .button::after {

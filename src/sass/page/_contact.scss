@@ -160,20 +160,14 @@
 .contact__decoration {
   position: absolute;
   top: rem(54);
-  left: calc(50% + rem(64));
+  right: calc(50% - min(calc(172 / 375 * 100vw), rem(172)));
   width: rem(109);
   aspect-ratio: 109 / 50;
 
   @include mq("md") {
     top: rem(100);
-    left: initial;
-    right: rem(49);
+    right: calc(50% - min(calc(670 / 1440 * 100vw), rem(670)));
     width: rem(301);
-  }
-
-  @include mq("xl") {
-    left: calc(50% + rem(369));
-    right: initial;
   }
 }
 
