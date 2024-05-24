@@ -151,9 +151,10 @@
 
 .contact__button {
   margin-top: rem(40);
+  margin-inline: auto;
 }
 
-.contact__button-link.button {
+.contact__button-link {
   gap: 10px;
 }
 

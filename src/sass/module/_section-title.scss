@@ -53,6 +53,9 @@
 .section-title__ja--large {
   margin-top: rem(-7);
   padding: 0;
+  @include mq("md") {
+    padding: 0;
+  }
 }
 
 .section-title__ja--white {

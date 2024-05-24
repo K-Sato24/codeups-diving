@@ -94,14 +94,14 @@
 
 .about__button {
   margin-top: rem(50);
-  text-align: center;
+  margin-inline: auto;
 
   @include mq("md") {
     margin-top: rem(40);
   }
 }
 
-.about__button__link.button {
+.about__button__link {
   display: inline-flex;
   gap: 8px;
 }

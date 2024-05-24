@@ -19,7 +19,7 @@
   grid-template-columns: 1fr;
 
   @include mq("md") {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: calc(492 / 1080 * 100%) calc(492 / 1080 * 100%);
     column-gap: rem(93);
     margin-top: rem(40);
   }
@@ -49,6 +49,10 @@
   @include mq("md") {
     margin-top: 0;
   }
+}
+
+.price__table tr td:nth-child(1) {
+  padding-right: rem(40);
 }
 
 .price__table tr td:nth-child(2) {
@@ -95,14 +99,14 @@
 
 .price__button {
   margin-top: rem(40);
-  text-align: center;
+  margin-inline: auto;
 
   @include mq("md") {
     margin-top: rem(80);
   }
 }
 
-.price__button__link.button {
+.price__button__link {
   display: inline-flex;
   gap: 8px;
 }

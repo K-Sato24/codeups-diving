@@ -3,6 +3,7 @@
 .voice {
   position: relative;
   padding-bottom: rem(80);
+  overflow-x: clip;
 
   @include mq("md") {
     padding-bottom: rem(140);
@@ -23,14 +24,14 @@
 
 .voice__button {
   margin-top: rem(40);
-  text-align: center;
+  margin-inline: auto;
 
   @include mq("md") {
     margin-top: rem(80);
   }
 }
 
-.voice__button__link.button {
+.voice__button__link {
   display: inline-flex;
   gap: 8px;
 }
