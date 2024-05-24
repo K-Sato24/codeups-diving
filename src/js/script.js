@@ -27,6 +27,17 @@ $(function () {
   });
 });
 
+// ブレイクポイントでドロワーメニューを非表示にする
+$(window).resize(function() {
+  let md = 768; 
+
+  if($(window).width() >= md) {
+    $(".js-hamburger").removeClass("is-active");
+    $(".js-header").removeClass("is-active");
+    $(".js-drawer").hide();
+  };
+});
+
 });
 
 
