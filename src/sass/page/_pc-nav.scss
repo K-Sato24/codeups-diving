@@ -6,6 +6,7 @@
 
 .pc-nav-items {
   display: flex;
+  gap: rem(40);
   height: inherit;
 }
 
@@ -16,14 +17,6 @@
 .pc-nav__item a {
   display: inline-block;
   height: inherit;
-}
-
-.pc-nav__item:not(:first-child) a {
-  padding-left: rem(20);
-}
-
-.pc-nav__item:not(:last-child) a {
-  padding-right: rem(20);
 }
 
 .pc-nav__link-text {
@@ -43,7 +36,6 @@
 }
 
 .pc-nav__text-en {
-  padding-top: rem(12);
   font-family: $base-font-family-en;
   font-size: rem(18);
   font-weight: $normal;
@@ -53,7 +45,6 @@
   position: relative;
   display: inline-block;
   width: 100%;
-  padding-bottom: rem(12);
   text-align: center;
   font-family: $base-font-family-ja;
   font-size: rem(10);
@@ -63,7 +54,7 @@
 .pc-nav__text-ja::after {
   position: absolute;
   content: "";
-  bottom: 0;
+  bottom: rem(-12);
   left: 0;
   width: 100%;
   height: 2px;

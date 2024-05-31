@@ -1,10 +1,14 @@
 @use "global" as *;
 
 .information {
+  margin-top: rem(70);
+  padding-top: rem(80);
   padding-bottom: rem(80);
   background-color: $lightgreen;
 
   @include mq("md") {
+    margin-top: rem(164);
+    padding-top: rem(100);
     padding-bottom: rem(76);
   }
 }
@@ -33,7 +37,7 @@
 
 .information__img {
   width: 100%;
-  margin-top: rem(24);
+  margin-top: rem(28);
   aspect-ratio: 345 / 227;
 
   @include mq("md") {
@@ -72,15 +76,10 @@
 }
 
 .information__text {
-  padding-top: rem(8);
+  margin-top: rem(8);
 }
 
 .information__button {
   margin-top: rem(40);
-  margin-inline: auto;
-}
-
-.information__button__link {
-  display: inline-flex;
-  gap: rem(8);
+  text-align: center;
 }

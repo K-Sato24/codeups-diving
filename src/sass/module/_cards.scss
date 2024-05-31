@@ -6,10 +6,7 @@
   gap: rem(40);
 
   @include mq("md") {
-    grid-template-columns: repeat(3, calc(333 / 1080 * 100%));
-    column-gap: calc(40 / 1080 * 100%);
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: rem(40);
   }
-}
-
-.cards__item {
 }

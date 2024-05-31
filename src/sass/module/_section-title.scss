@@ -1,8 +1,5 @@
 @use "global" as *;
 
-.section-title {
-}
-
 .section-title__en {
   font-family: $base-font-family-en;
   font-size: rem(32);
@@ -37,7 +34,7 @@
 }
 
 .section-title__ja {
-  padding-block: rem(4);
+  margin-top: rem(4);
   font-family: $base-font-family-ja;
   font-size: rem(12);
   font-weight: $normal;
@@ -45,16 +42,15 @@
   color: $green;
 
   @include mq("md") {
-    padding-top: rem(8);
-    padding-bottom: 0;
+    margin-top: rem(8);
   }
 }
 
 .section-title__ja--large {
   margin-top: rem(-7);
-  padding: 0;
+
   @include mq("md") {
-    padding: 0;
+    margin-top: rem(-7);
   }
 }
 

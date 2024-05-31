@@ -2,11 +2,10 @@
 
 .voice {
   position: relative;
-  padding-bottom: rem(80);
-  overflow-x: clip;
+  margin-top: rem(80);
 
   @include mq("md") {
-    padding-bottom: rem(140);
+    margin-top: rem(140);
   }
 }
 
@@ -15,7 +14,7 @@
 }
 
 .voice__items {
-  margin-top: rem(40);
+  margin-top: rem(44);
 
   @include mq("md") {
     margin-top: rem(30);
@@ -24,22 +23,17 @@
 
 .voice__button {
   margin-top: rem(40);
-  margin-inline: auto;
+  text-align: center;
 
   @include mq("md") {
     margin-top: rem(80);
   }
 }
 
-.voice__button__link {
-  display: inline-flex;
-  gap: 8px;
-}
-
 .voice__decoration-01 {
   position: absolute;
-  top: rem(20);
-  left: calc(50% - min(calc(620 / 1440 * 100vw), rem(620)));
+  top: rem(-120);
+  left: calc(50% - min(48vw, rem(620)));
   width: rem(301);
   aspect-ratio: 301 / 138;
   transform: scale(-1, 1);
@@ -47,15 +41,10 @@
 
 .voice__decoration-02 {
   position: absolute;
-  right: rem(180);
-  bottom: rem(73);
+  right: calc(50% - min(48vw, rem(540)));
+  bottom: rem(-67);
   width: rem(71);
   aspect-ratio: 71 / 162;
-
-  @include mq("md") {
-    right: initial;
-    left: calc(50% + rem(469));
-  }
 }
 
 .voice__decoration-01 img,

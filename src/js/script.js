@@ -8,6 +8,7 @@ $(function () {
     $(".js-hamburger").toggleClass("is-active");
     $(".js-header").toggleClass("is-active");
     $(".js-drawer").fadeToggle();
+    $("body").toggleClass("is-fixed");
   });
 
   $(".js-header").click(function () {

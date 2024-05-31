@@ -1,16 +1,17 @@
 @use "global" as *;
 
-.button {
-  position: relative;
-  width: fit-content;
-}
+// .button {
+//   position: relative;
+//   width: fit-content;
+// }
 
-.button__link {
+.button {
   position: relative;
   z-index: 1;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: rem(8);
   width: rem(202);
   margin-right: rem(4); // 影の分
   margin-bottom: rem(4); // 影の分
@@ -22,21 +23,21 @@
   color: $white;
   border: 1px solid $green;
   background-color: $green;
-  overflow: hidden;
 }
 
 .button__shadow {
+  z-index: -1;
   display: inline-block;
   position: absolute;
   top: rem(4);
   left: rem(4);
-  width: calc(100% - rem(4));
-  height: calc(100% - rem(4));
+  width: 100%;
+  height: 100%;
   background-color: transparent;
   border: 1px solid $green;
 }
 
-.button__link::after {
+.button::after {
   position: absolute;
   z-index: -1;
   content: "";
@@ -50,11 +51,11 @@
   transition: transform 0.3s cubic-bezier(0.45, 0, 0.55, 1);
 }
 
-.button__link:hover {
+.button:hover {
   color: $green;
 }
 
-.button__link:hover img {
+.button:hover img {
   background-color: $green;
   mask-image: url(../images/common/button-arrow.svg);
   mask-repeat: no-repeat;
@@ -62,14 +63,19 @@
   mask-size: cover;
 }
 
-.button__link:hover::after {
+.button:hover::after {
   transform: scale(1, 1);
 }
 
-.button__link img {
+.button__img {
+  width: rem(40);
+  aspect-ratio: 40 / 6;
+  object-fit: cover;
+}
+
+.button__img img {
   flex-shrink: 0;
   align-self: flex-start;
-  margin-top: rem(6);
-  width: rem(40);
-  height: rem(6);
+  width: 100%;
+  height: 100%;
 }

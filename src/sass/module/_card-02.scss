@@ -24,7 +24,7 @@
 }
 
 .card-02__date {
-  display: inline-block;
+  display: block;
   margin-top: rem(24);
   font-family: $base-font-family-en;
   font-size: rem(12);
@@ -48,7 +48,7 @@
 }
 
 .card-02__text {
-  padding-top: rem(16);
+  margin-top: rem(16);
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 6;

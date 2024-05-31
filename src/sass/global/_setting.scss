@@ -23,6 +23,11 @@ body {
   font-family: $base-font-family-ja;
 }
 
+// 背景スクロール防止
+.is-fixed {
+  overflow: hidden;
+}
+
 // フォントウェイト
 $regular: 300;
 $normal: 400;

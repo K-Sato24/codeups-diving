@@ -21,7 +21,7 @@
 }
 
 .loading__title-main {
-  margin-left: rem(20);
+  text-indent: 0.5em;
   font-family: $second-font-family-en;
   font-size: rem(40);
   font-weight: $normal;
@@ -30,7 +30,6 @@
   text-transform: uppercase;
 
   @include mq("md") {
-    margin-left: rem(42);
     font-size: rem(80);
   }
 }

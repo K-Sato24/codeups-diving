@@ -32,7 +32,7 @@
 
   @include mq("md") {
     width: calc(276 / 472 * 100%);
-    padding-top: rem(24);
+    margin-top: rem(24);
   }
 }
 
@@ -51,7 +51,7 @@
   color: $darkgreen;
 
   @include mq("md") {
-    padding-top: rem(16);
+    margin-top: auto;
   }
 }
 
@@ -74,7 +74,7 @@
 }
 
 .card-03__title {
-  padding-top: rem(1);
+  margin-top: rem(1);
   padding-bottom: rem(3);
   border-bottom: 1px solid $green;
   font-family: $base-font-family-ja;
@@ -88,7 +88,7 @@
   overflow: hidden;
 
   @include mq("md") {
-    padding-top: rem(8);
+    margin-top: rem(8);
     padding-bottom: rem(1);
     font-size: rem(24);
     -webkit-line-clamp: 2;
@@ -114,10 +114,10 @@
 }
 
 .card-03____body {
-  padding-top: rem(16);
+  margin-top: rem(16);
 
   @include mq("md") {
-    padding-top: rem(40);
+    margin-top: rem(40);
   }
 }
 
