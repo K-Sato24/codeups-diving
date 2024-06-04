@@ -2,11 +2,6 @@
 
 .about {
   position: relative;
-  margin-top: rem(80);
-
-  @include mq("md") {
-    margin-top: rem(140);
-  }
 }
 
 .about__title {

@@ -219,20 +219,30 @@
   <main>
     <div class="fv">
       <div class="fv__inner">
+        <!-- オープニングアニメーション -->
+        <div class="fv__opening js-opening">
+          <!-- <div class="fv__opening-bg js-opening-bg"></div> -->
+          <div class="fv__opening-images">
+            <picture>
+              <source media="(min-width: 768px)" srcset="./assets/images/common/opening-pc01-left.jpg">
+              <img src="./assets/images/common/opening01-top.jpg" alt="透き通った海を泳ぐウミガメの様子"
+                class="fv__opening-image01 js-opening01">
+            </picture>
+            <picture>
+              <source media="(min-width: 768px)" srcset="./assets/images/common/opening-pc01-right.jpg">
+              <img src="./assets/images/common/opening01-bottom.jpg" alt="透き通った海を泳ぐウミガメの様子"
+                class="fv__opening-image02 js-opening02">
+            </picture>
+          </div>
+        </div>
+        <!-- アニメーション終了 -->
         <div class="fv__bg">
-
           <div class="fv__bg-slider swiper js-fv-swiper">
             <div class="fv__wrapper swiper-wrapper">
-              <div class="fv__slide-split swiper-slide">
+              <div class="swiper-slide">
                 <picture>
-                  <source media="(min-width: 768px)" srcset="./assets/images/common/fv-pc01-left.jpg">
-                  <img src="./assets/images/common/fv01-top.jpg" alt="透き通った海を泳ぐウミガメの様子"
-                    class="fv__slide-01 js-fv-img-01">
-                </picture>
-                <picture>
-                  <source media="(min-width: 768px)" srcset="./assets/images/common/fv-pc01-right.jpg">
-                  <img src="./assets/images/common/fv01-bottom.jpg" alt="透き通った海を泳ぐウミガメの様子"
-                    class="fv__slide-02 js-fv-img-02">
+                  <source media="(min-width: 768px)" srcset="./assets/images/common/fv-pc01.jpg">
+                  <img src="./assets/images/common/fv01.jpg" alt="透き通った海を泳ぐウミガメの様子">
                 </picture>
               </div>
               <div class="swiper-slide">
@@ -253,23 +263,17 @@
                   <img src="./assets/images/common/fv04.jpg" alt="白い砂浜と透き通った海のビーチの様子">
                 </picture>
               </div>
+              <div class="fv__title js-fv-title">
+                <p class="fv__title-main">diving</p>
+                <p class="fv__title-sub">into&nbsp;the&nbsp;ocean</p>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="fv__title js-fv-title">
-        <p class="fv__title-main">diving</p>
-        <p class="fv__title-sub">into&nbsp;the&nbsp;ocean</p>
-      </div>
-      <div class="loading js-loading">
-        <div class="loading__title">
-          <p class="loading__title-main">diving</p>
-          <p class="loading__title-sub">into&nbsp;the&nbsp;ocean</p>
-        </div>
-      </div>
     </div>
 
-    <section class="campaign">
+    <section class="campaign layout-campaign">
       <div class="campaign__inner inner">
         <div class="campaign__title section-title">
           <p class="section-title__en">Campaign</p>
@@ -451,19 +455,19 @@
           <div class="campaign-button-prev js-campaign-swiper-button-prev swiper-button-prev u-desktop"></div>
           <div class="campaign-button-next js-campaign-swiper-button-next swiper-button-next u-desktop"></div>
         </div>
-      </div>
-      <div class="campaign__button">
-        <a href="#" class="button">
-          <span class="button__text">View&nbsp;more</span>
-          <span class="button__img">
-            <img src="./assets/images/common/button-arrow.svg" alt="右矢印" loading="lazy" decoding="async">
-          </span>
-          <span class="button__shadow"></span>
-        </a>
+        <div class="campaign__button">
+          <a href="#" class="button">
+            <span class="button__text">View&nbsp;more</span>
+            <span class="button__img">
+              <img src="./assets/images/common/button-arrow.svg" alt="右矢印" loading="lazy" decoding="async">
+            </span>
+            <span class="button__shadow"></span>
+          </a>
+        </div>
       </div>
     </section>
 
-    <section class="about">
+    <section class="about layout-section">
       <div class="about__inner inner">
         <div class="about__title section-title">
           <p class="section-title__en">About&nbsp;us</p>
@@ -502,7 +506,7 @@
       </div>
     </section>
 
-    <section class="information">
+    <section class="information layout-information">
       <div class="information__inner inner">
         <div class="information__title section-title">
           <p class="section-title__en">Information</p>
@@ -530,7 +534,7 @@
       </div>
     </section>
 
-    <section class="blog">
+    <section class="blog blog-layout">
       <div class="blog__inner inner">
         <div class="blog__title section-title">
           <p class="section-title__en section-title__en--white">Blog</p>
@@ -602,7 +606,7 @@
       </div>
     </section>
 
-    <section class="voice">
+    <section class="voice layout-section">
       <div class="voice__inner inner">
         <div class="voice__title section-title">
           <p class="section-title__en">Voice</p>
@@ -676,7 +680,7 @@
       </div>
     </section>
 
-    <section class="price">
+    <section class="price layout-section">
       <div class="price__inner inner">
         <div class="price__title section-title">
           <p class="section-title__en">Price</p>
@@ -788,7 +792,7 @@
       </div>
     </section>
 
-    <section class="contact">
+    <section class="contact layout-section">
       <div class="contact__inner inner">
         <div class="contact__wrapper">
           <div class="contact__column1">
@@ -962,6 +966,15 @@
     <small
       class="footer__copyright">Copyright&nbsp;&copy;&nbsp;2021&nbsp;-&nbsp;2023&nbsp;CodeUps&nbsp;LLC.&nbsp;All&nbsp;Rights&nbsp;Reserved.</small>
   </footer>
+
+  <!-- ローディング -->
+  <div class="loading js-loading">
+    <div class="loading__title">
+      <p class="loading__title-main">diving</p>
+      <p class="loading__title-sub">into&nbsp;the&nbsp;ocean</p>
+    </div>
+  </div>
+
 </body>
 
 </html>
