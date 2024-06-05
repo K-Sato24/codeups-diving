@@ -24,6 +24,21 @@
   }
 }
 
+.blog::after {
+  @include mq("md") {
+    content: "";
+    position: absolute;
+    top: rem(24);
+    left: calc(50% - min(48vw, rem(620)));
+    width: rem(437);
+    aspect-ratio: 437 / 201;
+    background-image: url("../images/common/common-decoration-white.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+  }
+}
+
 .blog__inner.inner {
   padding-inline: 21px;
 
@@ -55,16 +70,4 @@
   @include mq("md") {
     margin-top: rem(80);
   }
-}
-
-.blog__decoration {
-  position: absolute;
-  top: rem(24);
-  left: calc(50% - min(48vw, rem(620)));
-  width: rem(437);
-  aspect-ratio: 437 / 201;
-  background-image: url("../images/common/common-decoration-white.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: 50% 50%;
 }

@@ -4,6 +4,37 @@
   position: relative;
 }
 
+.voice::before {
+  @include mq("md") {
+    content: "";
+    position: absolute;
+    top: rem(-120);
+    left: calc(50% - min(48vw, rem(620)));
+    width: rem(301);
+    aspect-ratio: 301 / 138;
+    transform: scale(-1, 1);
+    background-image: url("../images/common/common-decoration.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+  }
+}
+
+.voice::after {
+  @include mq("md") {
+    content: "";
+    position: absolute;
+    right: calc(50% - min(48vw, rem(540)));
+    bottom: rem(-67);
+    width: rem(71);
+    aspect-ratio: 71 / 162;
+    background-image: url("../images/common/voice-decoration.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+  }
+}
+
 .voice__title {
   text-align: center;
 }
@@ -23,29 +54,4 @@
   @include mq("md") {
     margin-top: rem(80);
   }
-}
-
-.voice__decoration-left {
-  position: absolute;
-  top: rem(-120);
-  left: calc(50% - min(48vw, rem(620)));
-  width: rem(301);
-  aspect-ratio: 301 / 138;
-  transform: scale(-1, 1);
-  background-image: url("../images/common/common-decoration.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: 50% 50%;
-}
-
-.voice__decoration-right {
-  position: absolute;
-  right: calc(50% - min(48vw, rem(540)));
-  bottom: rem(-67);
-  width: rem(71);
-  aspect-ratio: 71 / 162;
-  background-image: url("../images/common/voice-decoration.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: 50% 50%;
 }

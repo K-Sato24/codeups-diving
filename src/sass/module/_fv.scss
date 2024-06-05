@@ -4,56 +4,44 @@
   position: relative;
 }
 
+.fv {
+  .swiper {
+    width: 100%;
+    height: 100%;
+  }
+
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
 .fv__bg {
   width: 100%;
   height: 100dvh;
   min-height: 500px;
 }
 
-.fv__title {
-  z-index: 10;
+// オープニングアニメーション
+.fv__opening-bg {
+  z-index: 100;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100dvh;
+  min-height: 500px;
+  background-color: $white;
+}
+
+.fv__opening-title {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  color: $white;
-}
-
-.fv__title-main {
-  text-indent: 0.54em;
-  font-family: $second-font-family-en;
-  font-size: rem(40);
-  font-weight: $normal;
-  letter-spacing: 0.54em;
-  line-height: 1.25;
-  text-transform: uppercase;
-
-  @include mq("md") {
-    font-size: rem(80);
-  }
-}
-
-.fv__title-sub {
-  font-family: $base-font-family-en;
-  font-size: rem(20);
-  font-weight: $normal;
-  line-height: 1.5;
-}
-
-// オープニングアニメーション
-.fv__opening {
-  z-index: 100;
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100dvh;
-  min-height: 500px;
-  background-color: $white;
 }
 
 .fv__opening-images {

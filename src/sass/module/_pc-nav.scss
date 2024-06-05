@@ -1,9 +1,5 @@
 @use "global" as *;
 
-.pc-nav {
-  height: inherit;
-}
-
 .pc-nav-items {
   display: flex;
   gap: rem(40);

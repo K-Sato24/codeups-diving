@@ -4,6 +4,21 @@
   position: relative;
 }
 
+.about::after {
+  @include mq("md") {
+    content: "";
+    position: absolute;
+    bottom: rem(-90);
+    right: calc(50% - min(48vw, rem(637)));
+    width: rem(194);
+    aspect-ratio: 194 / 181;
+    background-image: url("../images/common/about-decoration.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+  }
+}
+
 .about__title {
   text-align: center;
 }
@@ -94,16 +109,4 @@
   @include mq("md") {
     margin-top: rem(40);
   }
-}
-
-.about__decoration {
-  position: absolute;
-  bottom: rem(-90);
-  right: calc(50% - min(48vw, rem(637)));
-  width: rem(194);
-  aspect-ratio: 194 / 181;
-  background-image: url("../images/common/about-decoration.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: 50% 50%;
 }

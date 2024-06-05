@@ -1,26 +1,19 @@
 @use "global" as *;
 
-.loading {
-  z-index: 9999;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: $white;
-  opacity: 0;
-}
-
-.loading__title {
+.main-title {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
+  color: $white;
+}
+
+.main-title--green {
   color: $green;
 }
 
-.loading__title-main {
+.main-title__main {
   text-indent: 0.5em;
   font-family: $second-font-family-en;
   font-size: rem(40);
@@ -34,7 +27,7 @@
   }
 }
 
-.loading__title-sub {
+.main-title__sub {
   font-family: $base-font-family-en;
   font-size: rem(20);
   font-weight: $normal;

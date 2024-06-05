@@ -4,6 +4,20 @@
   overflow-x: clip;
 }
 
+.campaign {
+  .swiper {
+    width: 100%;
+    height: 100%;
+  }
+
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
 .campaign__content {
   position: relative;
   margin-top: rem(28);
@@ -32,6 +46,7 @@
 
 .campaign__card.swiper-slide {
   width: rem(280);
+  height: auto;
 
   @include mq("md") {
     width: rem(333);

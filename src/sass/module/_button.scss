@@ -20,14 +20,16 @@
   background-color: $green;
 }
 
-.button__shadow {
+.button::before {
+  position: absolute;
+  content: "";
   z-index: -1;
   display: inline-block;
   position: absolute;
   top: rem(4);
   left: rem(4);
-  width: 100%;
-  height: 100%;
+  width: calc(100% + rem(2));
+  height: calc(100% + rem(2));
   background-color: transparent;
   border: 1px solid $green;
 }
@@ -50,27 +52,19 @@
   color: $green;
 }
 
-.button:hover img {
-  background-color: $green;
-  mask-image: url(../images/common/button-arrow.svg);
-  mask-repeat: no-repeat;
-  mask-position: center;
-  mask-size: cover;
-}
-
 .button:hover::after {
   transform: scale(1, 1);
 }
 
-.button__img {
-  width: rem(40);
-  aspect-ratio: 40 / 6;
-  object-fit: cover;
-}
-
-.button__img img {
-  flex-shrink: 0;
-  align-self: flex-start;
-  width: 100%;
-  height: 100%;
+.button span::after {
+  content: "";
+  display: inline-block;
+  margin-bottom: rem(4);
+  width: rem(42);
+  aspect-ratio: 42 / 8;
+  background-color: currentColor;
+  mask-image: url(../images/common/button-arrow.svg);
+  mask-repeat: no-repeat;
+  mask-position: center center;
+  mask-size: cover;
 }

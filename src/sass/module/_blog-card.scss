@@ -41,20 +41,8 @@
   font-weight: $medium;
   line-height: 1.5;
   color: $darkgreen;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 1;
-  overflow: hidden;
 }
 
 .blog-card__text {
   margin-top: rem(16);
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 6;
-  overflow: hidden;
-
-  @include mq("md") {
-    -webkit-line-clamp: 5;
-  }
 }
