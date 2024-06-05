@@ -1,9 +1,9 @@
 
 jQuery(function ($) {
 
-  // ハンバーガー
+  // ハンバーガー、ドロワー
 $(function () {
-  $(".js-hamburger, .js-drawer").click(function (event) {
+  $(".js-hamburger, .js-drawer-link").click(function (event) {
     event.stopPropagation();
     $(".js-hamburger").toggleClass("is-active");
     $(".js-header").toggleClass("is-active");
@@ -11,20 +11,13 @@ $(function () {
     $("body").toggleClass("is-fixed");
   });
 
-  $(".js-header").click(function () {
-    if ($(".js-drawer").is(":visible")) {
-      $(".js-hamburger").removeClass("is-active");
-      $(".js-header").removeClass("is-active");
-      $(".js-drawer").fadeOut();
-    }
-  });
-
-  $(document).click(function () {
-    if ($(".js-drawer").is(":visible")) {
-      $(".js-hamburger").removeClass("is-active");
-      $(".js-header").removeClass("is-active");
-      $(".js-drawer").fadeOut();
-    }
+    $(".header__logo-link").click(function () {
+      if ($(".js-drawer").is(":visible")) {
+          $(".js-hamburger").removeClass("is-active");
+          $(".js-header").removeClass("is-active");
+          $(".js-drawer").fadeOut();
+          $("body").removeClass("is-fixed");
+      }
   });
 });
 
@@ -40,7 +33,6 @@ $(window).resize(function() {
 });
 
 });
-
 
 // fvスライダー
 function initSwiper() {
@@ -96,12 +88,34 @@ box.each(function(){
     });
 });
 
+// // ページトップへ戻る
+// const pageTop = document.querySelector(".js-paage-top");
+// window.addEventListener("scroll", function() {
+//   if (100 < window.scrollY) {
+//     pageTop.classList.add("is-show");
+//   } else {
+//     pageTop.classList.remove("is-show");
+//   }
+// });
+
 // ページトップへ戻る
 const pageTop = document.querySelector(".js-paage-top");
+const pageTopColor = document.querySelector(".js-page-top-color");
+const footer = document.querySelector(".footer");
+
 window.addEventListener("scroll", function() {
-  if (100 < window.scrollY) {
+  const footerRect = footer.getBoundingClientRect();
+  const windowHeight = window.innerHeight;
+
+  if (window.scrollY > 100) {
     pageTop.classList.add("is-show");
   } else {
     pageTop.classList.remove("is-show");
+  }
+
+  if (footerRect.top <= windowHeight) {
+    pageTopColor.classList.add("is-color");
+  } else {
+    pageTopColor.classList.remove("is-color");
   }
 });
