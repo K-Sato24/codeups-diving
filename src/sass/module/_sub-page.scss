@@ -1,0 +1,26 @@
+@use "global" as *;
+
+.sub-page {
+  position: relative;
+}
+
+.sub-page::before {
+  z-index: -1;
+  position: absolute;
+  top: rem(-24);
+  left: calc(50% - min(48vw, rem(172)));
+  content: "";
+  width: rem(120);
+  aspect-ratio: 120 / 55;
+  background-image: url("../images/common/common-decoration.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+  transform: scale(-1, 1);
+
+  @include mq("md") {
+    top: rem(-70);
+    left: calc(50% - min(48vw, rem(620)));
+    width: rem(301);
+  }
+}

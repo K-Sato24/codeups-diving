@@ -1,0 +1,10 @@
+@use "global" as *;
+
+.about-page {
+  position: relative;
+}
+
+.about-page::after {
+  position: absolute;
+  content: "";
+}

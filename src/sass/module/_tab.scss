@@ -1,0 +1,38 @@
+@use "global" as *;
+
+.tab {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(rem(162), 1fr));
+  column-gap: rem(21);
+  row-gap: rem(14);
+  flex-wrap: wrap;
+
+  @include mq("md") {
+    grid-template-columns: repeat(auto-fit, minmax(auto, rem(162)));
+    column-gap: rem(32);
+  }
+}
+
+.tab__category {
+  padding: rem(6);
+  color: $green;
+  border: 1px solid $green;
+  background-color: $white;
+}
+
+.tab__category--reverse {
+  color: $white;
+  background-color: $green;
+}
+
+.tab__link:hover {
+  opacity: 0.7;
+}
+
+.tab__text {
+  text-align: center;
+  font-family: $base-font-family-ja;
+  font-size: rem(14);
+  font-weight: $normal;
+  line-height: 1.57143;
+}

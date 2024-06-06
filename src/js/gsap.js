@@ -41,7 +41,7 @@ tl.from('.js-opening-bg',{
   duration:0.7,
   opacity:1,
   delay:0.2
-},'ending').fromTo('.js-header',{
+},'ending').fromTo('.js-header-anim',{
   opacity:0
 },{
   duration:0.7,

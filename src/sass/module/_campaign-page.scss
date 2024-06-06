@@ -1,0 +1,15 @@
+@use "global" as *;
+
+.campaign-page__wrapper {
+  max-width: calc(280 / 345 * 100%);
+  width: 100%;
+  margin-inline: auto;
+
+  @include mq("md") {
+    max-width: 100%;
+  }
+}
+
+.campaign-page__cards {
+  margin-top: rem(40);
+}
