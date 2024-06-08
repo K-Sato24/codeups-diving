@@ -1,0 +1,126 @@
+@use "global" as *;
+
+.information-tab__list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: rem(20);
+
+  @include mq("md") {
+    column-gap: rem(90);
+  }
+}
+
+.information-tab__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: rem(8);
+  padding: rem(10);
+  font-family: $base-font-family-ja;
+  font-size: rem(14);
+  font-weight: $normal;
+  line-height: 1.4;
+  color: $green;
+  background-color: $lightgreen;
+  box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.25);
+  transition: 0.3s background-color, 0.3s color;
+
+  @include mq("md") {
+    font-size: rem(24);
+  }
+}
+
+.information-tab__button.is-active {
+  color: $white;
+  background-color: $green;
+}
+
+.information-tab__button span::before {
+  content: "";
+  display: inline-block;
+  width: rem(64);
+  aspect-ratio: 1 / 1;
+  mask-repeat: no-repeat;
+  mask-position: center center;
+  mask-size: cover;
+  background-color: $green;
+}
+
+.information-tab__button.is-active span::before {
+  background-color: $white;
+}
+
+.information-tab__button--left span::before {
+  mask-image: url("../images/common/text-decoration01.svg");
+}
+
+.information-tab__button--center span::before {
+  mask-image: url("../images/common/text-decoration02.svg");
+}
+
+.information-tab__button--right span::before {
+  mask-image: url("../images/common/text-decoration03.svg");
+}
+
+.information-tab__contents {
+  margin-top: rem(16);
+
+  @include mq("md") {
+    margin-top: rem(24);
+  }
+}
+
+.information-tab__content {
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.7s opacity;
+}
+
+.information-tab__content.is-active {
+  position: relative;
+  visibility: visible;
+  opacity: 1;
+}
+
+.information-tab__content-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: rem(8);
+  padding: rem(22);
+  border: 2px solid $green;
+
+  @include mq("md") {
+    grid-template-columns: 1fr 1fr;
+    place-items: center;
+    gap: rem(48);
+  }
+}
+
+.information-tab__text-block {
+  font-family: $base-font-family-ja;
+  color: $darkgreen;
+}
+
+.information-tab__title {
+  padding-bottom: rem(8);
+  border-bottom: 1px solid $green;
+  font-size: rem(24);
+  font-weight: $bold;
+  line-height: 1;
+}
+
+.information-tab__text {
+  margin-top: rem(8);
+}
+
+.information-tab__image {
+  width: 100%;
+  aspect-ratio: 297 / 189;
+}
+
+.information-tab__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

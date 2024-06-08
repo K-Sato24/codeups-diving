@@ -197,3 +197,17 @@ document.addEventListener("DOMContentLoaded", function() {
     document.body.classList.remove("is-fixed");
   }
 });
+
+// information タブ
+$(function () {
+  const tabButton = $(".js-tab-button"),
+    tabContent = $(".js-tab-content");
+  tabButton.on("click", function () {
+    let index = tabButton.index(this);
+
+    tabButton.removeClass("is-active");
+    $(this).addClass("is-active");
+    tabContent.removeClass("is-active");
+    tabContent.eq(index).addClass("is-active");
+  });
+});
