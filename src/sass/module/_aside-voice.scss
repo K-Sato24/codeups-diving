@@ -1,0 +1,7 @@
+@use "global" as *;
+
+.aside-voice__cards-item {
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: rem(24);
+}

@@ -1,0 +1,7 @@
+@use "global" as *;
+
+.aside-blog__cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: rem(24);
+}

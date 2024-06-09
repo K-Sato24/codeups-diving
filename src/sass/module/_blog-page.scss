@@ -1,0 +1,27 @@
+@use "global" as *;
+
+.blog-page__wrapper {
+  @include mq("md") {
+    display: flex;
+    gap: rem(80);
+  }
+}
+
+.blog-page__content {
+  max-width: 100%;
+  width: calc(333 / 345 * 100%);
+  margin-inline: auto;
+
+  @include mq("md") {
+    width: calc(706 / 1080 * 100%);
+  }
+}
+
+.blog-page__aside {
+  margin-top: rem(80);
+
+  @include mq("md") {
+    margin-top: 0;
+    width: calc(294 / 1080 * 100%);
+  }
+}
