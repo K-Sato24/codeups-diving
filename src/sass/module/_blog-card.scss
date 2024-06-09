@@ -12,28 +12,15 @@
 
 .blog-card__link {
   display: inline-block;
-  padding: rem(16) rem(16) rem(24) rem(16);
-}
-
-.blog-card__link--aside {
-  padding: rem(16);
+  padding: rem(16) rem(16) rem(23) rem(16);
 }
 
 .blog-card__link:hover {
   opacity: 0.7;
 }
 
-.blog-card__header--aside {
-  flex-shrink: 0;
-  width: calc(121 / 262 * 100%);
-}
-
 .blog-card__img {
   aspect-ratio: 301 / 201;
-}
-
-.blog-card__img--aside {
-  aspect-ratio: 121 / 90;
 }
 
 .blog-card__img img {
@@ -52,10 +39,6 @@
   color: $darkgreen;
 }
 
-.blog-card__date--aside {
-  margin-top: 0;
-}
-
 .blog-card__title {
   padding-bottom: rem(4);
   border-bottom: 1px solid $green;
@@ -64,12 +47,6 @@
   font-weight: $medium;
   line-height: 1.5;
   color: $darkgreen;
-}
-
-.blog-card__title--aside {
-  margin-top: rem(4);
-  padding-bottom: 0;
-  border-bottom: none;
 }
 
 .blog-card__text {

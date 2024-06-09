@@ -1,0 +1,70 @@
+@use "global" as *;
+
+.aside-archive {
+  color: $green;
+  font-family: $base-font-family-ja;
+  font-size: rem(24);
+  line-height: 1.5;
+}
+
+.aside-archive__acordion {
+}
+
+.aside-archive__year {
+  position: relative;
+  padding-left: rem(32);
+  font-weight: $normal;
+  list-style: none;
+  cursor: pointer;
+}
+
+.aside-archive__year::before,
+.aside-archive__month::before {
+  position: absolute;
+  top: rem(9);
+  content: "";
+  width: calc(tan(60deg) * 20px / 2);
+  height: rem(20);
+  background-color: $green;
+  clip-path: polygon(0 0, 100% 50%, 0 100%);
+  transition: 0.3s transform, 0.3s top, 0.3s left;
+}
+
+.aside-archive__year::before {
+  left: rem(5);
+}
+
+.aside-archive__month::before {
+  left: rem(29);
+}
+
+.aside-archive__accordion.is-opened {
+  .aside-archive__year::before {
+    transform: rotate(90deg);
+    top: rem(11);
+    left: rem(2);
+  }
+}
+
+.aside-archive__year::-webkit-details-marker {
+  // Safari対応
+  display: none;
+}
+
+.aside-archive__accordion + .aside-archive__accordion {
+  margin-top: rem(3);
+}
+
+.aside-archive__content {
+}
+
+.aside-archive__month {
+  position: relative;
+  padding-left: rem(56);
+  font-weight: $normal;
+  margin-top: rem(3);
+}
+
+.aside-archive__month a:hover {
+  opacity: 0.7;
+}

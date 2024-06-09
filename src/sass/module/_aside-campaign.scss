@@ -1,7 +1,7 @@
 @use "global" as *;
 
-.aside-voice__cards {
+.aside-campaign__cards {
   display: grid;
   grid-template-columns: 1fr;
-  row-gap: rem(24);
+  row-gap: rem(40);
 }

@@ -18,11 +18,11 @@
 
 .sub-page-aside__title {
   position: relative;
-  padding: rem(9) 0 rem(6) rem(82);
+  padding: rem(14) 0 rem(12) rem(82);
   font-family: $base-font-family-ja;
   font-size: rem(24);
   font-weight: $normal;
-  line-height: 1.2;
+  line-height: 1;
   color: $darkgreen;
   background: linear-gradient(
     90deg,
@@ -44,39 +44,14 @@
   mask-image: url(../images/common/text-decoration01.svg);
   mask-repeat: no-repeat;
   mask-position: center center;
-  mask-size: cover;
+  mask-size: 86%;
 }
 
 .sub-page-aside__content {
   margin-top: rem(24);
 }
 
-.aside-blog {
-}
-
-.aside-blog__cards {
-}
-
-.aside-blog__cards-item {
-}
-
-.blog-card {
-}
-
-.blog-card__link {
-}
-
-.blog-card__header {
-}
-
-.blog-card__img {
-}
-
-.blog-card__body {
-}
-
-.blog-card__date {
-}
-
-.blog-card__title {
+.sub-page-aside__button {
+  margin-top: rem(40);
+  text-align: center;
 }
