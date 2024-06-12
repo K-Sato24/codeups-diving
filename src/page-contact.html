@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-  <meta name="format-detection" content="telephone=no" />
+  <meta name="contact-format-detection" content="telephone=no" />
   <meta name="robots" content="noindex" />
   <!-- meta情報 -->
   <title>CodeUps</title>
@@ -68,7 +68,7 @@
             <li class="pc-nav__item">
               <a href="#">
                 <div class="pc-nav__link-text">
-                  <span class="pc-nav__text-en">Information</span>
+                  <span class="pc-nav__text-en">Incontact-formation</span>
                   <span class="pc-nav__text-ja">ダイビング情報</span>
                 </div>
               </a>
@@ -221,11 +221,11 @@
       <div class="sub-fv__inner">
         <div class="sub-fv__bg">
           <picture>
-            <source media="(min-width: 768px)" srcset="./assets/images/common/about-fv-pc.jpg">
-            <img src="./assets/images/common/about-fv.jpg" alt="黄色と黒の鮮やかな熱帯魚2匹が青い海を泳ぐ様子">
+            <source media="(min-width: 768px)" srcset="./assets/images/common/contact-fv-pc.jpg">
+            <img src="./assets/images/common/contact-fv.jpg" alt="青い海と砂浜を、上空から見た様子">
           </picture>
         </div>
-        <p class="sub-fv__title">About&nbsp;us</p>
+        <p class="sub-fv__title">Contact</p>
       </div>
     </div>
 
@@ -235,110 +235,102 @@
       </div>
     </div>
 
-    <div class="about-page sub-page layout-sub-page">
-      <div class="about-page__inner inner">
-        <div class="about-page__content about-content">
-          <div class="about-content__image-block">
-            <div class="about-content__img01 u-desktop">
-              <img src="./assets/images/common/about01.jpg" alt="青い空と木、屋根の上のシーサーの様子" loading="lazy" decoding="async">
-            </div>
-            <div class="about-content__img02 about-content__img02--sub">
-              <img src="./assets/images/common/about02.jpg" alt="透き通った海にいる2匹の黄色い熱帯魚の様子" loading="lazy" decoding="async">
-            </div>
-          </div>
-          <div class="about-content__wrapper">
-            <p class="about-content__lead about-content__lead--sub">Dive&nbsp;into&nbsp;<br>the&nbsp;Ocean</p>
-            <div class="about-content__text--block">
-              <p class="about-content__text about-content__text--sub">
-                ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br>ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。
-              </p>
-            </div>
+    <div class="contact-page sub-page layout-sub-page">
+      <div class="contact-page__inner inner">
+        <div class="contact-page__wrapper">
+          <div class="contact-form">
+            <form action="" method="post">
+              <dl class="contact-form__list">
+                <div class="contact-form__field">
+                  <dt class="contact-form__label">
+                    <label for="your-name">お名前
+                      <span class="contact-form__required">必須</span>
+                    </label>
+                  </dt>
+                  <dd class="contact-form__data">
+                    <input type="text" name="your-name" id="your-name" class="contact-form__input"
+                      placeholder="沖縄&emsp;太郎">
+                  </dd>
+                </div>
+                <div class="contact-form__field">
+                  <dt class="contact-form__label"><label for="your-email">メールアドレス
+                      <span class="contact-form__required">必須</span>
+                    </label>
+                  </dt>
+                  <dd class="contact-form__data">
+                    <input type="email" name="your-email" id="your-email" class="contact-form__input"
+                      placeholder="aaa000@ggmail.com">
+                  </dd>
+                </div>
+                <div class="contact-form__field">
+                  <dt class="contact-form__label"><label for="your-phone">電話番号
+                      <span class="contact-form__required">必須</span>
+                    </label></dt>
+                  <dd class="contact-form__data">
+                    <input type="tel" name="your-phone" id="your-phone" class="contact-form__input"
+                      placeholder="000-0000-0000">
+                  </dd>
+                </div>
+                <div class="contact-form__field">
+                  <dt class="contact-form__label">
+                    お問合せ項目
+                    <span class="contact-form__required">必須</span>
+                  </dt>
+                  <dd class="contact-form__data">
+                    <div class="contact-form__checkbox-wrapper">
+                      <label>
+                        <input type="checkbox" name="check1" value="ダイビング講習について" class="contact-form__checkbox" checked>
+                        <span>ダイビング講習について</span>
+                      </label>
+                      <label>
+                        <input type="checkbox" name="check2" value="ファンデイビングについて" class="contact-form__checkbox">
+                        <span>ファンデイビングについて</span>
+                      </label>
+                      <label>
+                        <input type="checkbox" name="check3" value="体験ダイビングについて" class="contact-form__checkbox">
+                        <span>体験ダイビングについて</span>
+                      </label>
+                    </div>
+                  </dd>
+                </div>
+                <div class="contact-form__field">
+                  <dt class="contact-form__label">キャンペーン</dt>
+                  <dd class="contact-form__data-select">
+                    <select name="category" id="category" class="contact-form__select first_as_label">
+                      <option value="">キャンペーン内容を選択</option>
+                      <option value="セレクト1">セレクト1</option>
+                      <option value="セレクト2">セレクト2</option>
+                    </select>
+                  </dd>
+                </div>
+                <div class="contact-form__field">
+                  <dt class="contact-form__label">
+                    <label for="your-message">お問い合わせ内容<span class="contact-form__required">必須</span>
+                    </label>
+                  </dt>
+                  <dd class="contact-form__data">
+                    <textarea name="your-message" id="your-message" class="contact-form__textarea"></textarea>
+                  </dd>
+                </div>
+                <dd class="contact-form__data">
+                  <label>
+                    <input type="checkbox" class="contact-form__checkbox">
+                    <span class="contact-form__checkbox-text"><a href="#"
+                        target="_blank">個人情報の取り扱いについて同意のうえ送信します。</a></span>
+                  </label>
+                </dd>
+              </dl>
+              <div class="contact-form__submit-button">
+                <div class="submit-button">
+                  <input type="submit" value="Send" class="submit-button__input">
+                  <span></span>
+                </div>
+              </div>
+            </form>
           </div>
         </div>
       </div>
     </div>
-
-    <section class="about-gallery layout-about-gallery">
-      <div class="about-gallery__inner inner">
-        <div class="about-gallery__title section-title">
-          <p class="section-title__en">Gallery</p>
-          <h2 class="section-title__ja">フォト</h2>
-        </div>
-        <div class="about-gallery__wraper">
-          <div class="about-gallery__image about-gallery__image01 js-gallery-modal-open">
-            <img src="./assets/images/common/gallery01.jpg" alt="" loading="lazy" decoding="async">
-          </div>
-          <div class="about-gallery__image about-gallery__image02 js-gallery-modal-open">
-            <img src="./assets/images/common/gallery02.jpg" alt="" loading="lazy" decoding="async">
-          </div>
-          <div class="about-gallery__image about-gallery__image03 js-gallery-modal-open">
-            <img src="./assets/images/common/gallery03.jpg" alt="" loading="lazy" decoding="async">
-          </div>
-          <div class="about-gallery__image about-gallery__image04 js-gallery-modal-open">
-            <img src="./assets/images/common/gallery04.jpg" alt="" loading="lazy" decoding="async">
-          </div>
-          <div class="about-gallery__image about-gallery__image05 js-gallery-modal-open">
-            <img src="./assets/images/common/gallery05.jpg" alt="" loading="lazy" decoding="async">
-          </div>
-          <div class="about-gallery__image about-gallery__image06 js-gallery-modal-open">
-            <img src="./assets/images/common/gallery06.jpg" alt="" loading="lazy" decoding="async">
-          </div>
-        </div>
-      </div>
-
-      <!-- モーダル -->
-      <dialog class="about-gallery__modal js-gallery-modal">
-        <div class="about-gallery__modal__bg">
-          <div class="about-gallery__modal-image">
-            <img src="#" alt="#" loading="lazy" decoding="async">
-          </div>
-        </div>
-      </dialog>
-
-    </section>
-
-    <section class="contact layout-contact-sub">
-      <div class="contact__inner inner">
-        <div class="contact__wrapper">
-          <div class="contact__column1">
-            <div class="contact__logo">
-              <div class="contact__logo-img">
-                <img src="./assets/images/common/logo-color.svg" alt="CodeUps" loading="lazy" decoding="async">
-              </div>
-            </div>
-            <div class="contact__info">
-              <div class="contact__info-text-block">
-                <p class="contact__info-text text">沖縄県那覇市1-1</p>
-                <p class="contact__info-text text">TEL:0120-000-0000</p>
-                <p class="contact__info-text text">営業時間:8:30-19:00</p>
-                <p class="contact__info-text text">定休日:毎週火曜日</p>
-              </div>
-              <div class="contact__map">
-                <div class="contact__map-area">
-                  <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14318.399369583425!2d127.67581646365001!3d26.20969240422214!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34e569fcdb7de475%3A0xdb7930b1f41e45b9!2z44K744OW44OzLeOCpOODrOODluODsyDpgqPopofmpZrovrrlupc!5e0!3m2!1sja!2sjp!4v1715948422572!5m2!1sja!2sjp"
-                    width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="contact__column2">
-            <div class="contact__title section-title">
-              <p class="section-title__en section-title__en--large">Contact</p>
-              <h2 class="section-title__ja section-title__ja--large">お問い合わせ</h2>
-            </div>
-            <p class="contact__text">ご予約・お問い合わせはコチラ</p>
-            <div class="contact__button">
-              <a href="#" class="button">
-                Contact&nbsp;us
-                <span></span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
   </main>
 

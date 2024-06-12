@@ -1,0 +1,124 @@
+@use "global" as *;
+
+.contact-form {
+  font-family: $base-font-family-ja;
+}
+
+.contact-form__list {
+}
+
+.contact-form__field {
+  padding-bottom: rem(23);
+  border-bottom: 1px dashed $green;
+
+  @include mq("md") {
+    display: grid;
+    grid-template-columns: 11fr 24fr;
+  }
+}
+
+.contact-form__field + .contact-form__field {
+  margin-top: rem(24);
+}
+
+.contact-form__label {
+  margin-right: rem(8);
+  font-size: rem(16);
+  font-weight: $bold;
+  line-height: 1.5;
+  color: $darkgreen;
+}
+
+.contact-form__label,
+.contact-form__label label {
+  display: flex;
+  align-items: center;
+  gap: rem(7);
+}
+
+.contact-form__required {
+  flex-shrink: 0;
+  // margin-left: rem(8);
+  padding: rem(2) rem(12) rem(2) calc(0.4em + rem(12));
+  font-size: rem(12);
+  font-weight: $normal;
+  letter-spacing: 0.4em;
+  // margin-right: -0.4em;
+  // text-indent: -0.4em;
+  // padding-left: calc(0.4em + rem(16));
+  color: $white;
+  background-color: #c94800;
+}
+
+.contact-form__checkbox-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: rem(3);
+  margin-top: rem(14);
+}
+
+.contact-form__input {
+}
+
+.contact-form__data-select {
+  position: relative;
+  max-width: rem(480);
+  width: 100%;
+}
+
+.contact-form__select {
+}
+
+.contact-form__data-select::after {
+  position: absolute;
+  top: rem(27);
+  right: rem(8);
+  content: "";
+  display: inline-block;
+  width: rem(12);
+  height: rem(9);
+  background-color: $green;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+}
+
+.contact-form__textarea {
+}
+
+[type="checkbox"] + .contact-form__checkbox-text {
+  display: block;
+  margin-top: rem(40);
+  width: calc(282 / 345 * 100%);
+  max-width: 100%;
+  margin-inline: auto;
+  font-size: rem(14);
+  line-height: 1.5714;
+}
+
+[type="checkbox"] + .contact-form__checkbox-text {
+  padding-left: rem(30);
+  line-height: 1.57143;
+
+  &::before {
+    top: rem(11);
+    left: 0;
+    width: rem(22);
+    height: rem(22);
+  }
+}
+
+[type="checkbox"]:checked + .contact-form__checkbox-text {
+  &::after {
+    margin-top: -0.2em;
+    margin-left: 0.2em;
+    width: rem(16);
+    height: rem(9);
+  }
+}
+
+.contact-form__checkbox-text {
+}
+
+.contact-form__submit-button {
+  margin-top: rem(24);
+  text-align: center;
+}

@@ -1,0 +1,67 @@
+@use "global" as *;
+
+.faq-accordion {
+  font-family: $base-font-family-ja;
+}
+
+.faq-accordion__question {
+  position: relative;
+  padding: rem(16) rem(56) rem(16) rem(16);
+  font-weight: $normal;
+  line-height: 1.5;
+  color: $white;
+  background-color: $green;
+  list-style: none;
+  cursor: pointer;
+
+  @include mq("md") {
+    padding: rem(25) rem(112) rem(25) rem(40);
+    font-size: rem(20);
+  }
+}
+
+.faq-accordion__question::before,
+.faq-accordion__question::after {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: rem(16);
+  content: "";
+  width: rem(28);
+  height: rem(2);
+  background-color: $white;
+  transition: 0.3s transform;
+
+  @include mq("md") {
+    right: rem(40);
+    width: rem(32);
+  }
+}
+
+.faq-accordion__question::after {
+  transform: rotate(90deg);
+}
+
+.faq-accordion.is-opened {
+  .faq-accordion__question::after {
+    transform: rotate(0deg);
+  }
+}
+
+.faq-accordion__question::-webkit-details-marker {
+  // Safari対応
+  display: none;
+}
+
+.faq-accordion__answer {
+  padding: rem(24) rem(16);
+  border: 1px solid $green;
+  font-weight: $normal;
+  line-height: 1.42;
+  color: $darkgreen;
+
+  @include mq("md") {
+    margin-top: rem(16);
+    padding: rem(40);
+  }
+}
