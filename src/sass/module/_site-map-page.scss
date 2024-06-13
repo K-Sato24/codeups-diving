@@ -1,0 +1,9 @@
+@use "global" as *;
+
+.site-map-page {
+  padding-bottom: rem(28);
+
+  @include mq("md") {
+    padding-bottom: 0;
+  }
+}

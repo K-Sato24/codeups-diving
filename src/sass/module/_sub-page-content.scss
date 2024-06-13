@@ -1,0 +1,46 @@
+@use "global" as *;
+
+.sub-page-content {
+  width: 100%;
+  max-width: 600px;
+  margin-inline: auto;
+  font-family: $base-font-family-ja;
+  color: $darkgreen;
+}
+
+.sub-page-content--wide {
+  max-width: 800px;
+}
+
+.sub-page-content__title {
+  font-size: rem(24);
+  font-weight: $medium;
+
+  @include mq("md") {
+    font-size: rem(32);
+  }
+}
+
+.sub-page-content__box {
+  margin-top: rem(40);
+}
+
+.sub-page-content__block {
+  margin-top: rem(32);
+}
+
+.sub-page-content__text {
+  font-size: rem(16);
+  font-weight: $normal;
+  line-height: 2;
+}
+
+.sub-page-content__items {
+  list-style: decimal;
+  padding-left: rem(22);
+  text-indent: rem(2);
+}
+
+.sub-page-content__item {
+  line-height: 2;
+}

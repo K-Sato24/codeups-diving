@@ -68,3 +68,21 @@
   mask-position: center center;
   mask-size: cover;
 }
+
+.button--white {
+  border: 1px solid $white;
+  color: $green;
+  background-color: $white;
+
+  &::before {
+    border: 1px solid $white;
+  }
+
+  &::after {
+    background-color: $green;
+  }
+
+  &:hover {
+    color: $white;
+  }
+}

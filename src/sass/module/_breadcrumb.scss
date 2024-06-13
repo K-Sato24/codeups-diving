@@ -7,3 +7,15 @@
   line-height: 1.2;
   color: $darkgreen;
 }
+
+.breadcrumb--white {
+  padding-top: rem(90);
+
+  @include mq("md") {
+    padding-top: rem(98);
+  }
+
+  .breadcrumb__text {
+    color: $white;
+  }
+}

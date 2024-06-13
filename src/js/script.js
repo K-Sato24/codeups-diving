@@ -313,3 +313,25 @@ const openingAnimKeyframes = (content) => [
     opacity: 1,
   }
 ];
+
+
+function validateForm() {
+  var form = document.querySelector('.js-required');
+  var requiredFields = form.querySelectorAll('[required]');
+  var isValid = true;
+
+  requiredFields.forEach(function(field) {
+    if (!field.value.trim()) {
+      isValid = false;
+    }
+  });
+
+  var errorMessage = document.getElementById('contact-form__error-message');
+  if (!isValid) {
+    errorMessage.style.display = 'flex';
+    return false; // フォームの送信を中止
+  } else {
+    errorMessage.style.display = 'none';
+    return true; // フォームを送信
+  }
+}

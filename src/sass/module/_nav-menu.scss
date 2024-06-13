@@ -7,6 +7,14 @@
   color: $white;
 }
 
+.nav-menu--dark {
+  color: $darkgreen;
+
+  .nav-menu__item::before {
+    background-color: $darkgreen;
+  }
+}
+
 .nav-menu__columns {
   display: flex;
   align-items: flex-start;
@@ -52,7 +60,11 @@
   content: "";
   width: 18px;
   height: 18px;
-  background-image: url(../images/common/nav-menu-decoration.svg);
+  mask-image: url(../images/common/nav-menu-decoration.svg);
+  mask-repeat: no-repeat;
+  mask-position: center center;
+  mask-size: cover;
+  background-color: $white;
 }
 
 .nav-menu__item span {

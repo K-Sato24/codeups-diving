@@ -43,14 +43,14 @@
     <div class="header__inner">
       <div class="header__content">
         <h1 class="header__logo">
-          <a href="#" class="header__logo-link js-header-logo">
+          <a href="/" class="header__logo-link js-header-logo">
             <img src="./assets/images/common/logo.svg" alt="CodeUps">
           </a>
         </h1>
         <nav class="header__pc-nav pc-nav u-desktop">
           <ul class="pc-nav-items">
             <li class="pc-nav__item">
-              <a href="#">
+              <a href="/archive-campaign.html">
                 <div class="pc-nav__link-text">
                   <span class="pc-nav__text-en">Campaign</span>
                   <span class="pc-nav__text-ja">キャンペーン</span>
@@ -58,7 +58,7 @@
               </a>
             </li>
             <li class="pc-nav__item">
-              <a href="#">
+              <a href="/page-about.html">
                 <div class="pc-nav__link-text">
                   <span class="pc-nav__text-en">About&nbsp;us</span>
                   <span class="pc-nav__text-ja">私たちについて</span>
@@ -66,15 +66,15 @@
               </a>
             </li>
             <li class="pc-nav__item">
-              <a href="#">
+              <a href="page-information.html">
                 <div class="pc-nav__link-text">
-                  <span class="pc-nav__text-en">Incontact-formation</span>
+                  <span class="pc-nav__text-en">Information</span>
                   <span class="pc-nav__text-ja">ダイビング情報</span>
                 </div>
               </a>
             </li>
             <li class="pc-nav__item">
-              <a href="#">
+              <a href="/home.html">
                 <div class="pc-nav__link-text">
                   <span class="pc-nav__text-en">Blog</span>
                   <span class="pc-nav__text-ja">ブログ</span>
@@ -82,7 +82,7 @@
               </a>
             </li>
             <li class="pc-nav__item">
-              <a href="#">
+              <a href="/archive-voice.html">
                 <div class="pc-nav__link-text">
                   <span class="pc-nav__text-en">Voice</span>
                   <span class="pc-nav__text-ja">お客様の声</span>
@@ -90,7 +90,7 @@
               </a>
             </li>
             <li class="pc-nav__item">
-              <a href="#">
+              <a href="/page-price.html">
                 <div class="pc-nav__link-text">
                   <span class="pc-nav__text-en">Price</span>
                   <span class="pc-nav__text-ja">料金一覧</span>
@@ -98,7 +98,7 @@
               </a>
             </li>
             <li class="pc-nav__item">
-              <a href="#">
+              <a href="/page-faq.html">
                 <div class="pc-nav__link-text">
                   <span class="pc-nav__text-en">FAQ</span>
                   <span class="pc-nav__text-ja">よくある質問</span>
@@ -106,7 +106,7 @@
               </a>
             </li>
             <li class="pc-nav__item">
-              <a href="#">
+              <a href="page-contact.html">
                 <div class="pc-nav__link-text">
                   <span class="pc-nav__text-en">Contact</span>
                   <span class="pc-nav__text-ja">お問い合わせ</span>
@@ -239,7 +239,10 @@
       <div class="contact-page__inner inner">
         <div class="contact-page__wrapper">
           <div class="contact-form">
-            <form action="" method="post">
+            <form class="js-required" action="" method="post" onsubmit="return validateForm()">
+              <div id="contact-form__error-message">
+                <p>※必須項目が入力されていません。<br class="u-mobile">入力してください。</p>
+              </div>
               <dl class="contact-form__list">
                 <div class="contact-form__field">
                   <dt class="contact-form__label">
@@ -249,7 +252,7 @@
                   </dt>
                   <dd class="contact-form__data">
                     <input type="text" name="your-name" id="your-name" class="contact-form__input"
-                      placeholder="沖縄&emsp;太郎">
+                      placeholder="沖縄&emsp;太郎" required>
                   </dd>
                 </div>
                 <div class="contact-form__field">
@@ -259,7 +262,7 @@
                   </dt>
                   <dd class="contact-form__data">
                     <input type="email" name="your-email" id="your-email" class="contact-form__input"
-                      placeholder="aaa000@ggmail.com">
+                      placeholder="aaa000@ggmail.com" required>
                   </dd>
                 </div>
                 <div class="contact-form__field">
@@ -268,7 +271,7 @@
                     </label></dt>
                   <dd class="contact-form__data">
                     <input type="tel" name="your-phone" id="your-phone" class="contact-form__input"
-                      placeholder="000-0000-0000">
+                      placeholder="000-0000-0000" required>
                   </dd>
                 </div>
                 <div class="contact-form__field">
@@ -277,17 +280,18 @@
                     <span class="contact-form__required">必須</span>
                   </dt>
                   <dd class="contact-form__data">
-                    <div class="contact-form__checkbox-wrapper">
+                    <div class="contact-form__radio-wrapper">
                       <label>
-                        <input type="checkbox" name="check1" value="ダイビング講習について" class="contact-form__checkbox" checked>
+                        <input type="radio" name="radio" value="ダイビング講習について" class="contact-form__radio" checked
+                          required>
                         <span>ダイビング講習について</span>
                       </label>
                       <label>
-                        <input type="checkbox" name="check2" value="ファンデイビングについて" class="contact-form__checkbox">
-                        <span>ファンデイビングについて</span>
+                        <input type="radio" name="radio" value="ファンダイビングについて" class="contact-form__radio">
+                        <span>ファンダイビングについて</span>
                       </label>
                       <label>
-                        <input type="checkbox" name="check3" value="体験ダイビングについて" class="contact-form__checkbox">
+                        <input type="radio" name="radio" value="体験ダイビングについて" class="contact-form__radio">
                         <span>体験ダイビングについて</span>
                       </label>
                     </div>
@@ -309,20 +313,20 @@
                     </label>
                   </dt>
                   <dd class="contact-form__data">
-                    <textarea name="your-message" id="your-message" class="contact-form__textarea"></textarea>
+                    <textarea name="your-message" id="your-message" class="contact-form__textarea" required></textarea>
                   </dd>
                 </div>
-                <dd class="contact-form__data">
+                <dd class="contact-form__data-privacy">
                   <label>
-                    <input type="checkbox" class="contact-form__checkbox">
+                    <input type="checkbox" class="contact-form__checkbox" required>
                     <span class="contact-form__checkbox-text"><a href="#"
-                        target="_blank">個人情報の取り扱いについて同意のうえ送信します。</a></span>
+                        target="_blank">個人情報の取り扱い</a>について同意のうえ送信します。</span>
                   </label>
                 </dd>
               </dl>
               <div class="contact-form__submit-button">
                 <div class="submit-button">
-                  <input type="submit" value="Send" class="submit-button__input">
+                  <input type="submit" value="Send" class="submit-button__input" onclick="validateForm()">
                   <span></span>
                 </div>
               </div>

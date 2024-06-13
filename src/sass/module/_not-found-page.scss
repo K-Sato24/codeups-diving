@@ -1,0 +1,46 @@
+@use "global" as *;
+
+.not-found-page {
+  position: relative;
+  padding-bottom: rem(40);
+  font-family: $second-font-family-en;
+  color: $white;
+  text-align: center;
+  background-color: $green;
+
+  @include mq("md") {
+    padding-bottom: rem(148);
+  }
+}
+
+.not-found-page__message {
+  font-size: rem(80);
+  font-weight: $normal;
+  letter-spacing: 0.5em;
+  line-height: 1.2;
+  text-indent: rem(34);
+  text-indent: 0.5em;
+
+  @include mq("md") {
+    font-size: rem(160);
+  }
+}
+
+.not-found-page__text {
+  font-size: rem(16);
+  font-weight: $normal;
+  line-height: 1.4;
+
+  @include mq("md") {
+    margin-top: rem(24);
+    line-height: 1.5;
+  }
+}
+
+.not-found-page__button {
+  margin-top: rem(40);
+
+  @include mq("md") {
+    margin-top: rem(80);
+  }
+}

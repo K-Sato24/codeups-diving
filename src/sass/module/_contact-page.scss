@@ -2,10 +2,35 @@
 
 .contact-page {
   padding-bottom: rem(44);
+
+  @include mq("md") {
+    padding-bottom: rem(12);
+  }
 }
 
 .contact-page__wrapper {
   max-width: rem(700);
   width: 100%;
   margin-inline: auto;
+}
+
+.contact-page__message,
+.contact-page__text {
+  font-family: $base-font-family-ja;
+  font-size: rem(16);
+  color: $darkgreen;
+  text-align: center;
+}
+
+.contact-page__message {
+  line-height: 1.125;
+}
+
+.contact-page__text {
+  margin-top: rem(40);
+  line-height: 1.45;
+}
+
+.contact-page__text span {
+  display: inline-block;
 }

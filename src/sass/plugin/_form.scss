@@ -69,6 +69,10 @@ textarea {
   background: $back-cr;
   border: 1px solid $border-cr-default;
   border-radius: $border-r;
+
+  @include mq("md") {
+    margin-top: 0;
+  }
   /*↓↓↓↓不要ならコメントアウト or 削除 */
   // &:hover {  //ホバーしたときの色
   // 	border: 1px solid $border-cr;
@@ -104,55 +108,56 @@ textarea {
 // line-height: 1;
 // }
 
-[type="radio"] {
-  display: none;
+// [type="radio"] {
+//   display: none;
 
-  + span {
-    display: inline-block;
-    position: relative;
-    padding: 0 0 0 calc($radio-size + $radio-space);
-    margin: 0 $radio-space-betweenRadio 0 0;
-    font-size: $radio-fz;
-    line-height: 1;
-    cursor: pointer;
+//   + span {
+//     display: inline-block;
+//     position: relative;
+//     padding: 0 0 0 calc($radio-size + $radio-space);
+//     margin: 0 $radio-space-betweenRadio 0 0;
+//     font-size: $radio-fz;
+//     line-height: 1;
+//     cursor: pointer;
 
-    &::before {
-      position: absolute;
-      content: "";
-      top: 50%;
-      left: 0;
-      transform: translateY(-50%);
-      background: $radio-bg-cr;
-      border: 1px solid $radio-border-cr;
-      border-radius: 50%;
-      width: $radio-size;
-      height: $radio-size;
-      display: block;
-    }
+//     &::before {
+//       position: absolute;
+//       content: "";
+//       top: 50%;
+//       left: 0;
+//       transform: translateY(-50%);
+//       background: $radio-bg-cr;
+//       border: 1px solid $radio-border-cr;
+//       border-radius: 50%;
+//       width: $radio-size;
+//       height: $radio-size;
+//       display: block;
+//     }
 
-    &::after {
-      opacity: 0;
-      transition: 0.3s ease;
-    }
-  }
+//     &::after {
+//       opacity: 0;
+//       transition: 0.3s ease;
+//     }
+//   }
 
-  &:checked + span {
-    &::after {
-      position: absolute;
-      content: "";
-      top: 50%;
-      left: calc(($radio-size - $radio-size-inner) / 2);
-      transform: translateY(-50%);
-      background: $radio-bg-cr-inner;
-      border-radius: 50%;
-      width: $radio-size-inner;
-      height: $radio-size-inner;
-      display: block;
-      opacity: 1;
-    }
-  }
-}
+//   &:checked + span {
+//     &::after {
+//       position: absolute;
+//       content: "";
+//       top: 50%;
+//       left: calc(($radio-size - $radio-size-inner) / 2);
+//       transform: translateY(-50%);
+//       background: $radio-bg-cr-inner;
+//       border-radius: 50%;
+//       width: $radio-size-inner;
+//       height: $radio-size-inner;
+//       display: block;
+//       opacity: 1;
+//     }
+//   }
+// }
 
+[type="radio"],
 [type="checkbox"] {
   display: none;
 
@@ -225,12 +230,17 @@ select {
   background-color: $back-cr;
   border: 1px solid $border-cr-default;
   border-radius: $border-r;
+
+  @include mq("md") {
+    margin-top: 0;
+  }
   /*↓デフォルトのアイコンを消す場合はコメントアウト（noneにする）*/
   // appearance: auto;
   /*↓デフォルトではないアイコンを使う場合は入力する*/
   // background-image: url();
   // background-position: right 12px center;
   // background-repeat: no-repeat;
+
   &:focus {
     border: 1px solid $border-cr;
   }
@@ -265,6 +275,21 @@ textarea {
   resize: none;
 }
 
-*::placeholder {
+input::placeholder {
   color: #ddf0f1;
+}
+
+input:user-invalid,
+textarea:user-invalid {
+  border-color: #c94800;
+  background: rgba(201, 72, 0, 0.2);
+}
+
+input:user-invalid::placeholder {
+  color: $white;
+}
+
+[type="checkbox"]:user-invalid + span::before {
+  border-color: #c94800;
+  background: rgba(201, 72, 0, 0.2);
 }
