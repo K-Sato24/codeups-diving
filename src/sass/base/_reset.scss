@@ -74,7 +74,6 @@ img:not([alt]) {
   filter: blur(10px);
 }
 
-
 /* フォームリセット */
 input,
 button,
@@ -96,7 +95,8 @@ textarea {
 
 input[type="checkbox"],
 input[type="radio"] {
-  display: none;
+  // display: none; // コンソールエラーになるから×
+  opacity: 0;
 }
 
 input[type="submit"],

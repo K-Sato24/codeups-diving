@@ -88,15 +88,6 @@ box.each(function(){
     });
 });
 
-// // ページトップへ戻る
-// const pageTop = document.querySelector(".js-paage-top");
-// window.addEventListener("scroll", function() {
-//   if (100 < window.scrollY) {
-//     pageTop.classList.add("is-show");
-//   } else {
-//     pageTop.classList.remove("is-show");
-//   }
-// });
 
 // ページトップへ戻る
 const pageTop = document.querySelector(".js-paage-top");
@@ -120,51 +111,20 @@ window.addEventListener("scroll", function() {
   }
 });
 
-// // モーダル画像のパスを取得
-// $(".js-gallery-modal-open").click(function () {
-//   var src = $(this).attr("src");
-//   var cap = $(this).attr("alt");
-//   // $(".js-gallery-modal").fadeIn().css("display", "flex");
-
-//   $(".js-gallery-modal-open > img").attr("src", src);
-//   $(".caption").attr("alt", alt);
-// });
-
-
 
 // // モーダル
-// const galleryModals = document.querySelectorAll(".js-gallery-modal");
-// const modalOpenItems = document.querySelectorAll(".js-gallery-modal-open");
-
-// modalOpenItems.forEach(function (modalOpenItem) {
-//   modalOpenItem.addEventListener("click", function (e) {
-//     e.preventDefault();
-//     galleryModals.forEach(function (galleryModal) {
-//       setTimeout(function () {
-//         galleryModal.showModal();
-//         document.body.classList.add("is-fixed");
-//       }, 300);
-//     });
-//   });
-// });
-
-// galleryModals.forEach(function (galleryModal) {
-//   galleryModal.addEventListener("click", function (e) {
-//     if (e.target === galleryModal) {
-//       closeModal(galleryModal);
-//     }
-//   });
-// });
-
-// function closeModal(modal) {
-//   modal.close();
-//   document.body.classList.remove("is-fixed");
-// }
-
-// モーダル
 document.addEventListener("DOMContentLoaded", function() {
   const modal = document.querySelector(".js-gallery-modal");
+  if (!modal) {
+    // このページには .js-gallery-modal 要素が存在しないため、処理を中断
+    return;
+  }
+
   const modalImage = modal.querySelector(".about-gallery__modal-image img");
+  if (!modalImage) {
+    console.error(".about-gallery__modal-image img が見つかりません");
+    return;
+  }
 
   const modalOpenItems = document.querySelectorAll(".js-gallery-modal-open");
 
@@ -173,11 +133,13 @@ document.addEventListener("DOMContentLoaded", function() {
       e.preventDefault();
       
       const img = modalOpenItem.querySelector("img");
-      const src = img.getAttribute("src");
-      const alt = img.getAttribute("alt");
+      if (img) {
+        const src = img.getAttribute("src");
+        const alt = img.getAttribute("alt");
 
-      modalImage.setAttribute("src", src);
-      modalImage.setAttribute("alt", alt);
+        modalImage.setAttribute("src", src);
+        modalImage.setAttribute("alt", alt);
+      }
 
       setTimeout(function () {
         modal.showModal();
@@ -213,8 +175,7 @@ $(function () {
 });
 
 
-// test (accordion)
-// ----------------------------------------------------
+// FAQアコーディオン
 document.addEventListener("DOMContentLoaded", () => {
   setUpAccordion();
 });
@@ -298,6 +259,8 @@ const closingAnimKeyframes = (content) => [
   }, {
     height: 0,
     opacity: 0,
+    marginTop: 0,
+    paddingBlock: 0,
   }
 ];
 

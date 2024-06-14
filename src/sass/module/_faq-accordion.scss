@@ -7,6 +7,7 @@
 .faq-accordion__question {
   position: relative;
   padding: rem(16) rem(56) rem(16) rem(16);
+  font-size: rem(16);
   font-weight: $normal;
   line-height: 1.5;
   color: $white;
@@ -56,6 +57,7 @@
 .faq-accordion__answer {
   padding: rem(24) rem(16);
   border: 1px solid $green;
+  font-size: rem(16);
   font-weight: $normal;
   line-height: 1.42;
   color: $darkgreen;

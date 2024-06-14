@@ -8,7 +8,7 @@
   z-index: -1;
   position: absolute;
   top: rem(-24);
-  left: calc(50% - min(48vw, rem(172)));
+  left: rem(15);
   content: "";
   width: rem(120);
   aspect-ratio: 120 / 55;

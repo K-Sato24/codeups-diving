@@ -2,6 +2,7 @@
 
 .contact-form {
   font-family: $base-font-family-ja;
+  color: $darkgreen;
 }
 
 #contact-form__error-message {
@@ -42,7 +43,6 @@
   font-size: rem(16);
   font-weight: $bold;
   line-height: 1.5;
-  color: $darkgreen;
 }
 
 .contact-form__label,

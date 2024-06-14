@@ -1,6 +1,7 @@
 @use "global" as *;
 
 .not-found-page {
+  z-index: 1;
   position: relative;
   padding-bottom: rem(40);
   font-family: $second-font-family-en;
@@ -10,6 +11,29 @@
 
   @include mq("md") {
     padding-bottom: rem(148);
+  }
+}
+
+.not-found-page::before {
+  z-index: -1;
+  position: absolute;
+  top: rem(-60);
+  left: 50%;
+  transform: translateX(-50%);
+  content: "";
+  width: rem(345);
+  aspect-ratio: 329 / 295;
+  background-image: url(../images/common/404-decoration.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+
+  @include mq("md") {
+    top: rem(-110);
+    left: rem(180);
+    left: calc(50% - min(48vw, rem(540)));
+    transform: initial;
+    width: rem(698);
   }
 }
 
