@@ -7,7 +7,7 @@
 .sub-fv__bg {
   position: relative;
   width: 100%;
-  max-height: 500px;
+  max-height: 600px;
   aspect-ratio: 375 / 460;
 
   @include mq("md") {

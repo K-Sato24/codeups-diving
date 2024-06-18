@@ -47,11 +47,7 @@
   }
 }
 
-.blog-page-detail__buttons {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: rem(82);
+.blog-page-detail__pagination {
   margin-top: rem(40);
 
   @include mq("md") {

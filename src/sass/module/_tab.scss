@@ -17,19 +17,25 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: rem(6);
   color: $green;
-  border: 1px solid $green;
+  border: 1px solid currentColor;
   background-color: $white;
+  transition: 0.3s color, 0.3s background-color, 0.3s border;
 }
 
-.tab__category--reverse {
+.tab__category.is-active {
   color: $white;
   background-color: $green;
 }
 
-.tab__link:hover {
-  opacity: 0.7;
+.tab__category:hover {
+  color: $white;
+  background-color: $green;
+}
+
+.tab__link {
+  width: 100%;
+  padding: rem(6);
 }
 
 .tab__text {

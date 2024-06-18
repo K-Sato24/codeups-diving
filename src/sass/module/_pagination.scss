@@ -1,6 +1,94 @@
 @use "global" as *;
 
 .pagination {
-  height: rem(38); // 仮置き
-  text-align: center;
+  // height: rem(38); // 仮置き
+  // text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pagination--details {
+  gap: rem(82);
+}
+
+.pagination-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: rem(82);
+  margin-top: rem(40);
+
+  @include mq("md") {
+    margin-top: rem(80);
+  }
+}
+
+.pagination__prev,
+.pagination__next,
+.pagination__numbers {
+  position: relative;
+  min-width: rem(38);
+  height: rem(38);
+  // aspect-ratio: 1 / 1;
+  border: 1px solid $green;
+  transition: 0.3s background-color;
+}
+
+.pagination__prev:hover,
+.pagination__next:hover,
+.pagination__numbers:hover {
+  background-color: $green;
+}
+
+.blog-page-detail__prev-button {
+}
+
+.blog-page-detail__next-button {
+}
+
+.pagination__prev-arrow,
+.pagination__next-arrow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: rem(8);
+  aspect-ratio: 8 / 16;
+  mask-repeat: no-repeat;
+  mask-position: center center;
+  mask-size: cover;
+  background-color: $green;
+  transition: 0.3s background-color;
+}
+
+.pagination__prev-arrow {
+  mask-image: url(../images/common/prev-arrow.svg);
+}
+
+.pagination__next-arrow {
+  mask-image: url(../images/common/next-arrow.svg);
+}
+
+.pagination__prev:hover .pagination__prev-arrow,
+.pagination__next:hover .pagination__next-arrow {
+  background-color: $white;
+}
+
+.pagination__numbers {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: rem(4);
+  color: $green;
+  transition: 0.3s color;
+}
+
+.pagination__numbers.current {
+  color: $white;
+  background-color: $green;
+}
+
+.pagination__numbers:hover {
+  color: $white;
 }
