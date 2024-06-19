@@ -239,15 +239,24 @@
       <div class="information-page__inner inner">
         <div class="information-page__content information-tab">
           <div class="information-tab__list">
-            <button class="information-tab__button information-tab__button--left js-tab-button is-active"><span
-                class="u-desktop"></span>ライセンス<br class="u-mobile">講習</button>
-            <button class="information-tab__button information-tab__button--center js-tab-button"><span
-                class="u-desktop"></span>ファン<br class="u-mobile">ダイビング</button>
-            <button class="information-tab__button information-tab__button--right js-tab-button"><span
-                class="u-desktop"></span>体験<br class="u-mobile">ダイビング</button>
+            <button class="information-tab__button information-tab__button--left js-tab-button is-active">
+              <!-- <a href="?tab=license_course"> -->
+              <span class="u-desktop"></span>ライセンス<br class="u-mobile">講習
+              <!-- </a> -->
+            </button>
+            <button class="information-tab__button information-tab__button--center js-tab-button">
+              <!-- <a href="?tab=fun_diving"> -->
+              <span class="u-desktop"></span>ファン<br class="u-mobile">ダイビング
+              <!-- </a> -->
+            </button>
+            <button class="information-tab__button information-tab__button--right js-tab-button">
+              <!-- <a href="?tab=trial_diving"> -->
+              <span class="u-desktop"></span>体験<br class="u-mobile">ダイビング
+              <!-- </a> -->
+            </button>
           </div>
           <div class="information-tab__contents">
-            <div class="information-tab__content js-tab-content is-active">
+            <div id="license_course" class="information-tab__content js-tab-content is-active">
               <div class="information-tab__content-wrapper">
                 <div class="information-tab__text-block">
                   <h2 class="information-tab__title">ライセンス講習</h2>
@@ -261,7 +270,7 @@
                 </div>
               </div>
             </div>
-            <div class="information-tab__content js-tab-content">
+            <div id="fun_diving" class="information-tab__content js-tab-content">
               <div class="information-tab__content-wrapper">
                 <div class="information-tab__text-block">
                   <h2 class="information-tab__title">ファンダイビング</h2>
@@ -275,7 +284,7 @@
                 </div>
               </div>
             </div>
-            <div class="information-tab__content js-tab-content">
+            <div id="trial_diving" class="information-tab__content js-tab-content">
               <div class="information-tab__content-wrapper">
                 <div class="information-tab__text-block">
                   <h2 class="information-tab__title">体験ダイビング</h2>
@@ -391,13 +400,13 @@
                     <a href="#">ダイビング情報</a>
                     <ul class="nav-menu__detail-items">
                       <li class="nav-menu__detail-item">
-                        <a href="#">ライセンス講習</a>
+                        <a href="page-information.html?tab=license_course">ライセンス講習</a>
                       </li>
                       <li class="nav-menu__detail-item">
-                        <a href="#">体験ダイビング</a>
+                        <a href="page-information.html?tab=trial_diving">体験ダイビング</a>
                       </li>
                       <li class="nav-menu__detail-item">
-                        <a href="#">ファンダイビング</a>
+                        <a href="page-information.html?tab=fun_diving">ファンダイビング</a>
                       </li>
                     </ul>
                   </li>
@@ -418,13 +427,13 @@
                   <a href="#">料金一覧</a>
                   <ul class="nav-menu__detail-items">
                     <li class="nav-menu__detail-item">
-                      <a href="#">ライセンス講習</a>
+                      <a href="page-information.html?tab=license_course">ライセンス講習</a>
                     </li>
                     <li class="nav-menu__detail-item">
-                      <a href="#">体験ダイビング</a>
+                      <a href="page-information.html?tab=trial_diving">体験ダイビング</a>
                     </li>
                     <li class="nav-menu__detail-item">
-                      <a href="#">ファンダイビング</a>
+                      <a href="page-information.html?tab=fun_diving">ファンダイビング</a>
                     </li>
                   </ul>
                 </li>

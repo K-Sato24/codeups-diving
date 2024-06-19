@@ -15,6 +15,8 @@
   align-items: center;
   justify-content: center;
   gap: rem(8);
+  width: 100%;
+  height: 100%;
   padding: rem(10);
   font-family: $base-font-family-ja;
   font-size: rem(14);
@@ -30,6 +32,7 @@
   }
 }
 
+.information-tab__button:hover,
 .information-tab__button.is-active {
   color: $white;
   background-color: $green;
@@ -44,8 +47,10 @@
   mask-position: center center;
   mask-size: cover;
   background-color: $green;
+  transition: 0.3s background-color;
 }
 
+.information-tab__button:hover span::before,
 .information-tab__button.is-active span::before {
   background-color: $white;
 }

@@ -160,19 +160,139 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 });
 
-// information タブ
+// // informationタブ
+// $(function () {
+//   const tabButton = $(".js-tab-button"),
+//       tabContent = $(".js-tab-content");
+
+//   let headerHeight = $('.header').outerHeight(); // 初回のヘッダーの高さを取得
+
+//   function updateHeaderHeight() {
+//       headerHeight = $('.header').outerHeight();
+//   }
+
+//   function activateTab(tabName) {
+//       tabButton.removeClass("is-active");
+//       tabContent.removeClass("is-active");
+
+//       $(`[href='?tab=${tabName}']`).parent().addClass("is-active");
+//       $(`#${tabName}`).addClass("is-active");
+
+//       // スクロール位置を調整
+//       const targetOffset = $(`#${tabName}`).offset().top - headerHeight;
+//       $('html, body').animate({ scrollTop: targetOffset }, 200);
+//   }
+
+//   // ページ読み込み時にクエリパラメーターを確認してタブを表示
+//   const params = new URLSearchParams(window.location.search);
+//   const tab = params.get('tab');
+//   if (tab) {
+//       activateTab(tab);
+//   }
+
+//   // 画面幅が変わったときにヘッダーの高さを再取得
+//   $(window).on('resize', function () {
+//       updateHeaderHeight();
+//   });
+
+//   // 初回ロード時にヘッダーの高さを設定
+//   updateHeaderHeight();
+
+//   // ページ読み込み時にスクロール位置を調整
+//   $(window).on('load', function() {
+//       const hash = window.location.hash.substring(1);
+//       if (hash) {
+//           const targetOffset = $(`#${hash}`).offset().top - headerHeight;
+//           $('html, body').animate({ scrollTop: targetOffset }, 200);
+//       }
+//   });
+
+//   // タブクリック時の処理（is-activeクラスのつけ外しのみ）
+//   tabButton.on("click", function () {
+//       let index = tabButton.index(this);
+
+//       tabButton.removeClass("is-active");
+//       $(this).addClass("is-active");
+//       tabContent.removeClass("is-active");
+//       tabContent.eq(index).addClass("is-active");
+//   });
+// }); // タブからでもページ遷移させる（aタグ使う）なら、こちらで実装
 $(function () {
   const tabButton = $(".js-tab-button"),
-    tabContent = $(".js-tab-content");
-  tabButton.on("click", function () {
-    let index = tabButton.index(this);
+      tabContent = $(".js-tab-content");
 
-    tabButton.removeClass("is-active");
-    $(this).addClass("is-active");
-    tabContent.removeClass("is-active");
-    tabContent.eq(index).addClass("is-active");
+  let headerHeight = $('.header').outerHeight(); // 初回のヘッダーの高さを取得
+
+  function updateHeaderHeight() {
+      headerHeight = $('.header').outerHeight();
+  }
+
+  function activateTab(tabName) {
+      tabButton.removeClass("is-active");
+      tabContent.removeClass("is-active");
+
+      // タブボタンとタブコンテンツを一致させる
+      tabButton.each(function (index) {
+          if (tabContent.eq(index).attr("id") === tabName) {
+              $(this).addClass("is-active");
+              tabContent.eq(index).addClass("is-active");
+
+              // スクロール位置を調整
+              const targetOffset = tabContent.eq(index).offset().top - headerHeight;
+              $('html, body').animate({ scrollTop: targetOffset }, 200);
+          }
+      });
+  }
+
+  // ページ読み込み時にクエリパラメーターを確認してタブを表示
+  const params = new URLSearchParams(window.location.search);
+  const tab = params.get('tab');
+  if (tab) {
+      activateTab(tab);
+  }
+
+  // 画面幅が変わったときにヘッダーの高さを再取得
+  $(window).on('resize', function () {
+      updateHeaderHeight();
+  });
+
+  // 初回ロード時にヘッダーの高さを設定
+  updateHeaderHeight();
+
+  // ページ読み込み時にスクロール位置を調整
+  $(window).on('load', function() {
+      const hash = window.location.hash.substring(1);
+      if (hash) {
+          const targetOffset = $(`#${hash}`).offset().top - headerHeight;
+          $('html, body').animate({ scrollTop: targetOffset }, 200);
+      }
+  });
+
+  // タブクリック時の処理（is-activeクラスのつけ外しのみ）
+  tabButton.on("click", function () {
+      let index = tabButton.index(this);
+
+      tabButton.removeClass("is-active");
+      $(this).addClass("is-active");
+      tabContent.removeClass("is-active");
+      tabContent.eq(index).addClass("is-active");
   });
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // FAQアコーディオン
@@ -277,7 +397,7 @@ const openingAnimKeyframes = (content) => [
   }
 ];
 
-
+// フォームバリデーション（静的）
 function validateForm() {
   var form = document.querySelector('.js-required');
   var requiredFields = form.querySelectorAll('[required]');
@@ -298,3 +418,12 @@ function validateForm() {
     return true; // フォームを送信
   }
 }
+
+
+// informationのタブ切り替え    const params = new URLSearchParams(window.location.search);
+    // const tab = params.get('tab');
+    // if (tab) {
+    //     document.querySelector(`#tab${tab}`).classList.add('is-active');
+    // } else {
+    //     document.querySelector('.tab-content').classList.add('is-active');
+    // }

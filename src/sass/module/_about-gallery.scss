@@ -1,8 +1,5 @@
 @use "global" as *;
 
-.about-gallery {
-}
-
 .about-gallery__title {
   text-align: center;
 }
@@ -12,17 +9,15 @@
   grid-template-columns: 1fr;
   gap: rem(8);
   margin-top: rem(40);
+  grid-auto-flow: dense; // 空いているスペースを埋める
 
   @include mq("md") {
     grid-template-columns: calc(492 / 1080 * 100%) calc(80 / 1080 * 100%) calc(
         492 / 1080 * 100%
       );
-    grid-template-rows: repeat(4, 1fr);
+    grid-template-rows: 1fr;
     margin-top: rem(80);
   }
-}
-
-.about-gallery__image {
 }
 
 .about-gallery__modal {
@@ -64,44 +59,28 @@
   object-fit: contain;
 }
 
-.about-gallery__image01 {
+.about-gallery__image {
+  cursor: pointer;
+  overflow: clip;
+
   @include mq("md") {
-    grid-row: 1 / 3;
-    grid-column: 1 / 2;
+    grid-column: span 2;
+    grid-row: span 1;
   }
 }
 
-.about-gallery__image02 {
+.about-gallery__image--tall {
   @include mq("md") {
-    grid-row: 1 / 2;
-    grid-column: 2 / 4;
+    grid-column: span 1;
+    grid-row: span 2;
   }
 }
 
-.about-gallery__image03 {
-  @include mq("md") {
-    grid-row: 2 / 3;
-    grid-column: 2 / 4;
-  }
+.about-gallery__image img {
+  transition: 0.3s transform, 0.3s opacity;
 }
 
-.about-gallery__image04 {
-  @include mq("md") {
-    grid-row: 3 / 4;
-    grid-column: 1 / 3;
-  }
-}
-
-.about-gallery__image05 {
-  @include mq("md") {
-    grid-row: 4 / 5;
-    grid-column: 1 / 3;
-  }
-}
-
-.about-gallery__image06 {
-  @include mq("md") {
-    grid-row: 3 / 5;
-    grid-column: 3 / 4;
-  }
+.about-gallery__image:hover img {
+  transform: scale(1.1);
+  opacity: 0.7;
 }
