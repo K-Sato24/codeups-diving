@@ -1,0 +1,13 @@
+@use "global" as *;
+
+.price-tables__item {
+  width: 100%;
+}
+
+.price-tables__item + .price-tables__item {
+  margin-top: rem(40);
+
+  @include mq("md") {
+    margin-top: rem(80);
+  }
+}

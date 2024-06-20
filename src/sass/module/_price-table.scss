@@ -1,43 +1,39 @@
 @use "global" as *;
 
-.price-table,
-.price-table td,
-.price-table th {
-  border: 1px solid $green;
-  border-collapse: collapse;
-  font-family: $base-font-family-ja;
-  font-size: rem(16);
-  line-height: 1.5;
-}
-
-.price-table td,
-.price-table th {
-  padding: rem(4) rem(16);
-}
-
-.price-table td {
-  background-color: $white;
-  font-weight: $normal;
-  color: $darkgreen;
-}
-
-.price-table th {
-  width: 100%;
-  font-weight: $bold;
-  color: $white;
-  background-color: $green;
+.price-table {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 
   @include mq("md") {
-    width: calc(200 / 702 * 100%);
+    flex-direction: row;
   }
 }
 
-.price-table__th-box {
+.price-table__head {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background-color: $green;
+
+  @include mq("md") {
+    width: calc(200 / 700 * 100%);
+  }
+}
+
+.price-table__title {
   position: relative;
   display: inline-flex;
   align-items: center;
   min-height: rem(31);
   padding-left: rem(32);
+
+  font-family: $base-font-family-ja;
+  font-size: rem(16);
+  font-weight: $bold;
+  line-height: 1.5;
+  color: $white;
 
   @include mq("md") {
     padding-left: 0;
@@ -45,7 +41,7 @@
   }
 }
 
-.price-table__th-box::before {
+.price-table__title::before {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -68,34 +64,48 @@
   }
 }
 
-.price-table__title-pc {
-  display: none;
+.price-table__body {
+  width: 100%;
 
   @include mq("md") {
-    display: table-cell;
+    width: calc(500 / 700 * 100%);
   }
 }
 
-.price-table__title-sp {
-  @include mq("md") {
-    display: none;
-  }
+.price-table__body,
+.price-table__body td {
+  border: 1px solid $green;
+  border-collapse: collapse;
+  font-family: $base-font-family-ja;
+  font-size: rem(16);
+  line-height: 1.5;
+}
+
+.price-table__body td,
+.price-table__head {
+  padding: rem(4) rem(16);
+}
+
+.price-table__body td {
+  background-color: $white;
+  font-weight: $normal;
+  color: $darkgreen;
 }
 
 .price-table__name {
   width: calc(240 / 345 * 100%);
 
   @include mq("md") {
-    width: calc(340 / 702 * 100%);
+    width: calc(340 / 700 * 100%);
   }
 }
 
 .price-table__price {
-  width: calc(106 / 345 * 100%);
+  width: calc(105 / 345 * 100%);
   text-align: right;
 
   @include mq("md") {
-    width: calc(162 / 702 * 100%);
+    width: calc(160 / 700 * 100%);
   }
 }
 
@@ -108,5 +118,6 @@
 
   @include mq("md") {
     justify-content: flex-start;
+    text-align: left;
   }
 }

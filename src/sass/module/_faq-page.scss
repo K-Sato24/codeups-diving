@@ -1,15 +1,6 @@
 @use "global" as *;
 
-.faq-page__items {
-  width: 100%;
-
-  @include mq("md") {
-    width: calc(700px / 1080px * 100%);
-    max-width: 100%;
-    margin-inline: auto;
-  }
-}
-
+// cards敵に、他のクラス名にする
 .faq-page__item + .faq-page__item {
   margin-top: rem(40);
 }

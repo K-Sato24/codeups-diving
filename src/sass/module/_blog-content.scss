@@ -1,21 +1,6 @@
 @use "global" as *;
 
-.blog-page-detail__wrapper {
-  @include mq("md") {
-    display: flex;
-    gap: rem(86);
-  }
-}
-
-.blog-page-detail__content {
-  width: 100%;
-
-  @include mq("md") {
-    width: calc(700 / 1080 * 100%);
-  }
-}
-
-.blog-page-detail__date {
+.blog-content__date {
   vertical-align: top;
   font-family: $base-font-family-en;
   font-size: rem(14);
@@ -23,7 +8,7 @@
   color: $darkgreen;
 }
 
-.blog-page-detail__title {
+.blog-content__title {
   margin-top: rem(8);
   padding-bottom: rem(4);
   border-bottom: 1px solid $green;
@@ -38,16 +23,7 @@
   }
 }
 
-.blog-page-detail__aside {
-  margin-top: rem(80);
-
-  @include mq("md") {
-    margin-top: 0;
-    width: calc(294 / 1080 * 100%);
-  }
-}
-
-.blog-page-detail__pagination {
+.blog-content__pagination {
   margin-top: rem(40);
 
   @include mq("md") {
@@ -55,8 +31,8 @@
   }
 }
 
-.blog-page-detail__prev-button,
-.blog-page-detail__next-button {
+.blog-content__prev-button,
+.blog-content__next-button {
   position: relative;
   width: rem(38);
   aspect-ratio: 1 / 1;
@@ -64,19 +40,13 @@
   transition: 0.3s background-color;
 }
 
-.blog-page-detail__prev-button:hover,
-.blog-page-detail__next-button:hover {
+.blog-content__prev-button:hover,
+.blog-content__next-button:hover {
   background-color: $green;
 }
 
-.blog-page-detail__prev-button {
-}
-
-.blog-page-detail__next-button {
-}
-
-.blog-page-detail__prev-arrow,
-.blog-page-detail__next-arrow {
+.blog-content__prev-arrow,
+.blog-content__next-arrow {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -90,15 +60,31 @@
   transition: 0.3s background-color;
 }
 
-.blog-page-detail__prev-arrow {
+.blog-content__prev-arrow {
   mask-image: url(../images/common/prev-arrow.svg);
 }
 
-.blog-page-detail__next-arrow {
+.blog-content__next-arrow {
   mask-image: url(../images/common/next-arrow.svg);
 }
 
-.blog-page-detail__prev-button:hover .blog-page-detail__prev-arrow,
-.blog-page-detail__next-button:hover .blog-page-detail__next-arrow {
+.blog-content__prev-button:hover .blog-content__prev-arrow,
+.blog-content__next-button:hover .blog-content__next-arrow {
   background-color: $white;
+}
+
+.blog-content__img {
+  margin-top: rem(24);
+  width: 100%;
+  aspect-ratio: 700 / 468;
+
+  @include mq("md") {
+    margin-top: rem(40);
+  }
+}
+
+.blog-content__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }

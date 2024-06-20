@@ -238,7 +238,7 @@
     <div class="voice-page sub-page layout-sub-page">
       <div class="voice-page__inner inner">
         <div class="voice-page__tab tab">
-          <div class="tab__category tab__category--reverse">
+          <div class="tab__category is-active">
             <a href="#" class="tab__link">
               <p class="tab__text">ALL</p>
             </a>
@@ -261,9 +261,9 @@
         </div>
 
         <div class="voice-page__wrapper">
-          <div class="voice-page__items sub-page-cards">
+          <div class="voice-page__items voice-cards">
             <!-- ループ開始 -->
-            <div class="sub-page-cards__item voice-card">
+            <div class="voice-cards__item voice-card">
               <div class="voice-card__header">
                 <div class="voice-card__text-block">
                   <div class="voice-card__info">
@@ -398,9 +398,40 @@
             </div>
           </div>
         </div>
-        <div class="pagination layout-pagination">
-          ページネーション
+        <!-- ページネーション -->
+        <div class="campaign-page__pagination pagination layout-pagination">
+          <div class="pagination__prev disabled">
+            <a href="#">
+              <span class="pagination__prev-arrow"></span>
+            </a>
+          </div>
+          <div class="pagination__numbers">
+            <div class="pagination__number current">
+              <a href="#">1</a>
+            </div>
+            <div class="pagination__number">
+              <a href="#">2</a>
+            </div>
+            <div class="pagination__number">
+              <a href="#">3</a>
+            </div>
+            <div class="pagination__number">
+              <a href="#">4</a>
+            </div>
+            <div class="pagination__number u-desktop">
+              <a href="#">5</a>
+            </div>
+            <div class="pagination__number u-desktop">
+              <a href="#">6</a>
+            </div>
+          </div>
+          <div class="pagination__next">
+            <a href="#">
+              <span class="pagination__next-arrow"></span>
+            </a>
+          </div>
         </div>
+
       </div>
     </div>
 

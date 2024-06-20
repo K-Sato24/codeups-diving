@@ -1,0 +1,13 @@
+@use "global" as *;
+
+.sub-inner {
+  width: 100%;
+  max-width: calc(600px + $padding-sp * 2);
+  margin-inline: auto;
+  padding-inline: $padding-sp;
+
+  @include mq("md") {
+    max-width: calc(700px + $padding-pc * 2);
+    padding-inline: $padding-pc;
+  }
+}

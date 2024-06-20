@@ -96,12 +96,10 @@
 
 .voice-card__img {
   width: calc(151 / 313 * 100%);
-  padding-top: rem(9);
   aspect-ratio: 151 / 117;
 
   @include mq("md") {
     width: calc(180 / 472 * 100%);
-    padding: 0;
     aspect-ratio: 180 / 140;
   }
 }
