@@ -1,9 +1,0 @@
-@use "global" as *;
-
-.privacy-policy-page {
-  padding-bottom: rem(28);
-
-  @include mq("md") {
-    padding-bottom: 0;
-  }
-}

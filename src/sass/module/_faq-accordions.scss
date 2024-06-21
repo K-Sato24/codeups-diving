@@ -1,6 +1,6 @@
 @use "global" as *;
 
 // cards敵に、他のクラス名にする
-.faq-page__item + .faq-page__item {
+.faq-accordions__item + .faq-accordions__item {
   margin-top: rem(40);
 }

@@ -161,6 +161,7 @@ textarea {
 [type="checkbox"] {
   // display: none; // コンソールエラーになるので×
   // appearance: none;
+  position: absolute;
   opacity: 0;
 
   + span {

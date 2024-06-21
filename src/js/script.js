@@ -161,6 +161,8 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 // // informationタブ
+
+  // タブからでもページ遷移させる（aタグ使う）なら、こちらで実装↓
 // $(function () {
 //   const tabButton = $(".js-tab-button"),
 //       tabContent = $(".js-tab-content");
@@ -216,7 +218,9 @@ document.addEventListener("DOMContentLoaded", function() {
 //       tabContent.removeClass("is-active");
 //       tabContent.eq(index).addClass("is-active");
 //   });
-// }); // タブからでもページ遷移させる（aタグ使う）なら、こちらで実装
+// });
+
+
 $(function () {
   const tabButton = $(".js-tab-button"),
       tabContent = $(".js-tab-content");
@@ -279,8 +283,44 @@ $(function () {
   });
 });
 
+// Price パラメータページ遷移（スクロール）
+
+window.addEventListener('DOMContentLoaded', (event) => {
+  const urlParams = new URLSearchParams(window.location.search);
+  const tab = urlParams.get('tab');
+  if (tab) {
+      const element = document.getElementById(tab);
+      if (element) {
+          const headerHeight = document.querySelector('header').offsetHeight;
+          const elementPosition = element.getBoundingClientRect().top;
+          const offsetPosition = elementPosition - headerHeight;
+
+          window.scrollTo({
+              top: offsetPosition,
+              behavior: 'smooth'
+          });
+      }
+  }
+});
 
 
+
+// Contact お問い合わせ項目 reqired
+// name属性でチェックボックスを取得する
+const checkBoxes = $('[name="inquiry-item"]');
+
+//チェックボックスの状態変化時に処理する
+checkBoxes.on('change', () => {
+
+ //チェック済チェックボックス数をカウント
+ const isCheckedCount = checkBoxes.filter(':checked');
+
+ isCheckedCount.length > 0
+    //カウントが1以上の場合は全チェックボックスのrequired属性を削除する
+    ? checkBoxes.attr('required', false)
+    //カウントが0の場合は全チェックボックスにrequired属性を付与する
+    : checkBoxes.attr('required', true);
+});
 
 
 

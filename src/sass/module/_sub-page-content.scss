@@ -1,15 +1,8 @@
 @use "global" as *;
 
 .sub-page-content {
-  width: 100%;
-  max-width: 600px;
-  margin-inline: auto;
   font-family: $base-font-family-ja;
   color: $darkgreen;
-}
-
-.sub-page-content--wide {
-  max-width: 800px;
 }
 
 .sub-page-content__title {

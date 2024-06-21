@@ -11,3 +11,9 @@
     padding-inline: $padding-pc;
   }
 }
+
+.sub-inner--wide {
+  @include mq("md") {
+    max-width: calc(800px + $padding-pc * 2);
+  }
+}
