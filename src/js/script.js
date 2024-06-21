@@ -161,75 +161,9 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 // // informationタブ
-
-  // タブからでもページ遷移させる（aタグ使う）なら、こちらで実装↓
-// $(function () {
-//   const tabButton = $(".js-tab-button"),
-//       tabContent = $(".js-tab-content");
-
-//   let headerHeight = $('.header').outerHeight(); // 初回のヘッダーの高さを取得
-
-//   function updateHeaderHeight() {
-//       headerHeight = $('.header').outerHeight();
-//   }
-
-//   function activateTab(tabName) {
-//       tabButton.removeClass("is-active");
-//       tabContent.removeClass("is-active");
-
-//       $(`[href='?tab=${tabName}']`).parent().addClass("is-active");
-//       $(`#${tabName}`).addClass("is-active");
-
-//       // スクロール位置を調整
-//       const targetOffset = $(`#${tabName}`).offset().top - headerHeight;
-//       $('html, body').animate({ scrollTop: targetOffset }, 200);
-//   }
-
-//   // ページ読み込み時にクエリパラメーターを確認してタブを表示
-//   const params = new URLSearchParams(window.location.search);
-//   const tab = params.get('tab');
-//   if (tab) {
-//       activateTab(tab);
-//   }
-
-//   // 画面幅が変わったときにヘッダーの高さを再取得
-//   $(window).on('resize', function () {
-//       updateHeaderHeight();
-//   });
-
-//   // 初回ロード時にヘッダーの高さを設定
-//   updateHeaderHeight();
-
-//   // ページ読み込み時にスクロール位置を調整
-//   $(window).on('load', function() {
-//       const hash = window.location.hash.substring(1);
-//       if (hash) {
-//           const targetOffset = $(`#${hash}`).offset().top - headerHeight;
-//           $('html, body').animate({ scrollTop: targetOffset }, 200);
-//       }
-//   });
-
-//   // タブクリック時の処理（is-activeクラスのつけ外しのみ）
-//   tabButton.on("click", function () {
-//       let index = tabButton.index(this);
-
-//       tabButton.removeClass("is-active");
-//       $(this).addClass("is-active");
-//       tabContent.removeClass("is-active");
-//       tabContent.eq(index).addClass("is-active");
-//   });
-// });
-
-
-$(function () {
+$(document).ready(function() {
   const tabButton = $(".js-tab-button"),
       tabContent = $(".js-tab-content");
-
-  let headerHeight = $('.header').outerHeight(); // 初回のヘッダーの高さを取得
-
-  function updateHeaderHeight() {
-      headerHeight = $('.header').outerHeight();
-  }
 
   function activateTab(tabName) {
       tabButton.removeClass("is-active");
@@ -240,10 +174,6 @@ $(function () {
           if (tabContent.eq(index).attr("id") === tabName) {
               $(this).addClass("is-active");
               tabContent.eq(index).addClass("is-active");
-
-              // スクロール位置を調整
-              const targetOffset = tabContent.eq(index).offset().top - headerHeight;
-              $('html, body').animate({ scrollTop: targetOffset }, 200);
           }
       });
   }
@@ -255,23 +185,6 @@ $(function () {
       activateTab(tab);
   }
 
-  // 画面幅が変わったときにヘッダーの高さを再取得
-  $(window).on('resize', function () {
-      updateHeaderHeight();
-  });
-
-  // 初回ロード時にヘッダーの高さを設定
-  updateHeaderHeight();
-
-  // ページ読み込み時にスクロール位置を調整
-  $(window).on('load', function() {
-      const hash = window.location.hash.substring(1);
-      if (hash) {
-          const targetOffset = $(`#${hash}`).offset().top - headerHeight;
-          $('html, body').animate({ scrollTop: targetOffset }, 200);
-      }
-  });
-
   // タブクリック時の処理（is-activeクラスのつけ外しのみ）
   tabButton.on("click", function () {
       let index = tabButton.index(this);
@@ -281,15 +194,21 @@ $(function () {
       tabContent.removeClass("is-active");
       tabContent.eq(index).addClass("is-active");
   });
+
+  // 初回ロード時にタブの状態を更新
+  if (tab) {
+      activateTab(tab);
+  }
 });
 
-// Price パラメータページ遷移（スクロール）
 
+
+// Price パラメータページ遷移（スクロール）
 window.addEventListener('DOMContentLoaded', (event) => {
   const urlParams = new URLSearchParams(window.location.search);
-  const tab = urlParams.get('tab');
-  if (tab) {
-      const element = document.getElementById(tab);
+  const table = urlParams.get('table');
+  if (table) {
+      const element = document.getElementById(table);
       if (element) {
           const headerHeight = document.querySelector('header').offsetHeight;
           const elementPosition = element.getBoundingClientRect().top;
@@ -302,7 +221,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
       }
   }
 });
-
 
 
 // Contact お問い合わせ項目 reqired
@@ -321,18 +239,6 @@ checkBoxes.on('change', () => {
     //カウントが0の場合は全チェックボックスにrequired属性を付与する
     : checkBoxes.attr('required', true);
 });
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 // FAQアコーディオン
@@ -431,6 +337,8 @@ const openingAnimKeyframes = (content) => [
   {
     height: 0,
     opacity: 0,
+    marginTop: 0,
+    paddingBlock: 0,
   }, {
     height: content.offsetHeight + 'px',
     opacity: 1,
