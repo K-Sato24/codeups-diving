@@ -152,15 +152,6 @@
   }
 }
 
-.contact-form__checkbox-text a {
-  transition: 0.3s color, 0.3s background-color;
-}
-
-.contact-form__checkbox-text a:hover {
-  border-bottom: 1px solid $green;
-  color: $green;
-}
-
 .contact-form__submit-button {
   margin-top: rem(24);
   text-align: center;

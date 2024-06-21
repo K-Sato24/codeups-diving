@@ -32,6 +32,10 @@
   }
 }
 
+.information-tab__button.is-active {
+  pointer-events: none;
+}
+
 .information-tab__button:hover,
 .information-tab__button.is-active {
   color: $white;
