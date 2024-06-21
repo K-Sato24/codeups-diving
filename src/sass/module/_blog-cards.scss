@@ -11,7 +11,7 @@
   }
 }
 
-.blog-cards--sub {
+.blog-cards--2col {
   @include mq("md") {
     grid-template-columns: 1fr 1fr;
     row-gap: rem(80);
