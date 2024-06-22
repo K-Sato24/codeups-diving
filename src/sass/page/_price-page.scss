@@ -1,0 +1,7 @@
+@use "global" as *;
+
+.price-page__inner.inner {
+  @include mq("md") {
+    max-width: calc(700px + $padding-pc * 2);
+  }
+}

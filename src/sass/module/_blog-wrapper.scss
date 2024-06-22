@@ -1,18 +1,18 @@
 @use "global" as *;
 
-.sub-wrapper {
+.blog-page__wrapper {
   @include mq("md") {
     display: flex;
     gap: rem(80);
   }
 }
 
-.sub-wrapper--detail {
-  .sub-wrapper {
+.blog-page--detail {
+  .blog-page {
     gap: rem(86);
   }
 
-  .sub-wrapper__container {
+  .blog-page__container {
     width: 100%;
 
     @include mq("md") {
@@ -21,7 +21,7 @@
   }
 }
 
-.sub-wrapper__container {
+.blog-page__container {
   max-width: 100%;
   width: calc(333 / 345 * 100%);
   margin-inline: auto;
@@ -31,7 +31,7 @@
   }
 }
 
-.sub-wrapper__aside {
+.blog-page__aside {
   max-width: 100%;
   width: calc(294 / 345 * 100%);
   margin-top: rem(80);
@@ -43,11 +43,11 @@
   }
 }
 
-.sub-wrapper__aside-item + .sub-wrapper__aside-item {
+.blog-page__aside-item + .blog-page__aside-item {
   margin-top: rem(80);
 }
 
-.sub-wrapper__aside-title {
+.blog-page__aside-title {
   position: relative;
   padding: rem(14) 0 rem(12) rem(82);
   font-family: $base-font-family-ja;
@@ -64,7 +64,7 @@
   );
 }
 
-.sub-wrapper__aside-title::before {
+.blog-page__aside-title::before {
   position: absolute;
   top: 0;
   left: rem(24);
@@ -78,11 +78,11 @@
   mask-size: 86%;
 }
 
-.sub-wrapper__aside-content {
+.blog-page__aside-content {
   margin-top: rem(24);
 }
 
-.sub-wrapper__aside-button {
+.blog-page__aside-button {
   margin-top: rem(40);
   text-align: center;
 }

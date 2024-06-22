@@ -1,0 +1,7 @@
+@use "global" as *;
+
+.privacy-policy-page__inner.inner {
+  @include mq("md") {
+    max-width: calc(800px + $padding-pc * 2);
+  }
+}

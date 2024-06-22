@@ -211,8 +211,16 @@ window.addEventListener('DOMContentLoaded', (event) => {
       const element = document.getElementById(table);
       if (element) {
           const headerHeight = document.querySelector('header').offsetHeight;
+          const elementStyle = window.getComputedStyle(element);
+          let marginTop = parseFloat(elementStyle.marginTop);
+
+          // margin-topが0の場合は40pxのスペースを確保
+          if (marginTop === 0) {
+              marginTop = 40;
+          }
+
           const elementPosition = element.getBoundingClientRect().top;
-          const offsetPosition = elementPosition - headerHeight;
+          const offsetPosition = elementPosition - headerHeight - marginTop;
 
           window.scrollTo({
               top: offsetPosition,
@@ -221,6 +229,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
       }
   }
 });
+
+
 
 
 // Contact お問い合わせ項目 reqired

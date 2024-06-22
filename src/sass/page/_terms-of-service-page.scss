@@ -1,0 +1,7 @@
+@use "global" as *;
+
+.terms-of-service-page__inner.inner {
+  @include mq("md") {
+    max-width: calc(800px + $padding-pc * 2);
+  }
+}
