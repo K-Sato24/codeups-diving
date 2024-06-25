@@ -2,6 +2,6 @@
 
 .price-page__inner.inner {
   @include mq("md") {
-    max-width: calc(700px + $padding-pc * 2);
+    max-width: rem(700 + strip-unit($padding-pc) * 2);
   }
 }
