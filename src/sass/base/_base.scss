@@ -13,11 +13,11 @@
     font-size: 16px;
 
     @include mq("md") {
-      font-size: vw(strip-unit($inner), 16);
+      font-size: vw(strip-unit($inner-pc), 16);
     }
 
     //inner~max-screen
-    @media (min-width: $inner) {
+    @media (min-width: $inner-pc) {
       font-size: 16px;
     }
   }
@@ -26,8 +26,8 @@
   html {
     font-size: 16px;
 
-    @media (max-width: $inner) {
-      font-size: vw(strip-unit($inner), 16);
+    @media (max-width: $inner-pc) {
+      font-size: vw(strip-unit($inner-pc), 16);
     }
 
     @include mq("md") {
