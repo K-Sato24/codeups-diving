@@ -3,21 +3,7 @@
 .blog-page__wrapper {
   @include mq("md") {
     display: flex;
-    gap: rem(80);
-  }
-}
-
-.blog-page--detail {
-  .blog-page {
     gap: rem(86);
-  }
-
-  .blog-page__container {
-    width: 100%;
-
-    @include mq("md") {
-      width: calc(700 / 1080 * 100%);
-    }
   }
 }
 
@@ -27,7 +13,7 @@
   margin-inline: auto;
 
   @include mq("md") {
-    width: calc(706 / 1080 * 100%);
+    width: calc(700 / 1080 * 100%);
   }
 }
 

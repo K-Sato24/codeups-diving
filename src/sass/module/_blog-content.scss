@@ -59,6 +59,9 @@
 
 .blog-content__body img {
   width: 100%;
+  height: 100%;
+  object-fit: contain;
+  aspect-ratio: 700 / 468;
 }
 
 .blog-content__body p {
