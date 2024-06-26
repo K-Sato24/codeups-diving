@@ -40,10 +40,10 @@
 }
 
 .blog__inner.inner {
-  padding-inline: 21px;
+  padding-inline: rem(21);
 
   @include mq("md") {
-    padding-inline: 25px;
+    padding-inline: rem(25);
   }
 }
 
