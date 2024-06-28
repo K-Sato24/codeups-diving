@@ -4,7 +4,7 @@
   </a>
 </div>
 
-<footer class="footer layout-footer">
+<footer class="footer <?php if (!is_page('404')) : ?>layout-footer<?php endif; ?>">
   <div class="footer__inner inner">
     <div class="footer__content">
       <div class="footer__logo">

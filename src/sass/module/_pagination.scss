@@ -7,22 +7,6 @@
   gap: rem(40);
 }
 
-.pagination--details {
-  gap: rem(82);
-}
-
-.pagination-links {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: rem(82);
-  margin-top: rem(40);
-
-  @include mq("md") {
-    margin-top: rem(80);
-  }
-}
-
 .pagination__prev,
 .pagination__next,
 .pagination__number {
@@ -87,17 +71,75 @@
   background-color: $white;
 }
 
-.pagination__numbers {
+.wp-pagenavi {
   display: flex;
+  align-items: center;
+  justify-content: center;
   gap: rem(12);
 }
 
-.pagination__number {
+.wp-pagenavi a,
+.wp-pagenavi .current {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: rem(38);
+  height: rem(38);
+  padding: rem(4);
+  border: 1px solid $green;
   color: $green;
-  transition: 0.3s color;
+  background-color: $white;
+  transition: 0.3s background-color, 0.3s color;
 }
 
-.pagination__number.current a {
-  color: $white;
+.wp-pagenavi a:hover,
+.wp-pagenavi .current {
   background-color: $green;
+  color: $white;
+}
+
+.wp-pagenavi .previouspostslink {
+  margin-right: rem(28);
+}
+
+.wp-pagenavi .nextpostslink {
+  margin-left: rem(28);
+}
+
+.wp-pagenavi .previouspostslink,
+.wp-pagenavi .nextpostslink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: rem(38);
+  height: rem(38);
+  position: relative;
+}
+
+.wp-pagenavi .previouspostslink .pagination__prev-arrow,
+.wp-pagenavi .nextpostslink .pagination__next-arrow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: rem(8);
+  aspect-ratio: 8 / 16;
+  mask-repeat: no-repeat;
+  mask-position: center center;
+  mask-size: cover;
+  background-color: $green;
+  transition: 0.3s background-color;
+}
+
+.wp-pagenavi .previouspostslink .pagination__prev-arrow {
+  mask-image: url(../images/common/prev-arrow.svg);
+}
+
+.wp-pagenavi .nextpostslink .pagination__next-arrow {
+  mask-image: url(../images/common/next-arrow.svg);
+}
+
+.wp-pagenavi .previouspostslink:hover .pagination__prev-arrow,
+.wp-pagenavi .nextpostslink:hover .pagination__next-arrow {
+  background-color: $white;
 }

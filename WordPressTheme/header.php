@@ -9,7 +9,7 @@
   <?php wp_head(); ?>
 </head>
 
-<body <?php body_class(); ?>>
+<body>
   <?php wp_body_open(); ?>
   <header class="header js-header js-header-anim">
     <div class="header__inner">

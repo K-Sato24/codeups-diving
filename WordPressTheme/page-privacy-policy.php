@@ -22,15 +22,12 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Gotu&family=Lato&family=Noto+Sans+JP:wght@100..900&family=Noto+Serif+JP:wght@200..900&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Gotu&family=Lato&family=Noto+Sans+JP:wght@100..900&family=Noto+Serif+JP:wght@200..900&display=swap" rel="stylesheet">
   <!-- css -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <link rel="stylesheet" href="./assets/css/style.css" />
   <!-- JavaScript -->
-  <script defer src="https://code.jquery.com/jquery-3.7.1.min.js"
-    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <script defer src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
   <script defer src="<?php echo get_theme_file_uri(); ?>/assets/js/jquery.inview.min.js"></script>
@@ -227,12 +224,11 @@
       <div class="sub-fv__inner">
         <div class="sub-fv__bg">
           <picture>
-            <source media="(min-width: 768px)" srcset="./assets/images/common/sub-fv-pc.jpg">
-            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/sub-fv.jpg"
-              alt="海中のイソギンチャクと、大量に泳ぐオレンジの魚の様子">
+            <source media="(min-width: 768px)" srcset="./assets/images/common/sub-fv-pc.webp">
+            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/sub-fv.webp" alt="海中のイソギンチャクと、大量に泳ぐオレンジの魚の様子">
           </picture>
         </div>
-        <p class="sub-fv__title">Site&nbsp;MAP</p>
+        <p class="sub-fv__title">Privacy&nbsp;Policy</p>
       </div>
     </div>
 
@@ -242,104 +238,54 @@
       </div>
     </div>
 
-    <div class="site-map-page sub-page layout-sub-page">
-      <div class="site-map-page__inner inner">
-        <div class="site-map-page__content">
-          <nav class="site-map-page__nav nav-menu nav-menu--dark">
-            <div class="nav-menu__columns">
-              <div class="nav-menu__column">
-                <div class="nav-menu__block">
-                  <ul class="nav-menu__items">
-                    <li class="nav-menu__item">
-                      <a href="archive-campaign.html">キャンペーン</a>
-                      <ul class="nav-menu__detail-items">
-                        <li class="nav-menu__detail-item">
-                          <a href="archive-campaign.html">ライセンス取得</a>
-                        </li>
-                        <li class="nav-menu__detail-item">
-                          <a href="archive-campaign.html">貸切体験ダイビング</a>
-                        </li>
-                        <li class="nav-menu__detail-item">
-                          <a href="archive-campaign.html">ナイトダイビング</a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li class="nav-menu__item">
-                      <a href="page-about.html">私たちについて</a>
-                    </li>
-                  </ul>
-                </div>
-                <div class="nav-menu__column">
-                  <div class="nav-menu__block">
-                    <ul class="nav-menu__items">
-                      <li class="nav-menu__item">
-                        <a href="page-information.html">ダイビング情報</a>
-                        <ul class="nav-menu__detail-items">
-                          <li class="nav-menu__detail-item">
-                            <a href="page-information.html?tab=license_course">ライセンス講習</a>
-                          </li>
-                          <li class="nav-menu__detail-item">
-                            <a href="page-information.html?tab=fun_diving">ファンダイビング</a>
-                          </li>
-                          <li class="nav-menu__detail-item">
-                            <a href="page-information.html?tab=trial_diving">体験ダイビング</a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li class="nav-menu__item">
-                        <a href="home.html">ブログ</a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div class="nav-menu__column">
-                <div class="nav-menu__block">
-                  <ul class="nav-menu__items">
-                    <li class="nav-menu__item">
-                      <a href="archive-voice.html">お客様の声</a>
-                    </li>
-                    <li class="nav-menu__item">
-                      <a href="page-price.html">料金一覧</a>
-                      <ul class="nav-menu__detail-items">
-                        <li class="nav-menu__detail-item">
-                          <a href="page-information.html?tab=license_course">ライセンス講習</a>
-                        </li>
-                        <li class="nav-menu__detail-item">
-                          <a href="page-information.html?tab=trial_diving">体験ダイビング</a>
-                        </li>
-                        <li class="nav-menu__detail-item">
-                          <a href="page-information.html?tab=fun_diving">ファンダイビング</a>
-                        </li>
-                        <li class="nav-menu__detail-item">
-                          <a href="page-price.html?tab=special_diving">スペシャルダイビング</a>
-                        </li>
-                      </ul>
-                    </li>
-                  </ul>
-                </div>
-                <div class="nav-menu__block">
-                  <ul class="nav-menu__items">
-                    <li class="nav-menu__item">
-                      <a href="page-faq.html">よくある質問</a>
-                    </li>
-                    <li class="nav-menu__item">
-                      <a href="page-privacy-policy.html"><span>プライバシー</span><span>ポリシー</span></a>
-                    </li>
-                    <li class="nav-menu__item">
-                      <a href="page-terms-of-service.html">利用規約</a>
-                    </li>
-                    <li class="nav-menu__item">
-                      <a href="page-site-map.html">サイトマップ</a>
-                    </li>
-                    <li class="nav-menu__item">
-                      <a href="page-contact.html">お問い合わせ</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
+    <div class="privacy-policy-page sub-page layout-sub-page">
+      <div class="privacy-policy-page__inner inner">
+        <div class="privacy-policy-page__content sub-page-content">
+          <h2 class="sub-page-content__title">プライバシーポリシー</h2>
+          <div class="sub-page-content__box">
+            <p class="sub-page-content__text">以下は、Webサイトで使用するための一般的なプライバシーポリシーの例です。</p>
+            <div class="sub-page-content__block">
+              <ol class="sub-page-content__items">
+                <li class="sub-page-content__item">概要
+                  当社は、お客様の個人情報を大切に扱い、個人情報保護に努めています。本プライバシーポリシーには、当社がどのように個人情報を収集し、使用するかについて説明しています。</li>
+                <li class="sub-page-content__item">収集する情報 当社は、お客様が当社のサービスを利用する際に、お名前、住所、電話番号、メールアドレスなどの個人情報を収集する場合があります。
+                </li>
+              </ol>
             </div>
-          </nav>
+            <div class="sub-page-content__block">
+              <p class="sub-page-content__text">また、当社のサイトを閲覧する際に、IPアドレス、ブラウザの種類、言語設定、アクセス日時などの情報も収集する場合があります。</p>
+              <ol class="sub-page-content__items">
+                <li class="sub-page-content__item">情報の使用 当社は、お客様から収集した個人情報を、以下の目的で使用することがあります。</li>
+              </ol>
+            </div>
+            <div class="sub-page-content__block">
+              <p class="sub-page-content__text">・お客様からのお問い合わせやサポートの提供 ・当社のサービスや製品の提供 ・当社のサイトの改善や新しいサービスの開発
+                ・法律や規制に基づく義務の履行
+              </p>
+              <ol class="sub-page-content__items">
+                <li class="sub-page-content__item">情報の共有 当社は、お客様から収集した個人情報を、以下の場合に限り第三者に提供することがあります。</li>
+              </ol>
+            </div>
+            <div class="sub-page-content__block">
+              <p class="sub-page-content__text">・お客様の同意がある場合 ・法律や規制に基づく場合 ・当社が信頼できると判断した業務委託先に必要な範囲で提供する場合</p>
+              <ol class="sub-page-content__items">
+                <li class="sub-page-content__item">セキュリティ
+                  当社は、お客様の個人情報を適切に保護するために、適切な安全対策を講じます。個人情報への不正アクセス、紛失、改ざん、漏洩等を防止するための措置を講じます。</li>
+                <li class="sub-page-content__item">Cookieの使用
+                  当社は、お客様により良いサイトの利用体験を提供するために、Cookieを使用する場合があります。Cookieは、お客様が当社のサイトを訪れた際に、お客様のブラウザに保存される小さなデータファイルです。Cookieには個人情報は含まれません。
+                </li>
+                <li class="sub-page-content__item">お問い合わせ先 当社のプライバシーポリシーに関するご質問やご意見は、以下の連絡先までお問い合わせください。 [会社名] [住所]
+                  [電話番号]
+                  [メールアドレス]</li>
+                <li class="sub-page-content__item">プライバシーポリシーの変更
+                  当社は、必要に応じて本プライバシーポリシーを変更することがあります。変更後のプライバシーポリシーは、当社のサイトに掲載された時点から効力を有するものとします。変更があった場合、当社は適切な手段でお知らせします。
+                </li>
+              </ol>
+            </div>
+            <div class="sub-page-content__block">
+              <p class="sub-page-content__text">以上が、当社のプライバシーポリシーの概要です。お客様の個人情報保護のために、常に努めてまいります。</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -350,8 +296,7 @@
           <div class="contact__column1">
             <div class="contact__logo">
               <div class="contact__logo-img">
-                <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/logo-color.svg" alt="CodeUps"
-                  loading="lazy" decoding="async">
+                <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/logo-color.svg" alt="CodeUps" loading="lazy" decoding="async">
               </div>
             </div>
             <div class="contact__info">
@@ -363,10 +308,7 @@
               </div>
               <div class="contact__map">
                 <div class="contact__map-area">
-                  <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14318.399369583425!2d127.67581646365001!3d26.20969240422214!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34e569fcdb7de475%3A0xdb7930b1f41e45b9!2z44K744OW44OzLeOCpOODrOODluODsyDpgqPopofmpZrovrrlupc!5e0!3m2!1sja!2sjp!4v1715948422572!5m2!1sja!2sjp"
-                    width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14318.399369583425!2d127.67581646365001!3d26.20969240422214!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34e569fcdb7de475%3A0xdb7930b1f41e45b9!2z44K744OW44OzLeOCpOODrOODluODsyDpgqPopofmpZrovrrlupc!5e0!3m2!1sja!2sjp!4v1715948422572!5m2!1sja!2sjp" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
               </div>
             </div>
@@ -395,21 +337,18 @@
       <div class="footer__content">
         <div class="footer__logo">
           <a href="#" class="footer__logo-link">
-            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/logo.svg" alt="CodeUps" loading="lazy"
-              decoding="async">
+            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/logo.svg" alt="CodeUps" loading="lazy" decoding="async">
           </a>
         </div>
         <div class="footer__sns-content">
           <div class="footer__sns">
             <a href="https://www.facebook.com/" class="footer__sns-link" target="_blank">
-              <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/facebook-icon.svg" alt="Facebookのリンク"
-                loading="lazy" decoding="async">
+              <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/facebook-icon.svg" alt="Facebookのリンク" loading="lazy" decoding="async">
             </a>
           </div>
           <div class="footer__sns">
             <a href="https://www.instagram.com/" class="footer__sns-link" target="_blank">
-              <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/instagram-icon.svg" alt="Instagramのリンク"
-                loading="lazy" decoding="async">
+              <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/instagram-icon.svg" alt="Instagramのリンク" loading="lazy" decoding="async">
             </a>
           </div>
         </div>
@@ -510,8 +449,7 @@
         </div>
       </nav>
     </div>
-    <small
-      class="footer__copyright">Copyright&nbsp;&copy;&nbsp;2021&nbsp;-&nbsp;2023&nbsp;CodeUps&nbsp;LLC.&nbsp;All&nbsp;Rights&nbsp;Reserved.</small>
+    <small class="footer__copyright">Copyright&nbsp;&copy;&nbsp;2021&nbsp;-&nbsp;2023&nbsp;CodeUps&nbsp;LLC.&nbsp;All&nbsp;Rights&nbsp;Reserved.</small>
   </footer>
 
   <!-- ページトップ -->

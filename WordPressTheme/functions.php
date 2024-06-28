@@ -123,3 +123,103 @@ function add_noindex_to_404()
   }
 }
 add_action('wp_head', 'add_noindex_to_404');
+
+
+// wp_pagenavi()の出力をキャプチャしてカスタマイズ
+// テンプレート内でwp_pagenavi()の代わりにcustom_wp_pagenavi()を呼び出す
+function custom_wp_pagenavi()
+{
+  // 出力をキャプチャ
+  ob_start();
+  if (function_exists('wp_pagenavi')) {
+    wp_pagenavi();
+  }
+  $pagination_html = ob_get_clean();
+
+  // 前のリンクと次のリンクをチェック
+  $previous_link = get_previous_posts_link();
+  $next_link = get_next_posts_link();
+
+  // 前のリンクが存在しない場合に擬似リンクを追加
+  if (!$previous_link) {
+    $previous_disabled = '<div class="pagination__prev disabled">
+    <a href="/">
+      <span class="pagination__prev-arrow"></span>
+    </a>
+  </div>';
+    $pagination_html = $previous_disabled . $pagination_html;
+  }
+
+  // 次のリンクが存在しない場合に擬似リンクを追加
+  if (!$next_link) {
+    $next_disabled = '<div class="pagination__next disabled">
+    <a href="/">
+      <span class="pagination__next-arrow"></span>
+    </a>
+  </div>';
+    $pagination_html .= $next_disabled;
+  }
+
+  // カスタマイズされたHTMLを出力
+  echo $pagination_html;
+}
+
+// 人気記事を表示するために、アクセス数を記録する
+// 投稿のビュー数を設定
+function set_post_views($postID)
+{
+  $count_key = 'post_views_count';
+  $count = get_post_meta($postID, $count_key, true);
+  if ($count == '') {
+    $count = 0;
+    delete_post_meta($postID, $count_key);
+    add_post_meta($postID, $count_key, '0');
+  } else {
+    $count++;
+    update_post_meta($postID, $count_key, $count);
+  }
+}
+
+// 投稿が表示されるたびにビュー数を追跡
+function track_post_views($post_id)
+{
+  if (!is_single()) return;
+  if (empty($post_id)) {
+    global $post;
+    $post_id = $post->ID;
+  }
+  set_post_views($post_id);
+}
+add_action('wp_head', 'track_post_views');
+
+//記事のアクセス数を表示
+function getPostViews($postID)
+{
+  $count_key = 'post_views_count';
+  $count = get_post_meta($postID, $count_key, true);
+  if ($count == '') {
+    delete_post_meta($postID, $count_key);
+    add_post_meta($postID, $count_key, '0');
+    return "0 View";
+  }
+  return $count . ' Views';
+}
+
+//記事のアクセス数を保存
+function setPostViews($postID)
+{
+  $count_key = 'post_views_count';
+  $count = get_post_meta($postID, $count_key, true);
+  if ($count == '') {
+    $count = 0;
+    delete_post_meta($postID, $count_key);
+    add_post_meta($postID, $count_key, '0');
+  } else {
+    $count++;
+    update_post_meta($postID, $count_key, $count);
+  }
+}
+remove_action('wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0);
+
+// カスタム投稿のシングルページを生成しない
+add_filter('campaign_rewrite_rules', '__return_empty_array');

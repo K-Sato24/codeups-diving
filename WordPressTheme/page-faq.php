@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-  <meta name="contact-format-detection" content="telephone=no" />
+  <meta name="format-detection" content="telephone=no" />
   <meta name="robots" content="noindex" />
   <!-- meta情報 -->
   <title>CodeUps</title>
@@ -22,15 +22,12 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Gotu&family=Lato&family=Noto+Sans+JP:wght@100..900&family=Noto+Serif+JP:wght@200..900&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Gotu&family=Lato&family=Noto+Sans+JP:wght@100..900&family=Noto+Serif+JP:wght@200..900&display=swap" rel="stylesheet">
   <!-- css -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <link rel="stylesheet" href="./assets/css/style.css" />
   <!-- JavaScript -->
-  <script defer src="https://code.jquery.com/jquery-3.7.1.min.js"
-    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <script defer src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
   <script defer src="<?php echo get_theme_file_uri(); ?>/assets/js/jquery.inview.min.js"></script>
@@ -227,12 +224,11 @@
       <div class="sub-fv__inner">
         <div class="sub-fv__bg">
           <picture>
-            <source media="(min-width: 768px)" srcset="./assets/images/common/sub-fv-pc.jpg">
-            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/sub-fv.jpg"
-              alt="海中のイソギンチャクと、大量に泳ぐオレンジの魚の様子">
+            <source media="(min-width: 768px)" srcset="./assets/images/common/faq-fv-pc.webp">
+            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/faq-fv.webp" alt="透き通った青い海と、白い砂浜があるビーチの様子">
           </picture>
         </div>
-        <p class="sub-fv__title">Site&nbsp;MAP</p>
+        <p class="sub-fv__title">FAQ</p>
       </div>
     </div>
 
@@ -242,116 +238,90 @@
       </div>
     </div>
 
-    <div class="site-map-page sub-page layout-sub-page">
-      <div class="site-map-page__inner inner">
-        <div class="site-map-page__content">
-          <nav class="site-map-page__nav nav-menu nav-menu--dark">
-            <div class="nav-menu__columns">
-              <div class="nav-menu__column">
-                <div class="nav-menu__block">
-                  <ul class="nav-menu__items">
-                    <li class="nav-menu__item">
-                      <a href="archive-campaign.html">キャンペーン</a>
-                      <ul class="nav-menu__detail-items">
-                        <li class="nav-menu__detail-item">
-                          <a href="archive-campaign.html">ライセンス取得</a>
-                        </li>
-                        <li class="nav-menu__detail-item">
-                          <a href="archive-campaign.html">貸切体験ダイビング</a>
-                        </li>
-                        <li class="nav-menu__detail-item">
-                          <a href="archive-campaign.html">ナイトダイビング</a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li class="nav-menu__item">
-                      <a href="page-about.html">私たちについて</a>
-                    </li>
-                  </ul>
-                </div>
-                <div class="nav-menu__column">
-                  <div class="nav-menu__block">
-                    <ul class="nav-menu__items">
-                      <li class="nav-menu__item">
-                        <a href="page-information.html">ダイビング情報</a>
-                        <ul class="nav-menu__detail-items">
-                          <li class="nav-menu__detail-item">
-                            <a href="page-information.html?tab=license_course">ライセンス講習</a>
-                          </li>
-                          <li class="nav-menu__detail-item">
-                            <a href="page-information.html?tab=fun_diving">ファンダイビング</a>
-                          </li>
-                          <li class="nav-menu__detail-item">
-                            <a href="page-information.html?tab=trial_diving">体験ダイビング</a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li class="nav-menu__item">
-                        <a href="home.html">ブログ</a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
+    <div class="faq-page sub-page layout-sub-page">
+      <div class="faq-page__inner inner">
+        <div class="faq-page__items faq-accordions">
+          <div class="faq-accordions__item">
+            <details class="faq-accordion js-details is-opened" open>
+              <summary class="faq-accordion__question js-summary">
+                ここに質問が入ります。
+              </summary>
+              <div class="faq-accordion__answer js-accordion-content">
+                ここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入ります
               </div>
-              <div class="nav-menu__column">
-                <div class="nav-menu__block">
-                  <ul class="nav-menu__items">
-                    <li class="nav-menu__item">
-                      <a href="archive-voice.html">お客様の声</a>
-                    </li>
-                    <li class="nav-menu__item">
-                      <a href="page-price.html">料金一覧</a>
-                      <ul class="nav-menu__detail-items">
-                        <li class="nav-menu__detail-item">
-                          <a href="page-information.html?tab=license_course">ライセンス講習</a>
-                        </li>
-                        <li class="nav-menu__detail-item">
-                          <a href="page-information.html?tab=trial_diving">体験ダイビング</a>
-                        </li>
-                        <li class="nav-menu__detail-item">
-                          <a href="page-information.html?tab=fun_diving">ファンダイビング</a>
-                        </li>
-                        <li class="nav-menu__detail-item">
-                          <a href="page-price.html?tab=special_diving">スペシャルダイビング</a>
-                        </li>
-                      </ul>
-                    </li>
-                  </ul>
-                </div>
-                <div class="nav-menu__block">
-                  <ul class="nav-menu__items">
-                    <li class="nav-menu__item">
-                      <a href="page-faq.html">よくある質問</a>
-                    </li>
-                    <li class="nav-menu__item">
-                      <a href="page-privacy-policy.html"><span>プライバシー</span><span>ポリシー</span></a>
-                    </li>
-                    <li class="nav-menu__item">
-                      <a href="page-terms-of-service.html">利用規約</a>
-                    </li>
-                    <li class="nav-menu__item">
-                      <a href="page-site-map.html">サイトマップ</a>
-                    </li>
-                    <li class="nav-menu__item">
-                      <a href="page-contact.html">お問い合わせ</a>
-                    </li>
-                  </ul>
-                </div>
+            </details>
+          </div>
+          <div class="faq-accordions__item">
+            <details class="faq-accordion js-details">
+              <summary class="faq-accordion__question js-summary">
+                ここに質問が入ります。
+              </summary>
+              <div class="faq-accordion__answer js-accordion-content">
+                ここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入ります
               </div>
-            </div>
-          </nav>
+            </details>
+          </div>
+          <div class="faq-accordions__item">
+            <details class="faq-accordion js-details">
+              <summary class="faq-accordion__question js-summary">
+                ここに質問が入ります。
+              </summary>
+              <div class="faq-accordion__answer js-accordion-content">
+                ここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入ります
+              </div>
+            </details>
+          </div>
+          <div class="faq-accordions__item">
+            <details class="faq-accordion js-details">
+              <summary class="faq-accordion__question js-summary">
+                ここに質問が入ります。
+              </summary>
+              <div class="faq-accordion__answer js-accordion-content">
+                ここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入ります
+              </div>
+            </details>
+          </div>
+          <div class="faq-accordions__item">
+            <details class="faq-accordion js-details">
+              <summary class="faq-accordion__question js-summary">
+                ここに質問が入ります。
+              </summary>
+              <div class="faq-accordion__answer js-accordion-content">
+                ここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入ります
+              </div>
+            </details>
+          </div>
+          <div class="faq-accordions__item">
+            <details class="faq-accordion js-details">
+              <summary class="faq-accordion__question js-summary">
+                ここに質問が入ります。
+              </summary>
+              <div class="faq-accordion__answer js-accordion-content">
+                ここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入ります
+              </div>
+            </details>
+          </div>
+          <div class="faq-accordions__item">
+            <details class="faq-accordion js-details">
+              <summary class="faq-accordion__question js-summary">
+                ここに質問が入ります。
+              </summary>
+              <div class="faq-accordion__answer js-accordion-content">
+                ここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入ります
+              </div>
+            </details>
+          </div>
         </div>
       </div>
     </div>
 
-    <section class="contact layout-section">
+    <section class="contact layout-contact-sub">
       <div class="contact__inner inner">
         <div class="contact__wrapper">
           <div class="contact__column1">
             <div class="contact__logo">
               <div class="contact__logo-img">
-                <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/logo-color.svg" alt="CodeUps"
-                  loading="lazy" decoding="async">
+                <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/logo-color.svg" alt="CodeUps" loading="lazy" decoding="async">
               </div>
             </div>
             <div class="contact__info">
@@ -363,10 +333,7 @@
               </div>
               <div class="contact__map">
                 <div class="contact__map-area">
-                  <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14318.399369583425!2d127.67581646365001!3d26.20969240422214!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34e569fcdb7de475%3A0xdb7930b1f41e45b9!2z44K744OW44OzLeOCpOODrOODluODsyDpgqPopofmpZrovrrlupc!5e0!3m2!1sja!2sjp!4v1715948422572!5m2!1sja!2sjp"
-                    width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14318.399369583425!2d127.67581646365001!3d26.20969240422214!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34e569fcdb7de475%3A0xdb7930b1f41e45b9!2z44K744OW44OzLeOCpOODrOODluODsyDpgqPopofmpZrovrrlupc!5e0!3m2!1sja!2sjp!4v1715948422572!5m2!1sja!2sjp" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
               </div>
             </div>
@@ -395,21 +362,18 @@
       <div class="footer__content">
         <div class="footer__logo">
           <a href="#" class="footer__logo-link">
-            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/logo.svg" alt="CodeUps" loading="lazy"
-              decoding="async">
+            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/logo.svg" alt="CodeUps" loading="lazy" decoding="async">
           </a>
         </div>
         <div class="footer__sns-content">
           <div class="footer__sns">
             <a href="https://www.facebook.com/" class="footer__sns-link" target="_blank">
-              <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/facebook-icon.svg" alt="Facebookのリンク"
-                loading="lazy" decoding="async">
+              <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/facebook-icon.svg" alt="Facebookのリンク" loading="lazy" decoding="async">
             </a>
           </div>
           <div class="footer__sns">
             <a href="https://www.instagram.com/" class="footer__sns-link" target="_blank">
-              <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/instagram-icon.svg" alt="Instagramのリンク"
-                loading="lazy" decoding="async">
+              <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/instagram-icon.svg" alt="Instagramのリンク" loading="lazy" decoding="async">
             </a>
           </div>
         </div>
@@ -510,8 +474,7 @@
         </div>
       </nav>
     </div>
-    <small
-      class="footer__copyright">Copyright&nbsp;&copy;&nbsp;2021&nbsp;-&nbsp;2023&nbsp;CodeUps&nbsp;LLC.&nbsp;All&nbsp;Rights&nbsp;Reserved.</small>
+    <small class="footer__copyright">Copyright&nbsp;&copy;&nbsp;2021&nbsp;-&nbsp;2023&nbsp;CodeUps&nbsp;LLC.&nbsp;All&nbsp;Rights&nbsp;Reserved.</small>
   </footer>
 
   <!-- ページトップ -->
