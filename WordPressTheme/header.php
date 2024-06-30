@@ -29,11 +29,13 @@
   <header class="header js-header js-header-anim">
     <div class="header__inner">
       <div class="header__content">
-        <h1 class="header__logo">
+        <?php $header_tag = custom_header_tag(); ?>
+        <<?php echo $header_tag; ?> class="header__logo">
           <a href="<?php echo esc_url(home_url("/")) ?>" class="header__logo-link js-header-logo">
             <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/logo.svg" alt="CodeUps">
           </a>
-        </h1>
+        </<?php echo $header_tag; ?>>
+
         <nav class="header__pc-nav pc-nav u-desktop">
           <ul class="pc-nav-items">
             <li class="pc-nav__item">

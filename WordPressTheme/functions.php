@@ -375,3 +375,13 @@ function Change_objectlabel()
 }
 add_action('init', 'Change_objectlabel');
 add_action('admin_menu', 'Change_menulabel');
+
+// ブログ記事ではロゴをdivタグに変更
+function custom_header_tag()
+{
+  if (is_single()) {
+    return 'div';
+  } else {
+    return 'h1';
+  }
+}
