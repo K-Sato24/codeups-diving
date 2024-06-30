@@ -30,7 +30,45 @@ jQuery(function ($) {
     }
     ;
   });
+
+
+// Contact Form 7 で必須項目未入力で送信できない場合、
+// フォーム上部にスクロールさせる
+  var form = $('.wpcf7-form');
+  var targetId = '#contact-form__error-message'; // スクロールしたいIDを指定
+  var headerHeight = $('.header').outerHeight(); // ヘッダーの高さを取得（'.header' はヘッダーのセレクタに置き換えてください）
+
+  // フォームが存在するかチェック
+  if (form.length > 0) {
+    // MutationObserverを使用してクラスの変更を監視
+    var observer = new MutationObserver(function(mutations) {
+      mutations.forEach(function(mutation) {
+        // .invalid クラスが付与された場合の処理
+        if ($(mutation.target).hasClass('invalid')) {
+          // 特定のIDの位置を取得し、ヘッダーの高さを考慮してスクロール位置を調整
+          var position = $(targetId).offset().top - headerHeight;
+          $('html, body').animate({
+            scrollTop: position
+          }, 300); // 300ミリ秒でアニメーション
+        }
+      });
+    });
+
+    // 各フォーム要素に対してMutationObserverを設定
+    form.each(function() {
+      observer.observe(this, {
+        attributes: true,         // 属性の変化を監視
+        attributeFilter: ['class'] // 監視する属性をクラスに限定
+      });
+    });
+  }
+
+
+
+
 });
+
+// --------------上 jQuery ------------------
 
 // fvスライダー
 function initSwiper() {

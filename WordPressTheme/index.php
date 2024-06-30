@@ -271,7 +271,7 @@
         <div class="campaign-button-next js-campaign-swiper-button-next swiper-button-next u-desktop"></div>
       </div>
       <div class="campaign__button">
-        <a href="#" class="button">
+        <a href="<?php echo esc_url(home_url("/")) ?>" class="button">
           View&nbsp;more
           <span></span>
         </a>
@@ -301,7 +301,7 @@
               ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br>ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキスト
             </p>
             <div class="about-content__button">
-              <a href="#" class="button">
+              <a href="<?php echo esc_url(home_url("/")) ?>" class="button">
                 View&nbsp;more
                 <span></span>
               </a>
@@ -327,7 +327,7 @@
           <p class="information__text text">
             当店はダイビングライセンス（Cカード）世界最大の教育機関PADIの「正規店」として店舗登録されています。<br>正規登録店として、安心安全に初めての方でも安心安全にライセンス取得をサポート致します。</p>
           <div class="information__button">
-            <a href="#" class="button">
+            <a href="<?php echo esc_url(home_url("/")) ?>" class="button">
               View&nbsp;more
               <span></span>
             </a>
@@ -346,7 +346,7 @@
 
       <div class="blog__items blog-cards">
         <div class="blog-cards__item blog-card">
-          <a href="#" class="blog-card__link">
+          <a href="<?php echo esc_url(home_url("/")) ?>" class="blog-card__link">
             <div class="blog-card__header">
               <div class="blog-card__img">
                 <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/blog01.webp" alt="海中にあるピンク色のサンゴの様子" loading="lazy" decoding="async">
@@ -361,7 +361,7 @@
           </a>
         </div>
         <div class="blog-cards__item blog-card">
-          <a href="#" class="blog-card__link">
+          <a href="<?php echo esc_url(home_url("/")) ?>" class="blog-card__link">
             <div class="blog-card__header">
               <div class="blog-card__img">
                 <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/blog02.webp" alt="海中をこちらに向かって泳ぐウミガメの様子" loading="lazy" decoding="async">
@@ -376,7 +376,7 @@
           </a>
         </div>
         <div class="blog-cards__item blog-card">
-          <a href="#" class="blog-card__link">
+          <a href="<?php echo esc_url(home_url("/")) ?>" class="blog-card__link">
             <div class="blog-card__header">
               <div class="blog-card__img">
                 <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/blog03.webp" alt="イソギンチャクの中にいるカクレクマノミの様子" loading="lazy" decoding="async">
@@ -393,7 +393,7 @@
 
       </div>
       <div class="blog__button">
-        <a href="#" class="button">
+        <a href="<?php echo esc_url(home_url("/")) ?>" class="button">
           View&nbsp;more
           <span></span>
         </a>
@@ -452,7 +452,7 @@
         </div>
       </div>
       <div class="voice__button">
-        <a href="#" class="button">
+        <a href="<?php echo esc_url(home_url("/")) ?>" class="button">
           View&nbsp;more
           <span></span>
         </a>
@@ -557,7 +557,7 @@
         </div>
       </div>
       <div class="price__button">
-        <a href="#" class="button">
+        <a href="<?php echo esc_url(home_url("/")) ?>" class="button">
           View&nbsp;more
           <span></span>
         </a>

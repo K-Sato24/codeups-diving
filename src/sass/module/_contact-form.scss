@@ -66,7 +66,7 @@
   background-color: #c94800;
 }
 
-.contact-form__radio-wrapper {
+.contact-form__checkbox-wrapper {
   display: flex;
   flex-direction: column;
   gap: rem(3);
@@ -74,6 +74,29 @@
 
   @include mq("md") {
     margin-top: rem(3);
+  }
+}
+
+.wpcf7-list-item {
+  display: block;
+  margin: 0;
+}
+
+.contact-form__checkbox {
+  // WPカスタマイズ用
+  .wpcf7-list-item {
+    display: block;
+    margin: 0;
+  }
+
+  .wpcf7-list-item:not(:first-child) {
+    margin-top: rem(4);
+  }
+
+  .wpcf7-list-item-label {
+    &::after {
+      transition: none;
+    }
   }
 }
 
@@ -109,48 +132,87 @@
     width: 100%;
     text-align: center;
   }
-}
 
-[type="checkbox"] + .contact-form__checkbox-text {
-  display: inline-block;
-  margin-top: rem(40);
+  // WPカスタマイズ用
+  [type="checkbox"] + .wpcf7-list-item-label {
+    position: relative;
+    display: inline-block;
+    margin-top: rem(40);
+    margin-right: 0;
+    padding-left: rem(30);
+    font-size: rem(14);
+    line-height: 1.57143;
 
-  // margin-inline: auto;
-  font-size: rem(14);
-  line-height: 1.5714;
+    @include mq("md") {
+      margin-top: rem(80);
+      padding-left: rem(38);
+    }
 
-  @include mq("md") {
-    margin-top: rem(80);
+    &::before {
+      top: rem(11);
+      left: 0;
+      width: rem(22);
+      height: rem(22);
+    }
+
+    &::after {
+      transition: none;
+    }
+  }
+
+  [type="checkbox"]:checked + .wpcf7-list-item-label {
+    &::after {
+      top: rem(11);
+      left: rem(1);
+      margin-top: -0.2em;
+      margin-left: 0.2em;
+      width: rem(16);
+      height: rem(9);
+      transition: none;
+    }
   }
 }
 
-[type="checkbox"] + .contact-form__checkbox-text {
-  margin-right: 0;
-  padding-left: rem(30);
-  line-height: 1.57143;
+// [type="checkbox"] + .contact-form__checkbox-text {
+//   display: inline-block;
+//   margin-top: rem(40);
 
-  @include mq("md") {
-    padding-left: rem(38);
-  }
+//   // margin-inline: auto;
+//   font-size: rem(14);
+//   line-height: 1.5714;
 
-  &::before {
-    top: rem(11);
-    left: 0;
-    width: rem(22);
-    height: rem(22);
-  }
-}
+//   @include mq("md") {
+//     margin-top: rem(80);
+//   }
+// }
 
-[type="checkbox"]:checked + .contact-form__checkbox-text {
-  &::after {
-    top: rem(11);
-    left: rem(1);
-    margin-top: -0.2em;
-    margin-left: 0.2em;
-    width: rem(16);
-    height: rem(9);
-  }
-}
+// [type="checkbox"] + .contact-form__checkbox-text {
+//   margin-right: 0;
+//   padding-left: rem(30);
+//   line-height: 1.57143;
+
+//   @include mq("md") {
+//     padding-left: rem(38);
+//   }
+
+//   &::before {
+//     top: rem(11);
+//     left: 0;
+//     width: rem(22);
+//     height: rem(22);
+//   }
+// }
+
+// [type="checkbox"]:checked + .contact-form__checkbox-text {
+//   &::after {
+//     top: rem(11);
+//     left: rem(1);
+//     margin-top: -0.2em;
+//     margin-left: 0.2em;
+//     width: rem(16);
+//     height: rem(9);
+//   }
+// }
 
 .contact-form__submit-button {
   margin-top: rem(24);
@@ -158,5 +220,20 @@
 
   @include mq("md") {
     margin-top: rem(40);
+  }
+}
+
+// WordPressカスタマイズ用
+div.wpcf7 .wpcf7-spinner {
+  display: none !important;
+}
+
+.wpcf7-response-output {
+  display: none;
+}
+
+.wpcf7-form.invalid {
+  #contact-form__error-message {
+    display: block;
   }
 }

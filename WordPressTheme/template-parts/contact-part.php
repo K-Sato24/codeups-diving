@@ -32,7 +32,7 @@
         </div>
         <p class="contact__text">ご予約・お問い合わせはコチラ</p>
         <div class="contact__button">
-          <a href="#" class="button">
+          <a href="<?php echo esc_url(home_url("/contact")) ?>" class="button">
             Contact&nbsp;us
             <span></span>
           </a>

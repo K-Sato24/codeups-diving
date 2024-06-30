@@ -62,6 +62,7 @@
 .voice-card__category {
   display: inline-block;
   border: 1px solid $green;
+  margin-left: auto;
   padding: rem(3) rem(11);
 
   @include mq("md") {

@@ -292,7 +292,30 @@ input:user-invalid::placeholder {
   color: $white;
 }
 
-[type="checkbox"]:user-invalid + span::before {
+[type="checkbox"]:user-invalid + span::before,
+[type="redio"]:user-invalid + span::before {
   border-color: #c94800;
   background: rgba(201, 72, 0, 0.2);
+}
+
+// WPカスタマイズ用（Contactform7）
+
+// 送信ボタンを押して、必須項目が入力されていない場合
+.wpcf7-form.invalid {
+  input.wpcf7-not-valid,
+  textarea.wpcf7-not-valid {
+    border-color: #c94800;
+    background: rgba(201, 72, 0, 0.2);
+  }
+
+  input.wpcf7-not-valid::placeholder {
+    color: $white;
+  }
+
+  span.wpcf7-not-valid {
+    .wpcf7-list-item-label::before {
+      border-color: #c94800;
+      background: rgba(201, 72, 0, 0.2);
+    }
+  }
 }

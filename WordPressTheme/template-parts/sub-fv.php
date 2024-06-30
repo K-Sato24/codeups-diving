@@ -1,5 +1,5 @@
 <?php
-if (is_tax('campaign') || is_archive('campaign')) {
+if (is_tax('campaign_category') || is_post_type_archive('campaign')) {
   $title = 'Campaign';
   $imagePc = '/assets/images/common/campaign-fv-pc.webp';
   $imageSp = '/assets/images/common/campaign-fv.webp';
@@ -14,12 +14,12 @@ if (is_tax('campaign') || is_archive('campaign')) {
   $imagePc = '/assets/images/common/information-fv-pc.webp';
   $imageSp = '/assets/images/common/information-fv.webp';
   $alt = "青空をバックにこちらを向いているシーサーの様子";
-} elseif (is_month() || is_category() || is_home('blog')) {
+} elseif (is_single() || is_month() || is_category() || is_home('blog')) {
   $title = 'Blog';
   $imagePc = '/assets/images/common/information-fv-pc.webp';
   $imageSp = '/assets/images/common/information-fv.webp';
   $alt = "大量の魚が青い海を泳ぐ姿を下から見上げた様子";
-} elseif (is_tax('voice') || is_archive('voice')) {
+} elseif (is_tax('voice_category') || is_post_type_archive('voice')) {
   $title = 'Voice';
   $imagePc = '/assets/images/common/voice-fv-pc.webp';
   $imageSp = '/assets/images/common/voice-fv.webp';
@@ -49,7 +49,7 @@ if (is_tax('campaign') || is_archive('campaign')) {
   $imagePc = '/assets/images/common/sub-fv-pc.webp';
   $imageSp = '/assets/images/common/sub-fv.webp';
   $alt = "海中のイソギンチャクと、大量に泳ぐオレンジの魚の様子";
-} elseif (is_page('contact') || in_array(2254, get_post_ancestors($post->ID))) {
+} elseif (is_page('contact') || is_page('contact/thanks')) {
   $title = 'Contact';
   $imagePc = '/assets/images/common/contact-fv-pc.webp';
   $imageSp = '/assets/images/common/contact-fv.webp';

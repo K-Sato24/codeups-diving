@@ -15,7 +15,9 @@
     <div class="contact-page__inner inner">
       <div class="contact-page__wrapper">
         <div class="contact-form">
-          <form class="js-required" method="post" onsubmit="return validateForm()">
+
+          <?php echo do_shortcode('[contact-form-7 id="d2acb8f" title="お問い合わせ"]') ?>
+          <!-- <form class="js-required" method="post" onsubmit="return validateForm()">
             <div id="contact-form__error-message">
               <p>※必須項目が入力されていません。<br class="u-mobile">入力してください。</p>
             </div>
@@ -101,7 +103,7 @@
                 <span></span>
               </div>
             </div>
-          </form>
+          </form> -->
         </div>
       </div>
     </div>

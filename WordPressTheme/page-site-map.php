@@ -4,11 +4,11 @@
   <?php get_template_part('template-parts/sub-fv'); ?>
 
   <?php if (function_exists('bcn_display')) { ?>
-    <div class="breadcrumb layout-breadcrumb" vocab="http://schema.org/" typeof="BreadcrumbList">
-      <div class="breadcrumb__inner inner">
-        <?php bcn_display(); ?>
-      </div>
+  <div class="breadcrumb layout-breadcrumb" vocab="http://schema.org/" typeof="BreadcrumbList">
+    <div class="breadcrumb__inner inner">
+      <?php bcn_display(); ?>
     </div>
+  </div>
   <?php } ?>
 
   <div class="site-map-page sub-page layout-sub-page">
@@ -20,21 +20,24 @@
               <div class="nav-menu__block">
                 <ul class="nav-menu__items">
                   <li class="nav-menu__item">
-                    <a href="archive-campaign.html">キャンペーン</a>
+                    <a href="<?php echo esc_url(home_url("/campaign")) ?>"> キャンペーン</a>
                     <ul class="nav-menu__detail-items">
                       <li class="nav-menu__detail-item">
-                        <a href="archive-campaign.html">ライセンス取得</a>
+                        <a href="<?php echo esc_url(home_url("campaign_category/fun-diving")) ?>"
+                          class="js-drawer-link">ファンダイビング</a>
                       </li>
                       <li class="nav-menu__detail-item">
-                        <a href="archive-campaign.html">貸切体験ダイビング</a>
+                        <a href="<?php echo esc_url(home_url("campaign_category/license-course")) ?>"
+                          class="js-drawer-link">ライセンス講習</a>
                       </li>
                       <li class="nav-menu__detail-item">
-                        <a href="archive-campaign.html">ナイトダイビング</a>
+                        <a href="<?php echo esc_url(home_url("campaign_category/trial-diving")) ?>"
+                          class="js-drawer-link">体験ダイビング</a>
                       </li>
                     </ul>
                   </li>
                   <li class="nav-menu__item">
-                    <a href="page-about.html">私たちについて</a>
+                    <a href="<?php echo esc_url(home_url("/about-us")) ?>">私たちについて</a>
                   </li>
                 </ul>
               </div>
@@ -42,21 +45,21 @@
                 <div class="nav-menu__block">
                   <ul class="nav-menu__items">
                     <li class="nav-menu__item">
-                      <a href="page-information.html">ダイビング情報</a>
+                      <a href="<?php echo esc_url(home_url("/information")) ?>">ダイビング情報</a>
                       <ul class="nav-menu__detail-items">
                         <li class="nav-menu__detail-item">
-                          <a href="page-information.html?tab=license_course">ライセンス講習</a>
+                          <a href="<?php echo esc_url(home_url("/information")) ?>?tab=license_course">ライセンス講習</a>
                         </li>
                         <li class="nav-menu__detail-item">
-                          <a href="page-information.html?tab=fun_diving">ファンダイビング</a>
+                          <a href="<?php echo esc_url(home_url("/information")) ?>?tab=fun_diving">ファンダイビング</a>
                         </li>
                         <li class="nav-menu__detail-item">
-                          <a href="page-information.html?tab=trial_diving">体験ダイビング</a>
+                          <a href="<?php echo esc_url(home_url("/information")) ?>?tab=trial_diving">体験ダイビング</a>
                         </li>
                       </ul>
                     </li>
                     <li class="nav-menu__item">
-                      <a href="home.html">ブログ</a>
+                      <a href="<?php echo esc_url(home_url("/blog")) ?>">ブログ</a>
                     </li>
                   </ul>
                 </div>
@@ -66,22 +69,22 @@
               <div class="nav-menu__block">
                 <ul class="nav-menu__items">
                   <li class="nav-menu__item">
-                    <a href="archive-voice.html">お客様の声</a>
+                    <a href="<?php echo esc_url(home_url("/voice")) ?>">お客様の声</a>
                   </li>
                   <li class="nav-menu__item">
-                    <a href="page-price.html">料金一覧</a>
+                    <a href="<?php echo esc_url(home_url("/price")) ?>">料金一覧</a>
                     <ul class="nav-menu__detail-items">
                       <li class="nav-menu__detail-item">
-                        <a href="page-information.html?tab=license_course">ライセンス講習</a>
+                        <a href="<?php echo esc_url(home_url("/price")) ?>?table=license_course">ライセンス講習</a>
                       </li>
                       <li class="nav-menu__detail-item">
-                        <a href="page-information.html?tab=trial_diving">体験ダイビング</a>
+                        <a href="<?php echo esc_url(home_url("/price")) ?>?table=trial_diving">体験ダイビング</a>
                       </li>
                       <li class="nav-menu__detail-item">
-                        <a href="page-information.html?tab=fun_diving">ファンダイビング</a>
+                        <a href="<?php echo esc_url(home_url("/price")) ?>?table=fun_diving">ファンダイビング</a>
                       </li>
                       <li class="nav-menu__detail-item">
-                        <a href="page-price.html?tab=special_diving">スペシャルダイビング</a>
+                        <a href="<?php echo esc_url(home_url("/price")) ?>?table=special_diving">スペシャルダイビング</a>
                       </li>
                     </ul>
                   </li>
@@ -90,19 +93,20 @@
               <div class="nav-menu__block">
                 <ul class="nav-menu__items">
                   <li class="nav-menu__item">
-                    <a href="page-faq.html">よくある質問</a>
+                    <a href="<?php echo esc_url(home_url("/faq")) ?>">よくある質問</a>
                   </li>
                   <li class="nav-menu__item">
-                    <a href="page-privacy-policy.html"><span>プライバシー</span><span>ポリシー</span></a>
+                    <a
+                      href="<?php echo esc_url(home_url("/privacy-policy")) ?>"><span>プライバシー</span><span>ポリシー</span></a>
                   </li>
                   <li class="nav-menu__item">
-                    <a href="page-terms-of-service.html">利用規約</a>
+                    <a href="<?php echo esc_url(home_url("/terms-of-service")) ?>">利用規約</a>
                   </li>
                   <li class="nav-menu__item">
-                    <a href="page-site-map.html">サイトマップ</a>
+                    <a href="<?php echo esc_url(home_url("/site-map")) ?>">サイトマップ</a>
                   </li>
                   <li class="nav-menu__item">
-                    <a href="page-contact.html">お問い合わせ</a>
+                    <a href="<?php echo esc_url(home_url("/contact")) ?>">お問い合わせ</a>
                   </li>
                 </ul>
               </div>

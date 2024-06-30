@@ -221,5 +221,157 @@ function setPostViews($postID)
 }
 remove_action('wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0);
 
-// カスタム投稿のシングルページを生成しない
-add_filter('campaign_rewrite_rules', '__return_empty_array');
+// カスタム投稿の表示数を指定
+function modify_main_query($query)
+{
+  // 管理画面か、メインクエリでない場合は処理を終了する
+  if (is_admin() || !$query->is_main_query()) {
+    return; // 何もせず関数を終了
+  }
+
+  // カスタム投稿タイプ「campaign」のアーカイブページ、またはタクソノミー「campaign_category」のアーカイブページの場合
+  if (is_post_type_archive('campaign') || is_tax('campaign_category')) {
+    // 1ページに表示する投稿数を4に設定
+    $query->set('posts_per_page', 4);
+  }
+  // カスタム投稿タイプ「voice」のアーカイブページ、またはタクソノミー「voice_category」のアーカイブページの場合
+  elseif (is_post_type_archive('voice') || is_tax('voice_category')) {
+    // 1ページに表示する投稿数を6に設定
+    $query->set('posts_per_page', 6);
+  }
+}
+
+// pre_get_postsフックを使ってクエリを変更
+add_action('pre_get_posts', 'modify_main_query');
+
+
+// 月別アーカイブのカスタマイズ（年別>月別でネスト表示させる）
+function wp_get_custom_archives()
+{
+  global $wpdb, $wp_locale;
+
+  // 最新の12か月のアーカイブを取得
+  $months = $wpdb->get_results("
+        SELECT DISTINCT YEAR(post_date) AS year, MONTH(post_date) AS month
+        FROM $wpdb->posts
+        WHERE post_type = 'post' AND post_status = 'publish'
+        ORDER BY post_date DESC
+        LIMIT 12
+    ");
+
+  if (empty($months)) {
+    return;
+  }
+
+  $output = '';
+  $current_year = 0;
+
+  foreach ($months as $month) {
+    $year = $month->year;
+    $month_number = zeroise($month->month, 2);
+    $month_name = $wp_locale->get_month($month_number);
+
+    if ($current_year != $year) {
+      if ($current_year != 0) {
+        $output .= '</ul></details>'; // 前の年のリストを閉じる
+      }
+      $output .= '<details class="aside-archive__accordion js-details' . ($current_year == 0 ? ' is-opened" open>' : '">');
+
+      $output .= '<summary class="aside-archive__year js-summary">' . $year . '</summary>';
+      $output .= '<ul class="aside-archive__content js-accordion-content">';
+      $current_year = $year;
+    }
+
+    $url = get_month_link($year, $month_number);
+    $output .= '<li class="aside-archive__month"><a href="' . esc_url($url) . '">' . $month_name . '</a></li>';
+  }
+
+  $output .= '</ul></details>'; // 最後の年のリストを閉じる
+
+  echo $output;
+}
+
+// 固定ページの不要な項目を非表示にする
+function my_remove_post_editor_support()
+{
+  remove_post_type_support('page', 'title'); // タイトル
+  remove_post_type_support('page', 'editor'); // 本文
+  remove_post_type_support('page', 'thumbnail'); // アイキャッチ 
+
+  // カスタム投稿タイプのスラッグを配列で指定
+  $custom_post_types = array('campaign', 'voice'); // ここに複数のカスタム投稿タイプのスラッグを指定
+
+  // ループで各カスタム投稿タイプから特定の要素を非表示にする
+  foreach ($custom_post_types as $post_type) {
+    // remove_post_type_support($post_type, 'title'); // タイトル
+    remove_post_type_support($post_type, 'editor'); // 本文
+    // remove_post_type_support($post_type, 'thumbnail'); // アイキャッチ画像
+
+    // remove_post_type_support(('カスタム投稿タイプのスラッグ'), 'title'); // カスタム投稿のタイトル
+    // remove_post_type_support(('カスタム投稿タイプのスラッグ'), 'editor'); // カスタム投稿の本文
+    // remove_post_type_support(('カスタム投稿タイプのスラッグ'), 'thumbnail'); // カスタム投稿のアイキャッチ
+  }
+}
+add_action('init', 'my_remove_post_editor_support');
+// 固定ページのメタボックスを非表示にする
+function remove_pageedit_metabox()
+{
+  remove_meta_box('postcustom', 'page', 'normal'); // カスタムフィールド
+  remove_meta_box('commentstatusdiv', 'page', 'normal'); // ディスカッション
+  remove_meta_box('slugdiv', 'page', 'normal'); // スラッグ
+  remove_meta_box('authordiv', 'page', 'normal'); // 投稿者
+  remove_meta_box('pageparentdiv', 'page', 'normal'); // ページ属性
+  remove_meta_box('revisionsdiv', 'page', 'normal'); // リビジョン
+  // remove_meta_box('submitdiv', 'page', 'side'); // 公開
+}
+add_action('admin_menu', 'remove_pageedit_metabox');
+
+// プライバシーと利用規約の本文だけ編集可能にする
+function my_enable_editor_for_specific_pages_by_slug()
+{
+  // 編集可能にしたいページのスラッグを配列に追加
+  $editable_pages = array('privacy-policy', 'terms-of-service'); // スラッグを指定
+
+  global $pagenow;
+
+  // 現在のページが編集画面であるかをチェック
+  if ('post.php' == $pagenow) {
+    $post_id = isset($_GET['post']) ? intval($_GET['post']) : 0;
+    if ($post_id) {
+      $post = get_post($post_id);
+      if ($post && in_array($post->post_name, $editable_pages)) {
+        add_post_type_support('page', 'editor');
+      }
+    }
+  }
+}
+add_action('admin_init', 'my_enable_editor_for_specific_pages_by_slug');
+
+// 管理画面の「投稿」の名称を変更
+function Change_menulabel()
+{
+  global $menu;
+  global $submenu;
+  $name = 'ブログ';
+  $menu[5][0] = $name;
+  $submenu['edit.php'][5][0] = $name . '一覧';
+  $submenu['edit.php'][10][0] = '新しい' . $name;
+}
+function Change_objectlabel()
+{
+  global $wp_post_types;
+  $name = 'ブログ';
+  $labels = &$wp_post_types['post']->labels;
+  $labels->name = $name;
+  $labels->singular_name = $name;
+  $labels->add_new = _x('追加', $name);
+  $labels->add_new_item = $name . 'の新規追加';
+  $labels->edit_item = $name . 'の編集';
+  $labels->new_item = '新規' . $name;
+  $labels->view_item = $name . 'を表示';
+  $labels->search_items = $name . 'を検索';
+  $labels->not_found = $name . 'が見つかりませんでした';
+  $labels->not_found_in_trash = 'ゴミ箱に' . $name . 'は見つかりませんでした';
+}
+add_action('init', 'Change_objectlabel');
+add_action('admin_menu', 'Change_menulabel');

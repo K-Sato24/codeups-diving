@@ -26,6 +26,7 @@
 .tab__category.is-active {
   color: $white;
   background-color: $green;
+  pointer-events: none;
 }
 
 .tab__category:hover {

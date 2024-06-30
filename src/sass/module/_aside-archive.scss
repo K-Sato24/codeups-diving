@@ -38,11 +38,13 @@
   left: rem(29);
 }
 
-.aside-archive__accordion.is-opened {
-  .aside-archive__year::before {
-    transform: rotate(90deg);
-    top: rem(11);
-    left: rem(2);
+.aside-archive__accordion {
+  &.is-opened {
+    .aside-archive__year::before {
+      transform: rotate(90deg);
+      top: rem(11);
+      left: rem(2);
+    }
   }
 }
 
