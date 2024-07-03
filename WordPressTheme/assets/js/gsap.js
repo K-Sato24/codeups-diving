@@ -1,9 +1,9 @@
 'use strict';
 
 document.addEventListener("DOMContentLoaded", function () {
-  var swiper;
-  function initSwiper() {
-    swiper = new Swiper(".js-fv-swiper", {
+  var fvSwiper;
+  function initFvSwiper() {
+    fvSwiper = new Swiper(".js-fv-swiper", {
       loop: true,
       effect: "fade",
       allowTouchMove: false,
@@ -11,16 +11,12 @@ document.addEventListener("DOMContentLoaded", function () {
       autoplay: {
         delay: 6000,
         disableOnInteraction: false
-      },
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev'
       }
     });
   }
 
-  // Swiper初期化
-  initSwiper();
+  // fvSwiper初期化
+  initFvSwiper();
   var openingBg = document.querySelector('.js-opening-bg');
   var openingTitle = document.querySelector('.js-opening-title');
   var opening01 = document.querySelector('.js-opening01');
@@ -30,8 +26,8 @@ document.addEventListener("DOMContentLoaded", function () {
   if (openingBg && openingTitle && opening01 && opening02 && fvTitle && headerAnim) {
     var tl = gsap.timeline({
       onComplete: function onComplete() {
-        swiper.update();
-        swiper.autoplay.start();
+        fvSwiper.update();
+        fvSwiper.autoplay.start();
       }
     });
     tl.from('.js-opening-bg', {
@@ -80,14 +76,14 @@ document.addEventListener("DOMContentLoaded", function () {
       autoAlpha: 0
     }, 'ending');
   } else {
-    swiper.autoplay.start();
+    fvSwiper.autoplay.start();
   }
 
   // 画面幅が変更されたときにSwiperの設定を更新し、再開
   window.addEventListener('resize', function () {
-    if (swiper) {
-      swiper.update();
-      swiper.autoplay.start();
+    if (fvSwiper) {
+      fvSwiper.update();
+      fvSwiper.autoplay.start();
     }
   });
 });

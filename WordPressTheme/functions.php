@@ -68,18 +68,6 @@ EOT;
 
 add_filter('style_loader_tag', 'add_rel_preconnect', 10, 4);
 
-function custom_posts_per_page($query)
-{
-  if (!is_admin() && $query->is_main_query()) {
-    // カスタム投稿のスラッグを記述
-    if (is_post_type_archive('works') || is_tax('genre')) {
-      // 表示件数を指定
-      $query->set('posts_per_page', 6);
-    }
-  }
-}
-add_action('pre_get_posts', 'custom_posts_per_page');
-
 // Contact Form 7で自動挿入されるPタグ、brタグを削除
 add_filter('wpcf7_autop_or_not', 'wpcf7_autop_return_false');
 function wpcf7_autop_return_false()
@@ -294,7 +282,7 @@ function wp_get_custom_archives()
 // 固定ページの不要な項目を非表示にする
 function my_remove_post_editor_support()
 {
-  remove_post_type_support('page', 'title'); // タイトル
+  // remove_post_type_support('page', 'title'); // タイトル
   remove_post_type_support('page', 'editor'); // 本文
   remove_post_type_support('page', 'thumbnail'); // アイキャッチ 
 
@@ -318,7 +306,7 @@ function remove_pageedit_metabox()
 {
   remove_meta_box('postcustom', 'page', 'normal'); // カスタムフィールド
   remove_meta_box('commentstatusdiv', 'page', 'normal'); // ディスカッション
-  remove_meta_box('slugdiv', 'page', 'normal'); // スラッグ
+  // remove_meta_box('slugdiv', 'page', 'normal'); // スラッグ
   remove_meta_box('authordiv', 'page', 'normal'); // 投稿者
   remove_meta_box('pageparentdiv', 'page', 'normal'); // ページ属性
   remove_meta_box('revisionsdiv', 'page', 'normal'); // リビジョン
@@ -384,4 +372,57 @@ function custom_header_tag()
   } else {
     return 'h1';
   }
+}
+
+// Contact Form 7 で動的にセレクトボックスを生成する
+// campaignのタクソノミーの取得関数を定義
+function get_campaign_taxonomy_terms()
+{
+  // 'campaign_category' タクソノミーのタームを取得
+  $terms = get_terms(array(
+    'taxonomy' => 'campaign_category', // 正しいタクソノミースラッグを指定
+    'hide_empty' => false,
+  ));
+
+  // タームが存在するか確認
+  if (!empty($terms) && !is_wp_error($terms)) {
+    $options = array();
+    foreach ($terms as $term) {
+      // タームのスラッグを値、名前をラベルとして配列に追加
+      $options[$term->slug] = $term->name;
+    }
+    return $options;
+  }
+  return array();
+}
+
+
+// Contact Form 7のタグ生成フィルタを追加
+add_filter('wpcf7_form_tag', 'dynamic_campaign_selectbox', 10, 2);
+
+function dynamic_campaign_selectbox($tag, $unused)
+{
+  // name属性が'category'の時だけ処理を行う
+  if ($tag['name'] != 'category') {
+    return $tag;
+  }
+
+  $options = get_campaign_taxonomy_terms();
+  $tag['values'] = array();
+  $tag['labels'] = array();
+
+  // 最初のオプションを追加
+  $tag['values'][] = 'default';
+  $tag['labels'][] = 'キャンペーン内容を選択';
+
+  if (!empty($options)) {
+    foreach ($options as $value => $label) {
+      $tag['values'][] = $value;  // 値としてスラッグを設定
+      $tag['labels'][] = $label;  // 表示ラベルとして名前を設定
+    }
+  } else {
+    error_log('No terms found for campaign_category');
+  }
+
+  return $tag;
 }
