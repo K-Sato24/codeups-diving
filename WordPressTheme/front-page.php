@@ -35,11 +35,11 @@
 						<img src="<?php echo esc_url( $fv_op_sp['url'] ); ?>" alt="オープニングアニメーション"
 							class="fv__opening-image0<?php echo esc_attr( $loop_index ); ?> js-opening0<?php echo esc_attr( $loop_index ); ?>">
 					</picture>
-					<?php
+								<?php
 								++$loop_index;
-												endif;
-											endfor;
-					endif;
+								endif;
+							endfor;
+						endif;
 					?>
 				</div>
 			</div>
@@ -63,7 +63,7 @@
 									alt="<?php echo esc_attr( $fv_sp['alt'] ); ?>">
 							</picture>
 						</div>
-						<?php
+									<?php
 								endif;
 							endfor;
 						endif;
@@ -108,7 +108,7 @@
 								<div class="campaign-card__header">
 									<div class="campaign-card__img">
 										<?php if ( has_post_thumbnail() ) : ?>
-										<?php the_post_thumbnail( 'full' ); ?>
+											<?php the_post_thumbnail( 'full' ); ?>
 										<?php else : ?>
 										<img src="<?php echo esc_url( get_theme_file_uri( '/assets/images/common/no-image.webp' ) ); ?>"
 											alt="NoImage画像">
@@ -123,7 +123,7 @@
 										?>
 
 										<?php if ( ! empty( $taxonomy_terms ) ) : ?>
-										<?php foreach ( $taxonomy_terms as $taxonomy_term ) : ?>
+											<?php foreach ( $taxonomy_terms as $taxonomy_term ) : ?>
 										<div class="campaign-card__category">
 											<p><?php echo esc_html( $taxonomy_term->name ); ?></p>
 										</div>
@@ -132,15 +132,26 @@
 
 										<h3 class="campaign-card__title"><?php the_title(); ?></h3>
 									</div>
+
+									<?php
+									$campaign_1 = get_field( 'campaign_1' );
+									$campaign_2 = get_field( 'campaign_2' );
+									?>
+									<?php if ( ! empty( $campaign_1 ) || ! empty( $campaign_2 ) ) : ?>
 									<div class="campaign-card__price-block">
 										<p class="campaign-card__price-text">全部コミコミ(お一人様)</p>
 										<div class="campaign-card__price">
-											<p class="campaign-card__price-before"><?php the_field( 'campaign_1' ); ?>
+											<?php if ( ! empty( $campaign_1 ) ) : ?>
+											<p class="campaign-card__price-before">
+												<?php echo esc_html( $campaign_1 ); ?></p>
+											<?php endif; ?>
+											<?php if ( ! empty( $campaign_2 ) ) : ?>
+											<p class="campaign-card__price-after"><?php echo esc_html( $campaign_2 ); ?>
 											</p>
-											<p class="campaign-card__price-after"><?php the_field( 'campaign_2' ); ?>
-											</p>
+											<?php endif; ?>
 										</div>
 									</div>
+									<?php endif; ?>
 								</div>
 							</div>
 						</div>
@@ -249,7 +260,7 @@
 						<div class="blog-card__header">
 							<div class="blog-card__img">
 								<?php if ( has_post_thumbnail() ) : ?>
-								<?php the_post_thumbnail( 'full' ); ?>
+									<?php the_post_thumbnail( 'full' ); ?>
 								<?php else : ?>
 								<img src="<?php echo esc_url( get_theme_file_uri( '/assets/images/common/no-image.webp' ) ); ?>"
 									alt="NoImage画像">
@@ -319,7 +330,7 @@
 								<div class="voice-card__category">
 									<p><?php echo esc_html( $taxonomy_term->name ); ?></p>
 								</div>
-								<?php
+										<?php
 										endforeach;
 									endif;
 								?>
@@ -328,7 +339,7 @@
 						</div>
 						<div class="voice-card__img slide-color-box js-slide-color-box">
 							<?php if ( has_post_thumbnail() ) : ?>
-							<?php the_post_thumbnail( 'full' ); ?>
+								<?php the_post_thumbnail( 'full' ); ?>
 							<?php else : ?>
 							<img src="<?php echo esc_url( get_theme_file_uri( '/assets/images/common/no-image.webp' ) ); ?>"
 								alt="NoImage画像">
@@ -358,7 +369,6 @@
 			</div>
 		</div>
 	</section>
-
 
 	<section class="price layout-section">
 		<div class="price__inner inner">
@@ -426,7 +436,7 @@
 							<?php endforeach; ?>
 						</tbody>
 					</table>
-					<?php
+							<?php
 						endif;
 					endforeach;
 					?>

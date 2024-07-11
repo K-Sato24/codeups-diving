@@ -20,7 +20,6 @@
 	</div>
 	<?php endif; ?>
 
-
 	<div class="about-page sub-page layout-sub-page">
 		<div class="about-page__inner inner">
 			<div class="about-page__content about-content">
@@ -46,12 +45,24 @@
 			</div>
 		</div>
 	</div>
+
+	<?php
+	$gallery_image_ids = SCF::get( 'gallery' );
+
+	$is_empty_gallery = true;
+	if ( is_array( $gallery_image_ids ) ) {
+		foreach ( $gallery_image_ids as $image_id ) {
+			if ( ! empty( $image_id ) ) {
+				$is_empty_gallery = false;
+				break;
+			}
+		}
+	}
+
+	if ( ! $is_empty_gallery ) :
+		?>
 	<section class="about-gallery layout-about-gallery">
 		<div class="about-gallery__inner inner">
-			<?php
-			$gallery_image_ids = SCF::get( 'gallery' );
-			?>
-			<?php if ( is_array( $gallery_image_ids ) && ! empty( $gallery_image_ids ) ) : ?>
 			<div class="about-gallery__title section-title">
 				<p class="section-title__en">Gallery</p>
 				<h2 class="section-title__ja">フォト</h2>
@@ -72,12 +83,7 @@
 				endforeach;
 				?>
 			</div>
-			<?php endif; ?>
-
 		</div>
-		</div>
-
-		<!-- モーダル -->
 		<dialog class="about-gallery__modal js-gallery-modal">
 			<div class="about-gallery__modal__bg">
 				<div class="about-gallery__modal-image">
@@ -87,6 +93,7 @@
 			</div>
 		</dialog>
 	</section>
+	<?php endif; ?>
 
 	<?php get_template_part( '/template-parts/contact-part' ); ?>
 
