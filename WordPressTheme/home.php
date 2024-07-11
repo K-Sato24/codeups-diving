@@ -36,7 +36,7 @@
 								<div class="blog-card__header">
 									<div class="blog-card__img">
 										<?php if ( has_post_thumbnail() ) : ?>
-											<?php the_post_thumbnail( 'full' ); ?>
+										<?php the_post_thumbnail( 'full' ); ?>
 										<?php else : ?>
 										<img src="<?php echo esc_url( get_theme_file_uri( '/assets/images/common/no-image.webp' ) ); ?>"
 											alt="NoImage画像" />
@@ -59,8 +59,17 @@
 					</div>
 
 					<div class="campaign-page__pagination pagination layout-pagination">
-						<?php custom_wp_pagenavi(); ?>
+						<!-- <?php
+						$args = array(
+							'mid_size'  => 10,
+							'prev_text' => '<span></span>',
+							'next_text' => '<span></span>',
+						);
+						the_posts_pagination( $args );
+						?> -->
+						<?php wp_pagenavi(); ?>
 					</div>
+
 				</div>
 
 				<?php get_template_part( '/template-parts/blog-aside' ); ?>

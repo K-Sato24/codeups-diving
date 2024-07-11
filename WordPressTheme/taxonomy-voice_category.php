@@ -51,7 +51,7 @@
 			<div class="voice-page__wrapper">
 				<div class="voice-page__items voice-cards">
 					<?php if ( have_posts() ) : ?>
-						<?php
+					<?php
 						while ( have_posts() ) :
 							the_post();
 							?>
@@ -78,7 +78,7 @@
 									</p>
 									<?php endif; ?>
 									<?php if ( ! empty( $taxonomy_terms ) ) : ?>
-										<?php foreach ( $taxonomy_terms as $taxonomy_term ) : ?>
+									<?php foreach ( $taxonomy_terms as $taxonomy_term ) : ?>
 									<div class="voice-card__category">
 										<p><?php echo esc_html( $taxonomy_term->name ); ?></p>
 									</div>
@@ -90,15 +90,15 @@
 							</div>
 							<div class="voice-card__img slide-color-box js-slide-color-box">
 								<?php if ( has_post_thumbnail() ) : ?>
-									<?php the_post_thumbnail( 'full' ); ?>
+								<?php the_post_thumbnail( 'full' ); ?>
 								<?php else : ?>
 								<img src="<?php echo esc_url( get_theme_file_uri( '/assets/images/common/no-image.webp' ) ); ?>"
 									alt="NoImage画像" />
 								<?php endif; ?>
 							</div>
 						</div>
-							<?php $voice_3 = get_field( 'voice_3' ); ?>
-							<?php if ( ! empty( $voice_3 ) ) : ?>
+						<?php $voice_3 = get_field( 'voice_3' ); ?>
+						<?php if ( ! empty( $voice_3 ) ) : ?>
 						<div class="voice-card__body">
 							<p class="voice-card__text text">
 								<?php echo esc_html( $voice_3 ); ?>
@@ -114,7 +114,15 @@
 			</div>
 
 			<div class="campaign-page__pagination pagination layout-pagination">
-				<?php custom_wp_pagenavi(); ?>
+				<?php
+						the_posts_pagination(
+							array(
+								'mid_size'  => 1,
+								'prev_text' => '<span></span>',
+								'next_text' => '<span></span>',
+							)
+						);
+						?>
 			</div>
 
 		</div>

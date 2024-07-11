@@ -54,7 +54,7 @@
 						<div class="campaign-card__header">
 							<div class="campaign-card__img">
 								<?php if ( has_post_thumbnail() ) : ?>
-									<?php the_post_thumbnail( 'full' ); ?>
+								<?php the_post_thumbnail( 'full' ); ?>
 								<?php else : ?>
 								<img src="<?php echo esc_url( get_theme_file_uri( '/assets/images/common/no-image.webp' ) ); ?>"
 									alt="NoImage画像" />
@@ -65,7 +65,7 @@
 							<div class="campaign-card__title-block">
 								<?php $taxonomy_terms = get_the_terms( $post->ID, 'campaign_category' ); ?>
 								<?php if ( ! empty( $taxonomy_terms ) ) : ?>
-									<?php foreach ( $taxonomy_terms as $taxonomy_term ) : ?>
+								<?php foreach ( $taxonomy_terms as $taxonomy_term ) : ?>
 								<div class="campaign-card__category">
 									<p><?php echo esc_html( $taxonomy_term->name ); ?></p>
 								</div>
@@ -123,7 +123,15 @@
 				</div>
 			</div>
 			<div class="campaign-page__pagination pagination layout-pagination">
-				<?php custom_wp_pagenavi(); ?>
+				<?php
+						the_posts_pagination(
+							array(
+								'mid_size'  => 1,
+								'prev_text' => '<span></span>',
+								'next_text' => '<span></span>',
+							)
+						);
+						?>
 			</div>
 		</div>
 	</div>

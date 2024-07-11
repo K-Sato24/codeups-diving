@@ -111,7 +111,15 @@
 			</div>
 
 			<div class="campaign-page__pagination pagination layout-pagination">
-				<?php custom_wp_pagenavi(); ?>
+				<?php
+						the_posts_pagination(
+							array(
+								'mid_size'  => 1,
+								'prev_text' => '<span></span>',
+								'next_text' => '<span></span>',
+							)
+						);
+						?>
 			</div>
 		</div>
 	</div>

@@ -26,7 +26,7 @@
 				<div class="blog-page__container">
 					<div class="blog-page__items blog-cards blog-cards--2col">
 						<?php if ( have_posts() ) : ?>
-							<?php
+						<?php
 							while ( have_posts() ) :
 								the_post();
 								?>
@@ -35,7 +35,7 @@
 								<div class="blog-card__header">
 									<div class="blog-card__img">
 										<?php if ( has_post_thumbnail() ) : ?>
-											<?php the_post_thumbnail( 'full' ); ?>
+										<?php the_post_thumbnail( 'full' ); ?>
 										<?php else : ?>
 										<img src="<?php echo esc_url( get_theme_file_uri( '/assets/images/common/no-image.webp' ) ); ?>"
 											alt="NoImage画像" />
@@ -59,7 +59,15 @@
 					</div>
 
 					<div class="campaign-page__pagination pagination layout-pagination">
-						<?php custom_wp_pagenavi(); ?>
+						<?php
+						the_posts_pagination(
+							array(
+								'mid_size'  => 1,
+								'prev_text' => '<span></span>',
+								'next_text' => '<span></span>',
+							)
+						);
+						?>
 					</div>
 				</div>
 

@@ -12,6 +12,25 @@
 <main>
 	<div class="fv">
 		<div class="fv__inner">
+
+			<?php
+			$opening_animation = get_field( 'opening_animation' );
+			$all_images_exist  = true;
+
+			if ( $opening_animation ) {
+				for ( $i = 9; $i <= 10; ++$i ) {
+					$fv_op_pc = isset( $opening_animation[ "fv_{$i}" ] ) ? $opening_animation[ "fv_{$i}" ] : '';
+					$fv_op_sp = isset( $opening_animation[ 'fv_' . ( $i + 2 ) ] ) ? $opening_animation[ 'fv_' . ( $i + 2 ) ] : '';
+
+					if ( ! $fv_op_pc || ! $fv_op_sp ) {
+						$all_images_exist = false;
+						break;
+					}
+				}
+			}
+
+			if ( $all_images_exist ) :
+				?>
 			<div class="fv__opening-bg js-opening-bg">
 				<div class="fv__opening-title js-opening-title">
 					<div class="main-title--green">
@@ -21,29 +40,24 @@
 				</div>
 				<div class="fv__opening-images">
 					<?php
-					$opening_animation = get_field( 'opening_animation' );
-					if ( $opening_animation ) :
 						$loop_index = 1;
-						for ( $i = 9; $i <= 10; ++$i ) :
-							$fv_op_pc = isset( $opening_animation[ "fv_{$i}" ] ) ? $opening_animation[ "fv_{$i}" ] : '';
-							$fv_op_sp = isset( $opening_animation[ 'fv_' . ( $i + 2 ) ] ) ? $opening_animation[ 'fv_' . ( $i + 2 ) ] : '';
-
-							if ( $fv_op_pc && $fv_op_sp ) :
-								?>
+					for ( $i = 9; $i <= 10; ++$i ) :
+						$fv_op_pc = $opening_animation[ "fv_{$i}" ];
+						$fv_op_sp = $opening_animation[ 'fv_' . ( $i + 2 ) ];
+						?>
 					<picture>
 						<source media="(min-width: 768px)" srcset="<?php echo esc_url( $fv_op_pc['url'] ); ?>">
 						<img src="<?php echo esc_url( $fv_op_sp['url'] ); ?>" alt="オープニングアニメーション"
 							class="fv__opening-image0<?php echo esc_attr( $loop_index ); ?> js-opening0<?php echo esc_attr( $loop_index ); ?>">
 					</picture>
-								<?php
-								++$loop_index;
-								endif;
-							endfor;
-						endif;
+						<?php
+						++$loop_index;
+						endfor;
 					?>
 				</div>
 			</div>
-			<!-- アニメーション終了 -->
+			<?php endif; ?>
+
 			<div class="fv__bg">
 				<div class="fv__bg-slider swiper js-fv-swiper">
 					<div class="fv__wrapper swiper-wrapper">

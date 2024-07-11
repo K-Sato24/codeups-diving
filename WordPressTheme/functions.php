@@ -160,44 +160,52 @@ function add_noindex_to_404() {
 add_action( 'wp_head', 'add_noindex_to_404' );
 
 
-/**
- * wp_pagenavi()の出力をキャプチャしてカスタマイズする関数
- */
-function custom_wp_pagenavi() {
-	// 出力をキャプチャ.
-	ob_start();
-	if ( function_exists( 'wp_pagenavi' ) ) {
-		wp_pagenavi();
-	}
-	$pagination_html = ob_get_clean();
+// /**
+// * wp_pagenavi()の出力をキャプチャしてカスタマイズする関数
+// */
+// function custom_wp_pagenavi() {
+// 出力をキャプチャ.
+// ob_start();
+// if ( function_exists( 'wp_pagenavi' ) ) {
+// wp_pagenavi();
+// }
+// $pagination_html = ob_get_clean();
 
-	// 前のリンクと次のリンクをチェック.
-	$previous_link = get_previous_posts_link();
-	$next_link     = get_next_posts_link();
+// 前のリンクと次のリンクをチェック.
+// $previous_link = get_previous_posts_link();
+// $next_link     = get_next_posts_link();
 
-	// 前のリンクが存在しない場合に擬似リンクを追加.
-	if ( ! $previous_link ) {
-		$previous_disabled = '<div class="pagination__prev disabled">
-    <a href="/">
-      <span class="pagination__prev-arrow"></span>
-    </a>
-  </div>';
-		$pagination_html   = $previous_disabled . $pagination_html;
-	}
+// 前のリンクが存在しない場合に擬似リンクを追加.
+// if ( ! $previous_link ) {
+// $previous_disabled = '<div class="pagination__prev disabled">
+// <a href="/">
+// <span class="pagination__prev-arrow"></span>
+// </a>
+// </div>';
+// $pagination_html   = $previous_disabled . $pagination_html;
+// }
 
-	// 次のリンクが存在しない場合に擬似リンクを追加.
-	if ( ! $next_link ) {
-		$next_disabled    = '<div class="pagination__next disabled">
-    <a href="/">
-      <span class="pagination__next-arrow"></span>
-    </a>
-  </div>';
-		$pagination_html .= $next_disabled;
-	}
+// 次のリンクが存在しない場合に擬似リンクを追加.
+// if ( ! $next_link ) {
+// $next_disabled    = '<div class="pagination__next disabled">
+// <a href="/">
+// <span class="pagination__next-arrow"></span>
+// </a>
+// </div>';
+// $pagination_html .= $next_disabled;
+// }
 
-	// カスタマイズされたHTMLを出力.
-	echo $pagination_html;
+// カスタマイズされたHTMLを出力.
+// echo $pagination_html;
+// }
+
+function my_pagenavi_options( $options ) {
+	// 表示するページネーションの数を設定
+	$options['num_pages'] = 5;  // ここで5ページを表示するように設定
+	return $options;
 }
+add_filter( 'wp_pagenavi_options', 'my_pagenavi_options' );
+
 
 
 /**
