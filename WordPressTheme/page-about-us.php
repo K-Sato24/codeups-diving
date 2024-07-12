@@ -10,15 +10,22 @@
 <?php get_header(); ?>
 
 <main>
-	<?php get_template_part( 'template-parts/sub-fv' ); ?>
 
-	<?php if ( function_exists( 'bcn_display' ) ) : ?>
-	<div class="breadcrumb layout-breadcrumb" vocab="http://schema.org/" typeof="BreadcrumbList">
-		<div class="breadcrumb__inner inner">
-			<?php bcn_display(); ?>
+	<div class="sub-fv">
+		<div class="sub-fv__inner">
+			<div class="sub-fv__bg">
+				<picture>
+					<source media="(min-width: 768px)"
+						srcset="<?php echo esc_url( get_theme_file_uri( '/assets/images/common/about-fv-pc.webp' ) ); ?>">
+					<img src="<?php echo esc_url( get_theme_file_uri( '/assets/images/common/about-fv.webp' ) ); ?>"
+						alt="青空を背景に、こちらを向くシーサーの様子">
+				</picture>
+			</div>
+			<p class="sub-fv__title">About&nbsp;us</p>
 		</div>
 	</div>
-	<?php endif; ?>
+
+	<?php get_template_part( '/template-parts/breadcrumb-part' ); ?>
 
 	<div class="about-page sub-page layout-sub-page">
 		<div class="about-page__inner inner">
@@ -48,19 +55,9 @@
 
 	<?php
 	$gallery_image_ids = SCF::get( 'gallery' );
-
-	$is_empty_gallery = true;
-	if ( is_array( $gallery_image_ids ) ) {
-		foreach ( $gallery_image_ids as $image_id ) {
-			if ( ! empty( $image_id ) ) {
-				$is_empty_gallery = false;
-				break;
-			}
-		}
-	}
-
-	if ( ! $is_empty_gallery ) :
+	if ( array_filter( $gallery_image_ids ) ) :
 		?>
+
 	<section class="about-gallery layout-about-gallery">
 		<div class="about-gallery__inner inner">
 			<div class="about-gallery__title section-title">
@@ -94,8 +91,6 @@
 		</dialog>
 	</section>
 	<?php endif; ?>
-
-	<?php get_template_part( '/template-parts/contact-part' ); ?>
 
 </main>
 

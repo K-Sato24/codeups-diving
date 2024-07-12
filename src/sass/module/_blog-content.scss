@@ -96,6 +96,10 @@
 }
 
 .blog-content__pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: rem(82);
   margin-top: rem(40);
 
   @include mq("md") {
@@ -103,8 +107,11 @@
   }
 }
 
-.blog-content__prev-button,
-.blog-content__next-button {
+.blog-content__prev,
+.blog-content__next {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   position: relative;
   width: rem(38);
   aspect-ratio: 1 / 1;
@@ -112,9 +119,10 @@
   transition: 0.3s background-color;
 }
 
-.blog-content__prev-button:hover,
-.blog-content__next-button:hover {
+.blog-content__prev:hover,
+.blog-content__next:hover {
   background-color: $green;
+  cursor: pointer;
 }
 
 .blog-content__prev-arrow,
@@ -140,7 +148,7 @@
   mask-image: url(../images/common/next-arrow.svg);
 }
 
-.blog-content__prev-button:hover .blog-content__prev-arrow,
-.blog-content__next-button:hover .blog-content__next-arrow {
+.blog-content__prev:hover .blog-content__prev-arrow,
+.blog-content__next:hover .blog-content__next-arrow {
   background-color: $white;
 }

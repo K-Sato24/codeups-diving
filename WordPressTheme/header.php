@@ -25,13 +25,16 @@
 	<header class="header js-header js-header-anim">
 		<div class="header__inner">
 			<div class="header__content">
+
 				<?php $header_tag = is_single() ? 'div' : 'h1'; ?>
-				<<?php echo esc_html( $header_tag ); ?> class="header__logo">
+				<<?php echo esc_attr( $header_tag ); ?> class="header__logo">
 					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="header__logo-link js-header-logo">
 						<img src="<?php echo esc_url( get_theme_file_uri( '/assets/images/common/logo.svg' ) ); ?>"
 							alt="CodeUps">
 					</a>
-				</<?php echo esc_html( $header_tag ); ?>>
+				</<?php echo esc_attr( $header_tag ); ?>>
+
+
 
 				<nav class="header__pc-nav pc-nav u-desktop">
 					<ul class="pc-nav-items">

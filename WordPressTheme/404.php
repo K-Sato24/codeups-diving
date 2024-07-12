@@ -6,16 +6,14 @@
  */
 
 ?>
+
 <?php get_header(); ?>
+
 <main>
+
 	<div class="bg-green">
-		<?php if ( function_exists( 'bcn_display' ) ) : ?>
-		<div class="breadcrumb breadcrumb--white" vocab="http://schema.org/" typeof="BreadcrumbList">
-			<div class="breadcrumb__inner inner">
-				<?php bcn_display(); ?>
-			</div>
-		</div>
-		<?php endif; ?>
+		<?php get_template_part( '/template-parts/breadcrumb-part' ); ?>
+
 		<div class="not-found-page layout-not-found-page">
 			<div class="not-found-page__inner inner">
 				<h2 class="not-found-page__message">404</h2>

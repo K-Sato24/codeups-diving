@@ -10,15 +10,22 @@
 <?php get_header(); ?>
 
 <main>
-	<?php get_template_part( 'template-parts/sub-fv' ); ?>
 
-	<?php if ( function_exists( 'bcn_display' ) ) : ?>
-	<div class="breadcrumb layout-breadcrumb" vocab="http://schema.org/" typeof="BreadcrumbList">
-		<div class="breadcrumb__inner inner">
-			<?php bcn_display(); ?>
+	<div class="sub-fv">
+		<div class="sub-fv__inner">
+			<div class="sub-fv__bg">
+				<picture>
+					<source media="(min-width: 768px)"
+						srcset="<?php echo esc_url( get_theme_file_uri( '/assets/images/common/campaign-fv-pc.webp' ) ); ?>">
+					<img src="<?php echo esc_url( get_theme_file_uri( '/assets/images/common/campaign-fv.webp' ) ); ?>"
+						alt="黄色と黒の鮮やかな熱帯魚2匹が青い海を泳ぐ様子">
+				</picture>
+			</div>
+			<p class="sub-fv__title">Campaign</p>
 		</div>
 	</div>
-	<?php endif; ?>
+
+	<?php get_template_part( '/template-parts/breadcrumb-part' ); ?>
 
 	<div class="campaign-page sub-page layout-sub-page">
 		<div class="campaign-page__inner inner">
@@ -128,21 +135,13 @@
 			</div>
 
 			<div class="campaign-page__pagination pagination layout-pagination">
-				<?php
-						the_posts_pagination(
-							array(
-								'mid_size'  => 1,
-								'prev_text' => '<span></span>',
-								'next_text' => '<span></span>',
-							)
-						);
-						?>
+				<?php wp_pagenavi(); ?>
 			</div>
 
 		</div>
 	</div>
 
-	<?php get_template_part( '/template-parts/contact-part' ); ?>
+
 
 </main>
 

@@ -10,15 +10,22 @@
 <?php get_header(); ?>
 
 <main>
-	<?php get_template_part( 'template-parts/sub-fv' ); ?>
 
-	<?php if ( function_exists( 'bcn_display' ) ) : ?>
-	<div class="breadcrumb layout-breadcrumb" vocab="http://schema.org/" typeof="BreadcrumbList">
-		<div class="breadcrumb__inner inner">
-			<?php bcn_display(); ?>
+	<div class="sub-fv">
+		<div class="sub-fv__inner">
+			<div class="sub-fv__bg">
+				<picture>
+					<source media="(min-width: 768px)"
+						srcset="<?php echo esc_url( get_theme_file_uri( '/assets/images/common/information-fv-pc.webp' ) ); ?>">
+					<img src="<?php echo esc_url( get_theme_file_uri( '/assets/images/common/information-fv.webp' ) ); ?>"
+						alt="大量の魚が青い海を泳ぐ姿を下から見上げた様子">
+				</picture>
+			</div>
+			<p class="sub-fv__title">Blog</p>
 		</div>
 	</div>
-	<?php endif; ?>
+
+	<?php get_template_part( '/template-parts/breadcrumb-part' ); ?>
 
 
 	<div class="blog-page sub-page layout-sub-page">
@@ -51,37 +58,33 @@
 					?>
 
 						<?php
-						$prev       = get_previous_post();
-						$prev_url   = ! empty( $prev ) ? esc_url( get_permalink( $prev->ID ) ) : esc_url( home_url( '/' ) );
-						$prev_class = ! empty( $prev ) ? '' : ' disabled';
-
-						$next       = get_next_post();
-						$next_url   = ! empty( $next ) ? esc_url( get_permalink( $next->ID ) ) : esc_url( home_url( '/' ) );
-						$next_class = ! empty( $next ) ? '' : ' disabled';
+						$prev = get_previous_post();
+						$next = get_next_post();
 						?>
-						<div class="blog-content__pagination pagination pagination--details">
-							<div class="pagination__prev<?php echo esc_attr( $prev_class ); ?>">
-								<a href="<?php echo esc_url( $prev_url ); ?>">
-									<span class="pagination__prev-arrow"></span>
-								</a>
-							</div>
-							<div class="pagination__next<?php echo esc_attr( $next_class ); ?>">
-								<a href="<?php echo esc_url( $next_url ); ?>">
-									<span class="pagination__next-arrow"></span>
-								</a>
-							</div>
+						<div class="blog-content__pagination">
+							<?php if ( ! empty( $prev ) ) : ?>
+							<a href="<?php echo esc_url( get_permalink( $prev->ID ) ); ?>" class="blog-content__prev">
+								<span class="blog-content__prev-arrow"></span>
+							</a>
+							<?php endif; ?>
+							<?php if ( ! empty( $next ) ) : ?>
+							<a href="<?php echo esc_url( get_permalink( $next->ID ) ); ?>" class="blog-content__next">
+								<span class="blog-content__next-arrow"></span>
+							</a>
+							<?php endif; ?>
 						</div>
-
 
 					</div>
 				</div>
 
-				<?php get_template_part( '/template-parts/blog-aside' ); ?>
+				<div class="blog-page__aside">
+					<?php get_sidebar(); ?>
+				</div>
 			</div>
 		</div>
 	</div>
 
-	<?php get_template_part( '/template-parts/contact-part' ); ?>
+
 
 </main>
 

@@ -6,11 +6,11 @@
  */
 
 ?>
-<aside class="blog-page__aside">
-	<ul class="blog-page__aside-items">
-		<li class="blog-page__aside-item">
-			<h2 class="blog-page__aside-title">人気記事</h2>
-			<div class="blog-page__aside-content aside-blog">
+<aside class="sidebar">
+	<ul class="sidebar-items">
+		<li class="sidebar-item">
+			<h2 class="sidebar-title">人気記事</h2>
+			<div class="sidebar-content aside-blog">
 				<?php
 				$args      = array(
 					'posts_per_page' => 3,
@@ -54,9 +54,9 @@
 				<?php endif; ?>
 			</div>
 		</li>
-		<li class="blog-page__aside-item">
-			<h2 class="blog-page__aside-title">口コミ</h2>
-			<div class="blog-page__aside-content aside-voice">
+		<li class="sidebar-item">
+			<h2 class="sidebar-title">口コミ</h2>
+			<div class="sidebar-content aside-voice">
 				<?php
 				$args      = array(
 					'post_type'      => 'voice',
@@ -97,7 +97,7 @@
 				<?php else : ?>
 				<p class="text">記事が投稿されていません</p>
 				<?php endif; ?>
-				<div class="blog-page__aside-button">
+				<div class="sidebar-button">
 					<a href="<?php echo esc_url( home_url( '/voice' ) ); ?>" class="button">
 						View&nbsp;more
 						<span></span>
@@ -105,9 +105,9 @@
 				</div>
 			</div>
 		</li>
-		<li class="blog-page__aside-item">
-			<h2 class="blog-page__aside-title">キャンペーン</h2>
-			<div class="blog-page__aside-content aside-campaign">
+		<li class="sidebar-item">
+			<h2 class="sidebar-title">キャンペーン</h2>
+			<div class="sidebar-content aside-campaign">
 				<?php
 				$args      = array(
 					'post_type'      => 'campaign',
@@ -151,7 +151,7 @@
 				<?php else : ?>
 				<p class="text">記事が投稿されていません</p>
 				<?php endif; ?>
-				<div class="blog-page__aside-button">
+				<div class="sidebar-button">
 					<a href="<?php echo esc_url( home_url( '/campaign' ) ); ?>" class="button">
 						View&nbsp;more
 						<span></span>
@@ -159,9 +159,9 @@
 				</div>
 			</div>
 		</li>
-		<li class="blog-page__aside-item">
-			<h2 class="blog-page__aside-title">アーカイブ</h2>
-			<div class="blog-page__aside-content aside-archive">
+		<li class="sidebar-item">
+			<h2 class="sidebar-title">アーカイブ</h2>
+			<div class="sidebar-content aside-archive">
 				<?php wp_get_custom_archives(); ?>
 			</div>
 		</li>

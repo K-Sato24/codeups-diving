@@ -17,15 +17,12 @@
 			$opening_animation = get_field( 'opening_animation' );
 			$all_images_exist  = true;
 
-			if ( $opening_animation ) {
-				for ( $i = 9; $i <= 10; ++$i ) {
-					$fv_op_pc = isset( $opening_animation[ "fv_{$i}" ] ) ? $opening_animation[ "fv_{$i}" ] : '';
-					$fv_op_sp = isset( $opening_animation[ 'fv_' . ( $i + 2 ) ] ) ? $opening_animation[ 'fv_' . ( $i + 2 ) ] : '';
-
-					if ( ! $fv_op_pc || ! $fv_op_sp ) {
-						$all_images_exist = false;
-						break;
-					}
+			for ( $i = 1; $i <= 2; ++$i ) {
+				$fv_op_pc = isset( $opening_animation[ "fv_op_pc_{$i}" ] ) ? $opening_animation[ "fv_op_pc_{$i}" ] : '';
+				$fv_op_sp = isset( $opening_animation[ "fv_op_sp_{$i}" ] ) ? $opening_animation[ "fv_op_sp_{$i}" ] : '';
+				if ( ! $fv_op_pc || ! $fv_op_sp ) {
+					$all_images_exist = false;
+					break;
 				}
 			}
 
@@ -40,10 +37,10 @@
 				</div>
 				<div class="fv__opening-images">
 					<?php
-						$loop_index = 1;
-					for ( $i = 9; $i <= 10; ++$i ) :
-						$fv_op_pc = $opening_animation[ "fv_{$i}" ];
-						$fv_op_sp = $opening_animation[ 'fv_' . ( $i + 2 ) ];
+					$loop_index = 1;
+					for ( $i = 1; $i <= 2; ++$i ) :
+						$fv_op_pc = $opening_animation[ "fv_op_pc_{$i}" ];
+						$fv_op_sp = $opening_animation[ "fv_op_sp_{$i}" ];
 						?>
 					<picture>
 						<source media="(min-width: 768px)" srcset="<?php echo esc_url( $fv_op_pc['url'] ); ?>">
@@ -52,22 +49,24 @@
 					</picture>
 						<?php
 						++$loop_index;
-						endfor;
+					endfor;
 					?>
 				</div>
 			</div>
 			<?php endif; ?>
 
+
 			<div class="fv__bg">
 				<div class="fv__bg-slider swiper js-fv-swiper">
 					<div class="fv__wrapper swiper-wrapper">
+
 						<?php
 						$background_images = get_field( 'background_image' );
-						if ( $background_images ) :
-							for ( $i = 1; $i <= 8; $i += 2 ) :
-								$fv_pc = isset( $background_images[ "fv_{$i}" ] ) ? $background_images[ "fv_{$i}" ] : '';
-								$fv_sp = isset( $background_images[ 'fv_' . ( $i + 1 ) ] ) ? $background_images[ 'fv_' . ( $i + 1 ) ] : '';
-
+						if ( $background_images && is_array( $background_images ) ) :
+							$index = 1;
+							foreach ( $background_images as $image ) :
+								$fv_pc = isset( $background_images[ "fv_pc_$index" ] ) ? $background_images[ "fv_pc_$index" ] : '';
+								$fv_sp = isset( $background_images[ "fv_sp_$index" ] ) ? $background_images[ "fv_sp_$index" ] : '';
 								if ( $fv_pc && $fv_sp ) :
 									?>
 						<div class="swiper-slide">
@@ -79,9 +78,11 @@
 						</div>
 									<?php
 								endif;
-							endfor;
+								++$index;
+							endforeach;
 						endif;
 						?>
+
 						<div class="fv__title js-fv-title">
 							<div class="main-title">
 								<p class="main-title__main">diving</p>
@@ -465,7 +466,7 @@
 		</div>
 	</section>
 
-	<?php get_template_part( '/template-parts/contact-part' ); ?>
+
 
 </main>
 

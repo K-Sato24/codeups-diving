@@ -1,0 +1,30 @@
+@use "global" as *;
+
+.blog-page__wrapper {
+  @include mq("md") {
+    display: flex;
+    gap: rem(86);
+  }
+}
+
+.blog-page__container {
+  max-width: 100%;
+  width: calc(333 / 345 * 100%);
+  margin-inline: auto;
+
+  @include mq("md") {
+    width: calc(700 / 1080 * 100%);
+  }
+}
+
+.blog-page__aside {
+  max-width: 100%;
+  width: calc(294 / 345 * 100%);
+  margin-top: rem(80);
+  margin-inline: auto;
+
+  @include mq("md") {
+    width: calc(294 / 1080 * 100%);
+    margin-top: 0;
+  }
+}
