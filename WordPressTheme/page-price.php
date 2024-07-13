@@ -54,11 +54,15 @@
 							<tr>
 								<td class="price-table__name">
 									<div class="price-table__td-box">
-										<?php echo esc_html( $field_1 ) ?? ''; ?>
 										<?php
-										if ( ! empty( $field_1 ) && ! empty( $field_2 ) ) :
-											?>
-										<br class="u-mobile"><?php endif; ?><?php echo esc_html( $field_2 ); ?>
+										$output = esc_html( $field_1 ) ?? '';
+										if ( ! empty( $field_1 ) && ! empty( $field_2 ) ) {
+											$output .= '<br class="u-mobile">';
+										}
+										$output .= esc_html( $field_2 ) ?? '';
+										$output  = preg_replace( '/\s+/', ' ', $output );
+										echo wp_kses_post( trim( $output ) );
+										?>
 									</div>
 								</td>
 								<td class="price-table__price">
@@ -77,8 +81,6 @@
 
 		</div>
 	</div>
-
-
 
 </main>
 

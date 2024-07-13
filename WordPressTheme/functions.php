@@ -287,11 +287,6 @@ function wp_get_custom_archives() {
 			'orderby'        => 'post_date',
 			'order'          => 'DESC',
 			'fields'         => 'ids', // 投稿IDのみ取得.
-			'date_query'     => array(
-				array(
-					'after' => '1 year ago',
-				),
-			),
 		);
 
 		$posts = get_posts( $args );
@@ -308,7 +303,7 @@ function wp_get_custom_archives() {
 			}
 
 			// 重複を排除し、月ごとにユニークにする.
-			$months = array_unique( $months, SORT_REGULAR );
+			$months = array_values( array_unique( $months, SORT_REGULAR ) );
 		}
 
 		// キャッシュに保存（1時間の有効期限）.
@@ -333,13 +328,13 @@ function wp_get_custom_archives() {
 			}
 			$output .= '<details class="aside-archive__accordion js-details' . ( 0 === $current_year ? ' is-opened" open>' : '">' );
 
-			$output      .= '<summary class="aside-archive__year js-summary">' . $year . '</summary>';
+			$output      .= '<summary class="aside-archive__year js-summary">' . esc_html( $year ) . '</summary>';
 			$output      .= '<ul class="aside-archive__content js-accordion-content">';
 			$current_year = $year;
 		}
 
 		$url     = get_month_link( $year, $month_number );
-		$output .= '<li class="aside-archive__month"><a href="' . $url . '">' . $month_name . '</a></li>';
+		$output .= '<li class="aside-archive__month"><a href="' . esc_url( $url ) . '">' . esc_html( $month_name ) . '</a></li>';
 	}
 
 	$output .= '</ul></details>'; // 最後の年のリストを閉じる.

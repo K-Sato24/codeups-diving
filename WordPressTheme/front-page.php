@@ -438,11 +438,7 @@
 								?>
 							<tr>
 								<td>
-									<?php echo esc_html( $field_1 ) ?? ''; ?>
-									<?php if ( ! empty( $field_1 ) && ! empty( $field_2 ) ) : ?>
-									<br class="u-mobile">
-									<?php endif; ?>
-									<?php echo esc_html( $field_2 ) ?? ''; ?>
+									<?php echo esc_html( ( $field_1 ?? '' ) . ( $field_2 ?? '' ) ); ?>
 								</td>
 								<td>
 									<?php echo esc_html( $field_3 ) ?? ''; ?>
