@@ -1,6 +1,6 @@
-'use strict'
+'use strict';
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
   let fvSwiper;
 
   function initFvSwiper() {
@@ -16,8 +16,10 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   }
 
-  // fvSwiper初期化
-  initFvSwiper();
+  // 特定のページでのみ初期化
+  if (document.querySelector(".js-fv-swiper")) {
+    initFvSwiper();
+  }
 
   const openingBg = document.querySelector('.js-opening-bg');
   const openingTitle = document.querySelector('.js-opening-title');
@@ -28,28 +30,26 @@ document.addEventListener("DOMContentLoaded", function() {
 
   if (openingBg && openingTitle && opening01 && opening02 && fvTitle && headerAnim) {
     const tl = gsap.timeline({
-      onComplete: function() {
-        fvSwiper.update();
-        fvSwiper.autoplay.start();
+      onComplete: function onComplete() {
+        if (fvSwiper) {
+          fvSwiper.update();
+          fvSwiper.autoplay.start();
+        }
       }
     });
-
     tl.from('.js-opening-bg', {
       autoAlpha: 1
-    }, 'opening')
-    .fromTo('.js-opening-title', {
+    }, 'opening').fromTo('.js-opening-title', {
       autoAlpha: 0
     }, {
       duration: 0.4,
       autoAlpha: 1
-    }, 'opening')
-    .fromTo('.js-opening-title', {
+    }, 'opening').fromTo('.js-opening-title', {
       autoAlpha: 1
     }, {
       duration: 0.8,
       autoAlpha: 0
-    })
-    .fromTo('.js-opening01', {
+    }).fromTo('.js-opening01', {
       y: '100%',
       opacity: 0
     }, {
@@ -58,8 +58,7 @@ document.addEventListener("DOMContentLoaded", function() {
       opacity: 1,
       delay: 0.1,
       ease: "circ.out"
-    }, 'img')
-    .fromTo('.js-opening02', {
+    }, 'img').fromTo('.js-opening02', {
       y: '100%',
       opacity: 0
     }, {
@@ -68,30 +67,27 @@ document.addEventListener("DOMContentLoaded", function() {
       opacity: 1,
       delay: 0.4,
       ease: "circ.out"
-    }, 'img')
-    .fromTo('.js-fv-title', {
+    }, 'img').fromTo('.js-fv-title', {
       opacity: 0
     }, {
       duration: 0.7,
       opacity: 1,
       delay: 0.2
-    }, 'ending')
-    .fromTo('.js-header-anim', {
+    }, 'ending').fromTo('.js-header-anim', {
       opacity: 0
     }, {
       duration: 0.7,
       opacity: 1,
       delay: 0.2
-    }, 'ending')
-    .to('.js-opening-bg', {
+    }, 'ending').to('.js-opening-bg', {
       autoAlpha: 0
     }, 'ending');
-  } else {
+  } else if (fvSwiper) {
     fvSwiper.autoplay.start();
   }
 
   // 画面幅が変更されたときにSwiperの設定を更新し、再開
-  window.addEventListener('resize', function() {
+  window.addEventListener('resize', function () {
     if (fvSwiper) {
       fvSwiper.update();
       fvSwiper.autoplay.start();

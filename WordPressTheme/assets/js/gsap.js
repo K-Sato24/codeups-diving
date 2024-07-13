@@ -15,8 +15,10 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // fvSwiper初期化
-  initFvSwiper();
+  // 特定のページでのみ初期化
+  if (document.querySelector(".js-fv-swiper")) {
+    initFvSwiper();
+  }
   var openingBg = document.querySelector('.js-opening-bg');
   var openingTitle = document.querySelector('.js-opening-title');
   var opening01 = document.querySelector('.js-opening01');
@@ -26,8 +28,10 @@ document.addEventListener("DOMContentLoaded", function () {
   if (openingBg && openingTitle && opening01 && opening02 && fvTitle && headerAnim) {
     var tl = gsap.timeline({
       onComplete: function onComplete() {
-        fvSwiper.update();
-        fvSwiper.autoplay.start();
+        if (fvSwiper) {
+          fvSwiper.update();
+          fvSwiper.autoplay.start();
+        }
       }
     });
     tl.from('.js-opening-bg', {
@@ -75,7 +79,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 'ending').to('.js-opening-bg', {
       autoAlpha: 0
     }, 'ending');
-  } else {
+  } else if (fvSwiper) {
     fvSwiper.autoplay.start();
   }
 

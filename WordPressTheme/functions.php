@@ -281,11 +281,9 @@ function wp_get_custom_archives() {
 		$months = array();
 
 		$args = array(
-			'post_type'      => 'post',
 			'post_status'    => 'publish',
 			'posts_per_page' => -1,
 			'orderby'        => 'post_date',
-			'order'          => 'DESC',
 			'fields'         => 'ids', // 投稿IDのみ取得.
 		);
 
@@ -375,7 +373,7 @@ add_action( 'init', 'my_remove_post_editor_support' );
 function remove_pageedit_metabox() {
 	remove_meta_box( 'postcustom', 'page', 'normal' ); // カスタムフィールド.
 	remove_meta_box( 'commentstatusdiv', 'page', 'normal' ); // ディスカッション.
-	// remove_meta_box('slugdiv', 'page', 'normal'); // スラッグ.
+	remove_meta_box( 'slugdiv', 'page', 'normal' ); // スラッグ.
 	remove_meta_box( 'authordiv', 'page', 'normal' ); // 投稿者.
 	remove_meta_box( 'pageparentdiv', 'page', 'normal' ); // ページ属性.
 	remove_meta_box( 'revisionsdiv', 'page', 'normal' ); // リビジョン.
@@ -539,3 +537,74 @@ function get_group_names() {
 		'special_diving' => 'スペシャルダイビング',
 	);
 }
+
+
+/**
+ * 管理画面のメニューの並び順を変更する関数
+ *
+ * @param array $menu_order 現在のメニューの順序.
+ * @return array 修正されたメニューの順序.
+ */
+function sort_side_menu( $menu_order ) {
+	$new_menu_order = array(
+		'index.php', // ダッシュボード.
+		'edit.php', // 投稿.
+		'edit.php?post_type=campaign', // カスタム投稿タイプ1.
+		'edit.php?post_type=voice', // カスタム投稿タイプ2.
+		'edit.php?post_type=page', // 固定ページ.
+		'wpcf7', // Contact Form 7.
+		'flamingo', // Flamingo.
+		'separator1', // 区切り線1.
+		'upload.php', // メディア.
+		'edit-comments.php', // コメント.
+		'separator2', // 区切り線2.
+		'themes.php', // 外観.
+		'users.php', // ユーザー.
+		'tools.php', // ツール.
+		'options-general.php', // 設定.
+		'separator-last', // 区切り線（最後）.
+		'plugins.php', // プラグイン.
+	);
+
+	// 既存のメニュー項目が新しい順序に含まれている場合、新しい順序に追加します.
+	foreach ( $menu_order as $menu_item ) {
+		if ( ! in_array( $menu_item, $new_menu_order, true ) ) {
+			$new_menu_order[] = $menu_item;
+		}
+	}
+
+	return $new_menu_order;
+}
+
+add_filter( 'custom_menu_order', '__return_true' );
+add_filter( 'menu_order', 'sort_side_menu' );
+
+
+
+/**
+ * ログイン画面のロゴと背景画像を変更する関数
+ *
+ * @return void
+ */
+function custom_login_logo() {
+	?>
+<style type="text/css">
+#login h1 a {
+	background: url('<?php echo esc_url( get_template_directory_uri() . '/assets/images/common/logo.svg' ); ?>') no-repeat top center;
+	background-size: contain;
+	width: 133px;
+	/* ロゴの幅 */
+	height: 50px;
+	/* ロゴの高さ */
+}
+
+body {
+	background: url('<?php echo esc_url( get_template_directory_uri() . '/assets/images/common/fv-pc04.webp' ); ?>') no-repeat top center;
+	background-color: rgba(255, 255, 255, 0.5);
+	background-blend-mode: lighten;
+	background-size: cover;
+}
+</style>
+	<?php
+}
+add_action( 'login_head', 'custom_login_logo' );
