@@ -65,22 +65,21 @@
 						<div class="voice-card__header">
 							<div class="voice-card__text-block">
 								<?php
-								$voice_1        = get_field( 'voice_1' );
-								$voice_2        = get_field( 'voice_2' );
+								$voice_group    = get_field( 'voice' );
+								$voice_1        = isset( $voice_group['voice_1'] ) ? $voice_group['voice_1'] : '';
+								$voice_2        = isset( $voice_group['voice_2'] ) ? $voice_group['voice_2'] : '';
 								$taxonomy_terms = get_the_terms( $post->ID, 'voice_category' );
 								?>
 								<?php if ( ! empty( $voice_1 ) || ! empty( $voice_2 ) || ! empty( $taxonomy_terms ) ) : ?>
 								<div class="voice-card__info">
 									<?php if ( ! empty( $voice_1 ) || ! empty( $voice_2 ) ) : ?>
 									<p class="voice-card__info-text">
-										<?php
-										if ( ! empty( $voice_1 ) ) {
-											echo esc_html( $voice_1 );}
-										?>
-										<?php
-										if ( ! empty( $voice_2 ) ) {
-											echo esc_html( $voice_2 );}
-										?>
+										<?php if ( ! empty( $voice_1 ) ) : ?>
+											<?php echo esc_html( $voice_1 ); ?>
+										<?php endif; ?>
+										<?php if ( ! empty( $voice_2 ) ) : ?>
+											<?php echo esc_html( $voice_2 ); ?>
+										<?php endif; ?>
 									</p>
 									<?php endif; ?>
 
@@ -104,7 +103,7 @@
 								<?php endif; ?>
 							</div>
 						</div>
-							<?php $voice_3 = get_field( 'voice_3' ); ?>
+							<?php $voice_3 = isset( $voice_group['voice_3'] ) ? $voice_group['voice_3'] : ''; ?>
 							<?php if ( ! empty( $voice_3 ) ) : ?>
 						<div class="voice-card__body">
 							<p class="voice-card__text text">
@@ -113,6 +112,7 @@
 						</div>
 						<?php endif; ?>
 					</div>
+
 					<?php endwhile; ?>
 					<?php else : ?>
 					<p class="text">記事が投稿されていません</p>

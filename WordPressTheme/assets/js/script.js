@@ -92,7 +92,7 @@ box.each(function () {
 });
 
 // ページトップへ戻る
-var pageTop = document.querySelector(".js-page-top");
+var pageTop = document.querySelector(".js-paage-top");
 var pageTopColor = document.querySelector(".js-page-top-color");
 var footer = document.querySelector(".footer");
 window.addEventListener("scroll", function () {

@@ -87,39 +87,50 @@
 								<h2 class="campaign-card__title campaign-card__title--large"><?php the_title(); ?></h2>
 							</div>
 							<?php
-							$campaign_1 = get_field( 'campaign_1' );
-							$campaign_2 = get_field( 'campaign_2' );
-							$campaign_3 = get_field( 'campaign_3' );
+							$campaign_group_1 = get_field( 'campaign_1' );
+							$campaign_group_3 = get_field( 'campaign_3' );
+
+							$campaign_1_1 = isset( $campaign_group_1['campaign_1-1'] ) ? $campaign_group_1['campaign_1-1'] : '';
+							$campaign_1_2 = isset( $campaign_group_1['campaign_1-2'] ) ? $campaign_group_1['campaign_1-2'] : '';
+							$campaign_2   = get_field( 'campaign_2' );
+							$campaign_3_1 = isset( $campaign_group_3['campaign_3-1'] ) ? $campaign_group_3['campaign_3-1'] : '';
+							$campaign_3_2 = isset( $campaign_group_3['campaign_3-2'] ) ? $campaign_group_3['campaign_3-2'] : '';
 							?>
-							<?php if ( ! empty( $campaign_1 ) || ! empty( $campaign_2 ) || ! empty( $campaign_3 ) ) : ?>
+							<?php if ( ! empty( $campaign_1_1 ) || ! empty( $campaign_1_2 ) || ! empty( $campaign_2 ) || ! empty( $campaign_3_1 ) || ! empty( $campaign_3_2 ) ) : ?>
 							<div class="campaign-card__price-block">
-								<?php if ( ! empty( $campaign_1 ) || ! empty( $campaign_2 ) ) : ?>
+								<?php if ( ! empty( $campaign_1_1 ) || ! empty( $campaign_1_2 ) ) : ?>
 								<p class="campaign-card__price-text campaign-card__price-text--large">全部コミコミ(お一人様)</p>
 								<div class="campaign-card__price campaign-card__price--large">
-									<?php if ( ! empty( $campaign_1 ) ) : ?>
-									<p class="campaign-card__price-before"><?php echo esc_html( $campaign_1 ); ?></p>
+									<?php if ( ! empty( $campaign_1_1 ) ) : ?>
+									<p class="campaign-card__price-before">
+										<?php echo '&yen;' . esc_html( number_format( $campaign_1_1 ) ); ?></p>
 									<?php endif; ?>
-									<?php if ( ! empty( $campaign_2 ) ) : ?>
-									<p class="campaign-card__price-after"><?php echo esc_html( $campaign_2 ); ?></p>
+									<?php if ( ! empty( $campaign_1_2 ) ) : ?>
+									<p class="campaign-card__price-after">
+										<?php echo '&yen;' . esc_html( number_format( $campaign_1_2 ) ); ?></p>
 									<?php endif; ?>
 								</div>
 								<?php endif; ?>
-								<?php if ( ! empty( $campaign_3 ) ) : ?>
-								<p class="campaign-card__text text u-desktop"><?php echo esc_html( $campaign_3 ); ?></p>
+								<?php if ( ! empty( $campaign_2 ) ) : ?>
+								<p class="campaign-card__text text u-desktop"><?php echo esc_html( $campaign_2 ); ?></p>
 								<?php endif; ?>
 							</div>
 							<?php endif; ?>
 						</div>
 						<div class="campaign-card__footer u-desktop">
+							<?php if ( ! empty( $campaign_3_1 ) || ! empty( $campaign_3_2 ) ) : ?>
 							<div class="campaign-card__date">
-								<?php if ( get_field( 'campaign_4' ) ) : ?>
-								<time datetime="2023-06-01"><?php the_field( 'campaign_4' ); ?></time>
-								<span>-</span>
+								<?php if ( ! empty( $campaign_3_1 ) ) : ?>
+								<time
+									datetime="<?php echo esc_attr( $campaign_3_1 ); ?>"><?php echo esc_html( $campaign_3_1 ); ?></time>
 								<?php endif; ?>
-								<?php if ( get_field( 'campaign_5' ) ) : ?>
-								<time datetime="2023-09-30"><?php the_field( 'campaign_5' ); ?></time>
+								<?php if ( ! empty( $campaign_3_2 ) ) : ?>
+								<span>-</span>
+								<time
+									datetime="<?php echo esc_attr( $campaign_3_2 ); ?>"><?php echo esc_html( $campaign_3_2 ); ?></time>
 								<?php endif; ?>
 							</div>
+							<?php endif; ?>
 							<p class="campaign-card__footer-text">ご予約・お問い合わせはコチラ</p>
 							<div class="campaign-card__button">
 								<a href="<?php echo esc_url( home_url( '/contact' ) ); ?>" class="button">
@@ -129,6 +140,10 @@
 							</div>
 						</div>
 					</div>
+
+
+
+
 					<?php endwhile; ?>
 					<?php else : ?>
 					<p class="text">記事が投稿されていません</p>
