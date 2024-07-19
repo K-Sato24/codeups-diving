@@ -75,7 +75,7 @@
 					<img src="<?php echo esc_url( $image_url ); ?>" alt="<?php echo esc_attr( $alt_text ); ?>"
 						loading="lazy" decoding="async">
 				</div>
-						<?php
+				<?php
 					endif;
 				endforeach;
 				?>

@@ -33,7 +33,7 @@
 				<div class="blog-page__container">
 					<div class="blog-page__items blog-cards blog-cards--2col">
 						<?php if ( have_posts() ) : ?>
-							<?php
+						<?php
 							while ( have_posts() ) :
 								the_post();
 								?>
@@ -42,7 +42,7 @@
 								<div class="blog-card__header">
 									<div class="blog-card__img">
 										<?php if ( has_post_thumbnail() ) : ?>
-											<?php the_post_thumbnail( 'full' ); ?>
+										<?php the_post_thumbnail( 'full' ); ?>
 										<?php else : ?>
 										<img src="<?php echo esc_url( get_theme_file_uri( '/assets/images/common/no-image.webp' ) ); ?>"
 											alt="NoImage画像" />
@@ -76,8 +76,6 @@
 			</div>
 		</div>
 	</div>
-
-
 
 </main>
 

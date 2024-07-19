@@ -35,7 +35,7 @@
 				if ( $faqs ) :
 					$is_first = true;
 					?>
-					<?php foreach ( $faqs as $faq ) : ?>
+				<?php foreach ( $faqs as $faq ) : ?>
 				<div class="faq-accordions__item">
 					<details class="faq-accordion js-details <?php echo $is_first ? 'is-opened' : ''; ?>"
 						<?php echo $is_first ? 'open' : ''; ?>>
@@ -47,7 +47,7 @@
 						</div>
 					</details>
 				</div>
-						<?php $is_first = false; ?>
+				<?php $is_first = false; ?>
 				<?php endforeach; ?>
 			</div>
 		</div>
