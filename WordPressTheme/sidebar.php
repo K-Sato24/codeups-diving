@@ -31,7 +31,7 @@
 								<div class="aside-blog-card__header">
 									<div class="aside-blog-card__img">
 										<?php if ( has_post_thumbnail() ) : ?>
-											<?php the_post_thumbnail( 'full' ); ?>
+										<?php the_post_thumbnail( 'full' ); ?>
 										<?php else : ?>
 										<img src="<?php echo esc_url( get_theme_file_uri( '/assets/images/common/no-image.webp' ) ); ?>"
 											alt="NoImage画像" />
@@ -48,7 +48,7 @@
 					</div>
 					<?php endwhile; ?>
 				</div>
-					<?php wp_reset_postdata(); ?>
+				<?php wp_reset_postdata(); ?>
 				<?php else : ?>
 				<p class="text">記事が投稿されていません</p>
 				<?php endif; ?>
@@ -74,7 +74,7 @@
 						<div class="aside-voice-card__header">
 							<div class="aside-voice-card__img">
 								<?php if ( has_post_thumbnail() ) : ?>
-									<?php the_post_thumbnail( 'full' ); ?>
+								<?php the_post_thumbnail( 'full' ); ?>
 								<?php else : ?>
 								<img src="<?php echo esc_url( get_theme_file_uri( '/assets/images/common/no-image.webp' ) ); ?>"
 									alt="NoImage画像" />
@@ -93,7 +93,7 @@
 					</div>
 					<?php endwhile; ?>
 				</div>
-					<?php wp_reset_postdata(); ?>
+				<?php wp_reset_postdata(); ?>
 				<?php else : ?>
 				<p class="text">記事が投稿されていません</p>
 				<?php endif; ?>
@@ -125,7 +125,7 @@
 						<div class="aside-campaign-card__header">
 							<div class="aside-campaign-card__img">
 								<?php if ( has_post_thumbnail() ) : ?>
-									<?php the_post_thumbnail( 'full' ); ?>
+								<?php the_post_thumbnail( 'full' ); ?>
 								<?php else : ?>
 								<img src="<?php echo esc_url( get_theme_file_uri( '/assets/images/common/no-image.webp' ) ); ?>"
 									alt="NoImage画像" />
@@ -136,18 +136,32 @@
 							<div class="aside-campaign-card__title-block">
 								<h3 class="aside-campaign-card__title"><?php the_title(); ?></h3>
 							</div>
+							<?php
+									$campaign_group_1 = get_field( 'campaign_1' );
+
+									$campaign_1_1 = isset( $campaign_group_1['campaign_1-1'] ) ? $campaign_group_1['campaign_1-1'] : '';
+									$campaign_1_2 = isset( $campaign_group_1['campaign_1-2'] ) ? $campaign_group_1['campaign_1-2'] : '';
+							?>
+							<?php if ( ! empty( $campaign_1_1 ) || ! empty( $campaign_1_2 ) ) : ?>
 							<div class="aside-campaign-card__price-block">
 								<p class="aside-campaign-card__price-text">全部コミコミ(お一人様)</p>
 								<div class="aside-campaign-card__price">
-									<p class="aside-campaign-card__price-before"><?php the_field( 'campaign_1' ); ?></p>
-									<p class="aside-campaign-card__price-after"><?php the_field( 'campaign_2' ); ?></p>
+									<?php if ( ! empty( $campaign_1_1 ) ) : ?>
+									<p class="campaign-card__price-before">
+										<?php echo '&yen;' . esc_html( number_format( $campaign_1_1 ) ); ?></p>
+									<?php endif; ?>
+									<?php if ( ! empty( $campaign_1_2 ) ) : ?>
+									<p class="campaign-card__price-after">
+										<?php echo '&yen;' . esc_html( number_format( $campaign_1_2 ) ); ?></p>
+									<?php endif; ?>
 								</div>
 							</div>
+							<?php endif; ?>
 						</div>
 					</div>
 					<?php endwhile; ?>
 				</div>
-					<?php wp_reset_postdata(); ?>
+				<?php wp_reset_postdata(); ?>
 				<?php else : ?>
 				<p class="text">記事が投稿されていません</p>
 				<?php endif; ?>
@@ -158,6 +172,7 @@
 					</a>
 				</div>
 			</div>
+
 		</li>
 		<li class="sidebar-item">
 			<h2 class="sidebar-title">アーカイブ</h2>
