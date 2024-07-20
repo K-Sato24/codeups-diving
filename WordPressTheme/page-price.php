@@ -66,14 +66,19 @@
 									</div>
 								</td>
 								<td class="price-table__price">
-									<?php echo esc_html( $field_3 ); ?>
+									<?php
+															// 数値に変換してフォーマット
+															$number_value = (int) $field_3;
+															echo '&yen;' . esc_html( number_format( $number_value ) );
+															?>
 								</td>
 							</tr>
 							<?php endforeach; ?>
 						</tbody>
+
 					</table>
 				</div>
-						<?php
+				<?php
 					endif;
 				endforeach;
 				?>

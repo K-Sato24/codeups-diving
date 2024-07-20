@@ -47,7 +47,7 @@
 						<img src="<?php echo esc_url( $fv_op_sp['url'] ); ?>" alt="オープニングアニメーション"
 							class="fv__opening-image0<?php echo esc_attr( $loop_index ); ?> js-opening0<?php echo esc_attr( $loop_index ); ?>">
 					</picture>
-					<?php
+						<?php
 						++$loop_index;
 					endfor;
 					?>
@@ -76,7 +76,7 @@
 									alt="<?php echo esc_attr( $fv_sp['alt'] ); ?>">
 							</picture>
 						</div>
-						<?php
+									<?php
 								endif;
 								++$index;
 							endforeach;
@@ -123,7 +123,7 @@
 								<div class="campaign-card__header">
 									<div class="campaign-card__img">
 										<?php if ( has_post_thumbnail() ) : ?>
-										<?php the_post_thumbnail( 'full' ); ?>
+											<?php the_post_thumbnail( 'full' ); ?>
 										<?php else : ?>
 										<img src="<?php echo esc_url( get_theme_file_uri( '/assets/images/common/no-image.webp' ) ); ?>"
 											alt="NoImage画像">
@@ -138,7 +138,7 @@
 										?>
 
 										<?php if ( ! empty( $taxonomy_terms ) ) : ?>
-										<?php foreach ( $taxonomy_terms as $taxonomy_term ) : ?>
+											<?php foreach ( $taxonomy_terms as $taxonomy_term ) : ?>
 										<div class="campaign-card__category">
 											<p><?php echo esc_html( $taxonomy_term->name ); ?></p>
 										</div>
@@ -282,7 +282,7 @@
 						<div class="blog-card__header">
 							<div class="blog-card__img">
 								<?php if ( has_post_thumbnail() ) : ?>
-								<?php the_post_thumbnail( 'full' ); ?>
+									<?php the_post_thumbnail( 'full' ); ?>
 								<?php else : ?>
 								<img src="<?php echo esc_url( get_theme_file_uri( '/assets/images/common/no-image.webp' ) ); ?>"
 									alt="NoImage画像">
@@ -352,7 +352,7 @@
 								<div class="voice-card__category">
 									<p><?php echo esc_html( $taxonomy_term->name ); ?></p>
 								</div>
-								<?php
+										<?php
 										endforeach;
 									endif;
 								?>
@@ -361,7 +361,7 @@
 						</div>
 						<div class="voice-card__img slide-color-box js-slide-color-box">
 							<?php if ( has_post_thumbnail() ) : ?>
-							<?php the_post_thumbnail( 'full' ); ?>
+								<?php the_post_thumbnail( 'full' ); ?>
 							<?php else : ?>
 							<img src="<?php echo esc_url( get_theme_file_uri( '/assets/images/common/no-image.webp' ) ); ?>"
 								alt="NoImage画像">
@@ -448,17 +448,22 @@
 									<?php echo esc_html( ( $field_1 ?? '' ) . ( $field_2 ?? '' ) ); ?>
 								</td>
 								<td>
-									<?php echo esc_html( $field_3 ) ?? ''; ?>
+									<?php
+									// 数値に変換してフォーマット
+									$number_value = (int) $field_3;
+									echo '&yen;' . esc_html( number_format( $number_value ) );
+									?>
 								</td>
 							</tr>
-							<?php endforeach; ?>
+											<?php endforeach; ?>
 						</tbody>
 					</table>
-					<?php
+							<?php
 						endif;
-					endforeach;
+	endforeach;
 					?>
 				</div>
+
 			</div>
 			<div class="price__button">
 				<a href="<?php echo esc_url( home_url( '/price' ) ); ?>" class="button">
