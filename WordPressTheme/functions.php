@@ -612,122 +612,148 @@ add_action( 'login_head', 'custom_login_logo' );
 
 
 
-// /**
-// * 特定のカスタム投稿スラッグに基づいてフィールドを表示する関数
-// *
-// * @param bool   $display フィールドを表示するかどうか.
-// * @param string $type    投稿タイプ.
-// * @param int    $id      投稿ID.
-// * @return bool 修正されたフィールド表示フラグ.
-// */
-// function show_fields_for_specific_post( $display, $type, $id ) {
-// $cpt_types = array( 'list' );
+/**
+ * ダッシュボードにウィジェットを追加する.
+ *
+ * この関数は以下の 'wp_dashboard_setup' アクションにフックされる.
+ */
 
-// if ( in_array( $type, $cpt_types ) ) {
-// $post = get_post( $id );
+/**
+ * ダッシュボード用のCSSを読み込み.
+ */
+function enqueue_dashboard_styles() {
+	wp_enqueue_style( 'dashboard_styles', get_template_directory_uri() . '/assets/css/dashboard.css' );
+}
+add_action( 'admin_print_styles-index.php', 'enqueue_dashboard_styles' );
 
-// if ( $post ) {
-// switch ( $post->post_name ) {
-// case '私たちについて_ギャラリー':
-// SCF フィールドの表示条件
-// add_filter( 'smart-cf-register-fields', 'register_about_gallery_fields', 10, 1 );
-// return true;
+/**
+ * 不要なダッシュボードウィジェットを削除.
+ */
+function remove_dashboard_widget() {
+	// remove_meta_box( 'dashboard_site_health', 'dashboard', 'normal' ); // サイトヘルスステータス
+	remove_meta_box( 'dashboard_right_now', 'dashboard', 'normal' ); // 概要
+	// remove_meta_box( 'dashboard_activity', 'dashboard', 'normal' ); // アクティビティ
+	remove_meta_box( 'dashboard_quick_press', 'dashboard', 'side' ); // クイックドラフト
+	remove_meta_box( 'dashboard_primary', 'dashboard', 'side' ); // WordPress イベントとニュース
+	remove_action( 'welcome_panel', 'wp_welcome_panel' ); // ウェルカムパネル
+}
+add_action( 'wp_dashboard_setup', 'remove_dashboard_widget' );
 
-// case '料金表':
-// SCF フィールドの表示条件
-// add_filter( 'smart-cf-register-fields', 'register_price_table_fields', 10, 1 );
-// return true;
+/**
+ * カスタムダッシュボードウィジェットを追加.
+ */
+function add_dashboard_widgets() {
+	wp_add_dashboard_widget(
+		'quick_action_dashboard_widget', // ウィジェットのスラッグ名.
+		'ショートカットリンク', // ウィジェットに表示するタイトル.
+		'dashboard_widget_function' // 実行する関数.
+	);
+}
+add_action( 'wp_dashboard_setup', 'add_dashboard_widgets' );
 
-// case 'faq':
-// SCF フィールドの表示条件
-// add_filter( 'smart-cf-register-fields', 'register_faq_fields', 10, 1 );
-// return true;
-
-// case 'トップページ_背景画像':
-// ACF フィールドの表示条件は別途設定する必要があります
-// return true;
-
-// default:
-// return $display;
-// }
-// }
-// }
-// return $display;
-// }
-// add_filter( 'smart-cf-display-field', 'show_fields_for_specific_post', 10, 3 );
-
-// // SCFフィールド登録関数
-// function register_about_gallery_fields( $fields ) {
-// $fields['about_gallery'] = SCF::get_field_all( 'about_gallery' );
-// return $fields;
-// }
-
-// function register_price_table_fields( $fields ) {
-// $fields['license_course'] = SCF::get_field_all( 'license_course' );
-// $fields['trial_diving']   = SCF::get_field_all( 'trial_diving' );
-// $fields['fun_diving']     = SCF::get_field_all( 'fun_diving' );
-// $fields['special_diving'] = SCF::get_field_all( 'special_diving' );
-// return $fields;
-// }
-
-// function register_faq_fields( $fields ) {
-// $fields['faq'] = SCF::get_field_all( 'faq' );
-// return $fields;
-// }
-
-// // ACFフィールドの表示条件設定（別途ACF管理画面で設定することを推奨）
-// if ( function_exists( 'acf_add_local_field_group' ) ) {
-// acf_add_local_field_group(
-// array(
-// 'key'      => 'group_667f71da2f79c',
-// 'title'    => 'トップページ背景画像',
-// 'fields'   => array(
-// ここにフィールドを追加
-// ),
-// 'location' => array(
-// array(
-// array(
-// 'param'    => 'post_type',
-// 'operator' => '==',
-// 'value'    => 'list',
-// ),
-// array(
-// 'param'    => 'post_name',
-// 'operator' => '==',
-// 'value'    => 'トップページ_背景画像',
-// ),
-// ),
-// ),
-// )
-// );
-// }
-
-// /**
-// * @param string $page_title ページのtitle属性値
-// * @param string $menu_title 管理画面のメニューに表示するタイトル
-// * @param string $capability メニューを操作できる権限（maange_options とか）
-// * @param string $menu_slug オプションページのスラッグ。ユニークな値にすること。
-// * @param string|null $icon_url メニューに表示するアイコンの URL
-// * @param int $position メニューの位置
-// */
-
-// SCF::add_options_page(
-// '各一覧ページ設定',
-// '各一覧ページ設定',
-// 'manage_options',
-// 'work-option',
-// 'dashicons-admin-generic',
-// 11
-// );
-
-// if ( function_exists( 'scf_get_options' ) ) {
-// function register_custom_options() {
-// scf_register_options(
-// 'work-option', // メニューのスラッグ
-// array(
-// 'gallery' => 'ギャラリー画像',
-// )
-// );
-// }
-// add_action( 'scf_register_options', 'register_custom_options' );
-// }
+/**
+ * ダッシュボードウィジェットに表示するHTMLを定義.
+ */
+function dashboard_widget_function() {
+	?>
+<div class="widget-wrap">
+	<div class="widget-content">
+		<div class="widget-titles">
+			<span class="dashicons dashicons-welcome-write-blog"></span>
+			<p class="widget-title">新しい記事を書く</p>
+		</div>
+		<ul class="custom_widget">
+			<li>
+				<a href="<?php echo esc_url( admin_url( 'post-new.php' ) ); ?>">
+					<p class="post-name"><span>ブログ</span></p>
+				</a>
+			</li>
+			<li>
+				<a href="<?php echo esc_url( admin_url( 'post-new.php?post_type=campaign' ) ); ?>">
+					<p class="post-name"><span>キャンペーン</span></p>
+				</a>
+			</li>
+			<li>
+				<a href="<?php echo esc_url( admin_url( 'post-new.php?post_type=voice' ) ); ?>">
+					<p class="post-name"><span>お客様の声</span></p>
+				</a>
+			</li>
+		</ul>
+	</div>
+	<div class="widget-content">
+		<div class="widget-titles">
+			<span class="dashicons dashicons-list-view"></span>
+			<p class="widget-title">過去の記事一覧</p>
+		</div>
+		<ul class="custom_widget">
+			<li>
+				<a href="<?php echo esc_url( admin_url( 'edit.php' ) ); ?>">
+					<p class="post-name"><span>ブログ</span></p>
+				</a>
+			</li>
+			<li>
+				<a href="<?php echo esc_url( admin_url( 'edit.php?post_type=campaign' ) ); ?>">
+					<p class="post-name"><span>キャンペーン</span></p>
+				</a>
+			</li>
+			<li>
+				<a href="<?php echo esc_url( admin_url( 'edit.php?post_type=voice' ) ); ?>">
+					<p class="post-name"><span>お客様の声</span></p>
+				</a>
+			</li>
+		</ul>
+	</div>
+	<div class="widget-content">
+		<div class="widget-titles">
+			<span class="dashicons dashicons-update-alt"></span>
+			<p class="widget-title">各種情報の更新</p>
+		</div>
+		<ul class="custom_widget">
+			<li>
+				<a href="<?php echo esc_url( admin_url( 'post.php?post=27&action=edit' ) ); ?>">
+					<p class="post-name"><span>トップ背景画像</span></p>
+				</a>
+			</li>
+			<li>
+				<a href="<?php echo esc_url( admin_url( 'post.php?post=11&action=edit' ) ); ?>">
+					<p class="post-name"><span>料金表</span></p>
+				</a>
+			</li>
+			<li>
+				<a href="<?php echo esc_url( admin_url( 'post.php?post=13&action=edit' ) ); ?>">
+					<p class="post-name"><span>よくある質問</span></p>
+				</a>
+			</li>
+			<li>
+				<a href="<?php echo esc_url( admin_url( 'post.php?post=7&action=edit' ) ); ?>">
+					<p class="post-name"><span>ギャラリー</span></p>
+				</a>
+			</li>
+		</ul>
+	</div>
+	<div class="widget-content">
+		<div class="widget-titles">
+			<span class="dashicons dashicons-info"></span>
+			<p class="widget-title">その他情報</p>
+		</div>
+		<ul class="custom_widget">
+			<li>
+				<a href="<?php echo esc_url( admin_url( 'admin.php?page=flamingo_inbound' ) ); ?>">
+					<p class="post-name"><span>受信メッセージ</span></p>
+				</a>
+			</li>
+			<li>
+				<a href="<?php echo esc_url( admin_url( 'post.php?post=21&action=edit' ) ); ?>">
+					<p class="post-name"><span>プライバシーポリシー</span></p>
+				</a>
+			</li>
+			<li>
+				<a href="<?php echo esc_url( admin_url( 'post.php?post=23&action=edit' ) ); ?>">
+					<p class="post-name"><span>利用規約</span></p>
+				</a>
+			</li>
+		</ul>
+	</div>
+</div>
+	<?php
+}

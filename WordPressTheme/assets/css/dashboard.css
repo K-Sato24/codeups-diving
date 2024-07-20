@@ -1,0 +1,51 @@
+.widget-wrap {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.widget-content {
+  padding: 8px;
+  background-color: #f0f0f1;
+}
+
+.widget-titles {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.widget-titles .dashicons {
+  width: 40px;
+  height: 40px;
+  font-size: 40px;
+}
+
+.dashicons-welcome-write-blog {
+}
+
+.widget-title {
+  font-size: 16px;
+}
+
+.custom_widget {
+  font-size: 16px;
+}
+
+.custom_widget a :hover {
+  span {
+    border-bottom: 1px solid #2271b1;
+  }
+}
+
+.post-name {
+}
+
+.dashicons-list-view {
+}
+
+.dashicons-update-alt {
+}
+
+.post-name-sub {
+}
