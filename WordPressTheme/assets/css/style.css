@@ -3233,10 +3233,6 @@ html {
 	max-width: 46.875rem;
 }
 
-.terms-of-service-page__inner.inner {
-	max-width: 53.125rem;
-}
-
 .about-content__image-block {
 	aspect-ratio: 1080/661;
 	margin-top: 2.5rem;
@@ -3890,10 +3886,6 @@ html {
 	margin-top: 5rem;
 }
 
-.privacy-policy-page__inner.inner {
-	max-width: 53.125rem;
-}
-
 .section-title__en {
 	font-size: 2.5rem;
 	line-height: 1;
@@ -3943,6 +3935,10 @@ html {
 	left: calc(50% - min(48vw, 38.75rem));
 	top: -4.375rem;
 	width: 18.8125rem;
+}
+
+.sub-page__inner.inner {
+	max-width: 53.125rem;
 }
 
 .tab {

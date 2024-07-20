@@ -36,9 +36,9 @@
 
 	<?php get_template_part( '/template-parts/breadcrumb-part' ); ?>
 
-	<div class="privacy-policy-page sub-page layout-sub-page">
-		<div class="privacy-policy-page__inner inner">
-			<div class="privacy-policy-page__content sub-page-content">
+	<div class="sub-page layout-sub-page">
+		<div class="sub-page__inner inner">
+			<div class="sub-page__content sub-page-content">
 				<h2 class="sub-page-content__title"><?php the_title(); ?></h2>
 				<div class="sub-page-content__box">
 					<?php the_content(); ?>
@@ -46,8 +46,6 @@
 			</div>
 		</div>
 	</div>
-
-
 
 </main>
 

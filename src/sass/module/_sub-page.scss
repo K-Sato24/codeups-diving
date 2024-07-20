@@ -24,3 +24,9 @@
     width: rem(301);
   }
 }
+
+.sub-page__inner.inner {
+  @include mq("md") {
+    max-width: rem(800 + strip-unit($padding-pc) * 2);
+  }
+}
