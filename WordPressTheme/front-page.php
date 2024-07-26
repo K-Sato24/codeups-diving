@@ -47,7 +47,7 @@
 						<img src="<?php echo esc_url( $fv_op_sp['url'] ); ?>" alt="オープニングアニメーション"
 							class="fv__opening-image0<?php echo esc_attr( $loop_index ); ?> js-opening0<?php echo esc_attr( $loop_index ); ?>">
 					</picture>
-						<?php
+					<?php
 						++$loop_index;
 					endfor;
 					?>
@@ -76,7 +76,7 @@
 									alt="<?php echo esc_attr( $fv_sp['alt'] ); ?>">
 							</picture>
 						</div>
-									<?php
+						<?php
 								endif;
 								++$index;
 							endforeach;
@@ -123,7 +123,7 @@
 								<div class="campaign-card__header">
 									<div class="campaign-card__img">
 										<?php if ( has_post_thumbnail() ) : ?>
-											<?php the_post_thumbnail( 'full' ); ?>
+										<?php the_post_thumbnail( 'full' ); ?>
 										<?php else : ?>
 										<img src="<?php echo esc_url( get_theme_file_uri( '/assets/images/common/no-image.webp' ) ); ?>"
 											alt="NoImage画像">
@@ -138,7 +138,7 @@
 										?>
 
 										<?php if ( ! empty( $taxonomy_terms ) ) : ?>
-											<?php foreach ( $taxonomy_terms as $taxonomy_term ) : ?>
+										<?php foreach ( $taxonomy_terms as $taxonomy_term ) : ?>
 										<div class="campaign-card__category">
 											<p><?php echo esc_html( $taxonomy_term->name ); ?></p>
 										</div>
@@ -282,7 +282,7 @@
 						<div class="blog-card__header">
 							<div class="blog-card__img">
 								<?php if ( has_post_thumbnail() ) : ?>
-									<?php the_post_thumbnail( 'full' ); ?>
+								<?php the_post_thumbnail( 'full' ); ?>
 								<?php else : ?>
 								<img src="<?php echo esc_url( get_theme_file_uri( '/assets/images/common/no-image.webp' ) ); ?>"
 									alt="NoImage画像">
@@ -352,7 +352,7 @@
 								<div class="voice-card__category">
 									<p><?php echo esc_html( $taxonomy_term->name ); ?></p>
 								</div>
-										<?php
+								<?php
 										endforeach;
 									endif;
 								?>
@@ -361,7 +361,7 @@
 						</div>
 						<div class="voice-card__img slide-color-box js-slide-color-box">
 							<?php if ( has_post_thumbnail() ) : ?>
-								<?php the_post_thumbnail( 'full' ); ?>
+							<?php the_post_thumbnail( 'full' ); ?>
 							<?php else : ?>
 							<img src="<?php echo esc_url( get_theme_file_uri( '/assets/images/common/no-image.webp' ) ); ?>"
 								alt="NoImage画像">
@@ -402,77 +402,75 @@
 				<div class="price__img slide-color-box js-slide-color-box">
 					<picture>
 						<source media="(min-width: 768px)"
-							srcset="<?php echo esc_url( get_theme_file_uri( '/assets/images/common/price-pc.webp' ) ); ?>">
-						<img src="<?php echo esc_url( get_theme_file_uri( '/assets/images/common/price.webp' ) ); ?>"
+							srcset="<?php echo esc_url(get_theme_file_uri('/assets/images/common/price-pc.webp')); ?>">
+						<img src="<?php echo esc_url(get_theme_file_uri('/assets/images/common/price.webp')); ?>"
 							alt="海中を漂うウミガメの様子" loading="lazy" decoding="async">
 					</picture>
 				</div>
 				<div class="price__content">
 					<?php
-					require_once get_template_directory() . '/functions.php';
-					$group_names = get_group_names();
+                require_once get_template_directory() . '/functions.php';
+                $group_names = get_group_names();
 
-					/**
-					 * Priceのテーブルのオブジェクトを取得する関数
-					 *
-					 * @return WP_Post|null 価格ページのオブジェクト。見つからない場合はnullを返す。
-					 */
-					function get_price_page() {
-						return get_page_by_path( 'price' );
-					}
-					$price_page = get_price_page();
-					$page_id    = $price_page ? $price_page->ID : null;
+                /**
+                 * Priceのテーブルのオブジェクトを取得する関数
+                 *
+                 * @return WP_Post|null 価格ページのオブジェクト。見つからない場合はnullを返す。
+                 */
+                function get_price_page()
+                {
+                    return get_page_by_path('price');
+                }
 
-					foreach ( $group_names as $group_name => $group_label ) :
-						if ( $page_id ) :
-							$fields = SCF::get( $group_name, $page_id );
-						else :
-							$fields = array();
-						endif;
+                $price_page = get_price_page();
+                $page_id = $price_page ? $price_page->ID : null;
 
-						if ( ! empty( $fields ) ) :
-							?>
-					<table class="price__table" aria-label="<?php echo esc_attr( $group_label ); ?>">
+                foreach ($group_names as $group_name => $group_label) :
+                    if ($page_id) :
+                        $fields = SCF::get($group_name, $page_id);
+                    else :
+                        $fields = array();
+                    endif;
+
+                    if (!empty($fields)) :
+                        ?>
+					<table class="price__table" aria-label="<?php echo esc_attr($group_label); ?>">
 						<tbody>
 							<tr>
-								<th colspan="2"><?php echo esc_html( $group_label ); ?></th>
+								<th colspan="2"><?php echo esc_html($group_label); ?></th>
 							</tr>
 							<?php
-							foreach ( $fields as $field ) :
-								$field_1 = $field[ $group_name . '_1' ];
-								$field_2 = $field[ $group_name . '_2' ];
-								$field_3 = $field[ $group_name . '_3' ];
-								?>
+                            foreach ($fields as $field) :
+                                $field_1 = $field[$group_name . '_1'];
+                                $field_2 = $field[$group_name . '_2'];
+                                $field_3 = $field[$group_name . '_3'];
+                                ?>
 							<tr>
 								<td>
-									<?php echo esc_html( ( $field_1 ?? '' ) . ( $field_2 ?? '' ) ); ?>
+									<?php echo esc_html(($field_1 ?? '') . ($field_2 ?? '')); ?>
 								</td>
 								<td>
-									<?php
-									// 数値に変換してフォーマット
-									$number_value = (int) $field_3;
-									echo '&yen;' . esc_html( number_format( $number_value ) );
-									?>
+									<?php echo esc_html($field_3 ?? ''); ?>
 								</td>
 							</tr>
-											<?php endforeach; ?>
+							<?php endforeach; ?>
 						</tbody>
 					</table>
-							<?php
-						endif;
-	endforeach;
-					?>
+					<?php
+                    endif;
+                endforeach;
+                ?>
 				</div>
-
 			</div>
 			<div class="price__button">
-				<a href="<?php echo esc_url( home_url( '/price' ) ); ?>" class="button">
+				<a href="<?php echo esc_url(home_url('/price')); ?>" class="button">
 					View&nbsp;more
 					<span></span>
 				</a>
 			</div>
 		</div>
 	</section>
+
 
 
 
